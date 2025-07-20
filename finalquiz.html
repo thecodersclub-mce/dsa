@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindmash - DSA Series</title>
+    <link rel="icon" href="TCC.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .content-container {
+            /* Override previous height/centering to allow form content to flow naturally */
+            height: auto; /* Allow height to adjust based on content */
+            min-height: calc(100vh - 100px); /* Ensure content takes up most of the screen, accounting for header/footer */
+            justify-content: flex-start; /* Align content to the top */
+            padding-bottom: 50px; /* Add padding to prevent content from being hidden by the fixed footer */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
+        }
+
+        .quiz-form-wrapper {
+            width: 90%; /* Adjust width for better responsiveness */
+            max-width: 700px; /* Limit max-width for larger screens */
+            margin: 20px auto; /* Center the form wrapper */
+            padding: 25px;
+            background-color: #ffffff; /* White background for the form area */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
+            box-sizing: border-box;
+        }
+
+        .quiz-form-wrapper h2 {
+            text-align: center;
+            color: #00408f;
+            margin-bottom: 25px;
+            font-size: 24px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left; /* Align labels and inputs to the left */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600; /* Slightly bolder labels */
+            color: #333;
+            font-size: 15px;
+        }
+
+        /* Common styling for all input types (text, email, textarea, select) */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group textarea,
+        .form-group select {
+            width: 100%; /* Take full width of parent */
+            padding: 12px;
+            border: 1px solid #c0c0c0; /* Lighter border */
+            border-radius: 6px;
+            box-sizing: border-box; /* Include padding in width */
+            font-size: 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        /* Specific styling for <select> dropdowns to add the custom arrow */
+        .form-group select {
+            -webkit-appearance: none; /* Remove default browser styling for select */
+            -moz-appearance: none;
+            appearance: none;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20512%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M192%20256L64%20128v256l128-128z%22%2F%3E%3C%2Fsvg%3E'); /* Custom dropdown arrow */
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px;
+            padding-right: 30px; /* Make space for the custom arrow */
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: #00408f; /* Highlight on focus */
+            outline: none; /* Remove default outline */
+            box-shadow: 0 0 5px rgba(0, 64, 143, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-direction: column; /* Stack radio/checkbox options vertically */
+            gap: 8px; /* Space between options */
+        }
+
+        .radio-group label, .checkbox-group label {
+            display: flex; /* Use flex to align input and text */
+            align-items: center; /* Vertically align them */
+            margin-bottom: 0; /* Remove default margin for labels */
+            font-weight: normal; /* Normal weight for option text */
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .radio-group input[type="radio"],
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px; /* Space between radio/checkbox and its label text */
+            width: 18px; /* Standardize size */
+            height: 18px; /* Standardize size */
+            cursor: pointer;
+        }
+
+        /* Styling for quiz questions paragraph */
+        .form-group p {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 12px 20px;
+            background-color: #00408f; /* Use your primary blue */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+            margin-top: 20px;
+        }
+
+        .submit-button:hover {
+            background-color: #1E88E5; /* Lighter blue on hover */
+        }
+
+        .submit-button:active {
+            transform: scale(0.98);
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
+            margin: 30px 0;
+        }
+        .active-nav-button {
+            background-color: #0056b3; /* A slightly darker blue to indicate active state */
+            color: white;
+         border-bottom: 3px solid #f0f0f0; /* Add a subtle underline */
+        }
+        /* Small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+            /* ... other mobile styles ... */
+            .content-access-button {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+            /* REDUCE SIZE OF NAVIGATION BUTTONS FOR MOBILE VIEW */
+            .nav-button {
+                padding: 6px 8px; /* Smaller padding */
+                font-size: 0.75em; /* Smaller font size */
+                margin: 2px; /* Reduce margin between buttons */
+            }
+            .button-container {
+                padding: 10px; /* Adjust padding for the button container */
+                text-align: center; /* Center buttons if they wrap */
+            }
+        }
+        /* Responsive adjustments for quiz form */
+        @media only screen and (max-width: 768px) {
+            .quiz-form-wrapper {
+                width: 95%; /* Make it slightly wider on tablets */
+                padding: 20px;
+            }
+            .quiz-form-wrapper h2 {
+                font-size: 22px;
+            }
+            .form-group label, .form-group input, .form-group textarea, .radio-group label, .checkbox-group label, .form-group select {
+                font-size: 14px;
+            }
+            .submit-button {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            .quiz-form-wrapper {
+                padding: 15px;
+            }
+            .quiz-form-wrapper h2 {
+                font-size: 20px;
+                margin-bottom: 20px;
+            }
+            .form-group label, .form-group input, .form-group textarea, .radio-group label, .checkbox-group label, .form-group select {
+                font-size: 13px;
+            }
+            .form-group p {
+                font-size: 14px;
+            }
+            .submit-button {
+                font-size: 15px;
+                padding: 10px;
+            }
+        }
+
+        /* --- New CSS for Anti-Copying --- */
+        .no-select {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+        }
+        /* Allow selection for input fields within no-select, if needed */
+        .no-select input, .no-select textarea, .no-select select {
+            pointer-events: auto;
+            user-select: auto;
+        }
+
+        /* --- New CSS for the QUIZ QUESTIONS SECTION (Blurring, Jumbling & Overlay Container) --- */
+        #quizQuestionsSection {
+            position: relative; /* Essential for positioning the absolute overlay */
+        }
+
+        #quizQuestionsSection.quiz-disabled-overlay {
+            /* These apply to the content *behind* the overlay */
+            opacity: 0.5; /* Makes the section semi-transparent */
+            filter: blur(3px); /* Applies a blur effect */
+            pointer-events: none; /* Disables all click/hover events on the section content */
+            transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out; /* Smooth transition */
+        }
+        /* Override pointer-events for input fields within the disabled section to allow JS to disable them */
+        #quizQuestionsSection.quiz-disabled-overlay input,
+        #quizQuestionsSection.quiz-disabled-overlay textarea,
+        #quizQuestionsSection.quiz-disabled-overlay select {
+            pointer-events: auto; /* Allows JS to disable them properly */
+        }
+
+        /* --- New CSS for the White Opaque Overlay --- */
+        #quizOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 5; /* Puts it above the blurred content */
+            display: flex; /* Make it a flex container */
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            opacity: 0; /* Hidden by default */
+            visibility: hidden; /* Also hidden by default for accessibility/layout */
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        /* --- New CSS for Submission Success Message --- */
+        #submissionSuccessMessage {
+            position: fixed; /* Stays in place relative to the viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Ensures it's on top of all other content */
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Also hidden by default for accessibility/layout */
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Smooth fade in/out */
+        }
+
+        /* Class to show the success message */
+        #submissionSuccessMessage.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .success-content {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform: scale(0.9); /* Initial scale for a subtle zoom-in effect */
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Animation for the content when shown */
+        #submissionSuccessMessage.show .success-content {
+            transform: scale(1); /* Scales up to normal size */
+        }
+
+        .success-content p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #008000; /* Green text for success */
+            margin-top: 15px;
+        }
+
+        /* New CSS for the Font Awesome icon */
+        .success-icon-fa {
+            font-size: 80px; /* Adjust size as needed */
+            color: #008000; /* Green color for the icon */
+            margin-bottom: 10px; /* Space between icon and text */
+            animation: fadeInScale 0.6s forwards; /* Simple fade-in and scale animation */
+        }
+
+        /* New keyframe for the Font Awesome icon */
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.7); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Styling for the new <pre><code> block */
+        .code-block {
+            background-color: #f4f4f4; /* Light grey background */
+            border: 1px solid #ddd; /* Light grey border */
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            overflow-x: auto; /* Enable horizontal scrolling for long lines */
+        }
+
+        /* Crucial: Style for <code> inside <pre> */
+        .code-block code {
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+            font-size: 0.9em; /* Slightly smaller font size */
+            color: #333; /* Darker text color */
+            display: block; /* Ensures it takes up full width of pre and respects line breaks */
+            white-space: pre-wrap; /* Ensures line breaks in code are respected */
+        }
+    </style>
+</head>
+<body>
+    <div class="blue-container">
+        <div class="left-aligned">
+            <a href="https://mce-madurai.ac.in/" target="_blank">
+                <img src="MCE_tab.png" alt="Logo" class="favicon-logo">
+            </a>
+            <div class="titles">
+                <h1 class="college-name">Mangayarkarasi College of Engineering</h1>
+                <h2 class="site-title">The Coders Club</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="button-container">
+        <button class="nav-button" onclick="window.location.href='index.html';">Home</button>
+        <button class="nav-button" onclick="window.location.href='weeklycontent.html';">Weekly Content</button>
+        <button class="nav-button" onclick="window.location.href='quiz.html';">Brain Cache</button>
+        <button class="nav-button active-nav-button" onclick="window.location.href='finalquiz.html';">Mindmash</button>
+        <button class="nav-button" onclick="window.location.href='leaderboard.html';">Leaderboard</button>
+        <button class="nav-button" onclick="window.location.href='feedback.html';">Feedback</button>
+    </div>
+
+    <div class="content-container">
+        <center><h4 id="status"></h4></center>
+
+        <div class="quiz-form-wrapper">
+            <h2>MINDMASH</h2>
+            <form id="quizForm" method="POST" action="https://script.google.com/macros/s/AKfycbxv8SoMuCJ-OgnwFy5KatXccNBIzPfjLn6YJ0MkZNeDshqdaRjJfyOONsRnupxrWSxf/exec">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="Name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required placeholder="your.email@example.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <select id="department" name="Department" required>
+                        <option value="">Select your Department</option>
+                        <option value="CSE">CSE</option>
+                        <option value="CSE (AI&ML)">CSE (AI&ML)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select id="year" name="Year" required>
+                        <option value="">Select your Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                    </select>
+                </div>
+
+                <hr>
+
+                <div id="quizQuestionsSection">
+                    <div id="quizOverlay">
+                    </div>
+                    <h3>Quiz Questions</h3>
+
+                    <div class="form-group">
+                        <p class="no-select"><strong>1. What are header files in C programming?</strong></p>
+                        <div class="radio-group">
+                            <label for="q1_a"><input type="radio" id="q1_a" name="Question1" value="A. Files that contain the main function" required> A. Files that contain the main function</label>
+                            <label for="q1_b"><input type="radio" id="q1_b" name="Question1" value="B. Files that are executed before the program runs" required> B. Files that are executed before the program runs</label>
+                            <label for="q1_c"><input type="radio" id="q1_c" name="Question1" value="C. Files that contain function declarations and macros" required> C. Files that contain function declarations and macros</label>
+                            <label for="q1_d"><input type="radio" id="q1_d" name="Question1" value="D. Files used for memory allocation" required> D. Files used for memory allocation</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p class="no-select"><strong>2. Which of the following appears valid at first glance but is actually an invalid variable declaration in C?</strong></p>
+                        <div class="radio-group">
+                            <label for="q2_a"><input type="radio" id="q2_a" name="Question2" value="A. char str[20] = "Hello";" required> A. `char str[20] = "Hello";`</label>
+                            <label for="q2_b"><input type="radio" id="q2_b" name="Question2" value="B. int @salary = 5000;" required> B. `int @salary = 5000;`</label>
+                            <label for="q2_c"><input type="radio" id="q2_c" name="Question2" value="C. float salary2025 = 99999.99;" required> C. `float salary2025 = 99999.99;`</label>
+                            <label for="q2_d"><input type="radio" id="q2_d" name="Question2" value="D. int NumberOfStudents = 50;" required> D. `int NumberOfStudents = 50;`</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>3. What could be the outcome when the following C program is compiled and executed?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt; // Preprocessor directive
+
+// main function - entry point of the program
+int main() {
+   // Print output to the screen
+   printf("Hello, World!\\n");
+
+   return 0; // Exit the program
+}
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q3_a"><input type="radio" id="q3_a" name="Question3" value="A. It prints Hello, World! to the screen." required> A. It prints Hello, World! to the screen.</label>
+                            <label for="q3_b"><input type="radio" id="q3_b" name="Question3" value="B. It throws a compilation error due to missing semicolon." required> B. It throws a compilation error due to missing semicolon.</label>
+                            <label for="q3_c"><input type="radio" id="q3_c" name="Question3" value="C. It prints Hello, World!\n as-is, including \n." required> C. It prints Hello, World!\n as-is, including \n.</label>
+                            <label for="q3_d"><input type="radio" id="q3_d" name="Question3" value="D. It waits for user input before printing anything." required> D. It waits for user input before printing anything.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>4. A programmer wants to create a custom data type to represent a person's details, including their name, age, and address. What feature of C programming would be most suitable for this purpose?</strong></p>
+                        <div class="radio-group">
+                            <label for="q4_a"><input type="radio" id="q4_a" name="Question4" value="A) Arrays" required> A) Arrays</label>
+                            <label for="q4_b"><input type="radio" id="q4_b" name="Question4" value="B) Pointers" required> B) Pointers</label>
+                            <label for="q4_c"><input type="radio" id="q4_c" name="Question4" value="C) Structures" required> C) Structures</label>
+                            <label for="q4_d"><input type="radio" id="q4_d" name="Question4" value="D) Functions" required> D) Functions</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>5. Which of the following is *NOT* a valid category of functions in C?</strong></p>
+                        <div class="radio-group">
+                            <label for="q5_a"><input type="radio" id="q5_a" name="Question5" value="A) Library Functions" required> A) Library Functions</label>
+                            <label for="q5_b"><input type="radio" id="q5_b" name="Question5" value="B) User-Defined Functions" required> B) User-Defined Functions</label>
+                            <label for="q5_c"><input type="radio" id="q5_c" name="Question5" value="C) Recursive Functions" required> C) Recursive Functions</label>
+                            <label for="q5_d"><input type="radio" id="q5_d" name="Question5" value="D) Loop-Control Functions" required> D) Loop-Control Functions</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p class="no-select"><strong>6. Which of the following is NOT a control structure in C?</strong></p>
+                        <div class="radio-group">
+                            <label for="q6_a"><input type="radio" id="q6_a" name="Question6" value="A. if-else" required> A. `if-else`</label>
+                            <label for="q6_b"><input type="radio" id="q6_b" name="Question6" value="B. for loop" required> B. `for` loop</label>
+                            <label for="q6_c"><input type="radio" id="q6_c" name="Question6" value="C. switch" required> C. `switch`</label>
+                            <label for="q6_d"><input type="radio" id="q6_d" name="Question6" value="D. print" required> D. `print`</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p class="no-select"><strong>7. Which of the following code snippets will cause an error or unexpected behavior in C?</strong></p>
+                        <pre class="code-block"><code>A. int num = 5;
+if (num == 5); {
+   printf("Number is 5");
+}
+
+B. int x = 10;
+if (x > 0)
+   printf("Positive");
+else
+   printf("Negative");
+
+C. int option = 3;
+switch(option) {
+   case 1: printf("One"); break;
+   case 2: printf("Two"); break;
+   default: printf("Other");
+}
+
+D. int a = 15;
+if (a < 10)
+   printf("Less than 10");
+else if (a < 20)
+   printf("Less than 20");
+else
+   printf("20 or more");
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q7_a"><input type="radio" id="q7_a" name="Question7" value="A" required> A</label>
+                            <label for="q7_b"><input type="radio" id="q7_b" name="Question7" value="B" required> B</label>
+                            <label for="q7_c"><input type="radio" id="q7_c" name="Question7" value="C" required> C</label>
+                            <label for="q7_d"><input type="radio" id="q7_d" name="Question7" value="D" required> D</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>8. What could be a possible behavior when this C program runs?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt;
+
+int main() {
+   int number;
+   printf("Enter an integer: ");
+   scanf("%d", &number);
+   if (number > 0) {
+       printf("%d is a positive number.\n", number);
+   }
+   return 0;
+}
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q8_a"><input type="radio" id="q8_a" name="Question8" value="A. It reads a number, checks if it’s positive, and prints a message only if it is." required> A. It reads a number, checks if it’s positive, and prints a message only if it is.</label>
+                            <label for="q8_b"><input type="radio" id="q8_b" name="Question8" value="B. It reads a number and always prints whether it's positive or negative." required> B. It reads a number and always prints whether it's positive or negative.</label>
+                            <label for="q8_c"><input type="radio" id="q8_c" name="Question8" value="C. It automatically assigns a default value to number without user input." required> C. It automatically assigns a default value to number without user input.</label>
+                            <label for="q8_d"><input type="radio" id="q8_d" name="Question8" value="D. It displays a syntax error because scanf is used incorrectly." required> D. It displays a syntax error because scanf is used incorrectly.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>9. A structure in C has a char member followed by an int member. However, the total size of the structure is larger than the sum of the sizes of its members. What is the likely reason for this discrepancy?</strong></p>
+                        <div class="radio-group">
+                            <label for="q9_a"><input type="radio" id="q9_a" name="Question9" value="A) The structure is packed tightly in memory." required> A) The structure is packed tightly in memory.</label>
+                            <label for="q9_b"><input type="radio" id="q9_b" name="Question9" value="B) The structure is aligned to a 4-byte boundary." required> B) The structure is aligned to a 4-byte boundary.</label>
+                            <label for="q9_c"><input type="radio" id="q9_c" name="Question9" value="C) The structure has extra padding for memory alignment." required> C) The structure has extra padding for memory alignment.</label>
+                            <label for="q9_d"><input type="radio" id="q9_d" name="Question9" value="D) The structure is compressed to reduce its size." required> D) The structure is compressed to reduce its size.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>10. What is the main characteristic of a do...while loop compared to a while loop?</strong></p>
+                        <div class="radio-group">
+                            <label for="q10_a"><input type="radio" id="q10_a" name="Question10" value="A) It checks the condition before executing the loop body" required> A) It checks the condition before executing the loop body</label>
+                            <label for="q10_b"><input type="radio" id="q10_b" name="Question10" value="B) It never executes if the condition is false" required> B) It never executes if the condition is false</label>
+                            <label for="q10_c"><input type="radio" id="q10_c" name="Question10" value="C) It executes the loop body at least once before checking the condition" required> C) It executes the loop body at least once before checking the condition</label>
+                            <label for="q10_d"><input type="radio" id="q10_d" name="Question10" value="D) It cannot use break statements" required> D) It cannot use break statements</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p class="no-select"><strong>11. Which keyword is used to return a value from a function?</strong></p>
+                        <div class="radio-group">
+                            <label for="q11_a"><input type="radio" id="q11_a" name="Question11" value="A. return" required> A. return</label>
+                            <label for="q11_b"><input type="radio" id="q11_b" name="Question11" value="B. send" required> B. send</label>
+                            <label for="q11_c"><input type="radio" id="q11_c" name="Question11" value="C. break" required> C. break</label>
+                            <label for="q11_d"><input type="radio" id="q11_d" name="Question11" value="D. exit" required> D. exit</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p class="no-select"><strong>12. What will be the output of the following C code?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt;
+int main() {
+   int arr[5] = {1, 2, 3};
+   printf("%d %d %d %d %d", arr[0], arr[1], arr[2], arr[3], arr[4]);
+   return 0;
+}
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q12_a"><input type="radio" id="q12_a" name="Question12" value="A. 1 2 3 0 0" required> A. 1 2 3 0 0</label>
+                            <label for="q12_b"><input type="radio" id="q12_b" name="Question12" value="B. 1 2 3 garbage garbage" required> B. 1 2 3 garbage garbage</label>
+                            <label for="q12_c"><input type="radio" id="q12_c" name="Question12" value="C. Compilation error" required> C. Compilation error</label>
+                            <label for="q12_d"><input type="radio" id="q12_d" name="Question12" value="D. 1 2 3 4 5" required> D. 1 2 3 4 5</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>13. Which of the following best describes what the pointer `ptr` does in the program?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt;
+
+int main() {
+   int a = 10;          // Declare an integer variable
+   int *ptr;            // Declare a pointer to int
+
+   ptr = &a;            // Store address of variable 'a' in pointer 'ptr'
+
+   // Print the value and address
+   printf("Value of a: %d\n", a);
+   printf("Address of a: %p\n", &a);
+   printf("Value stored in ptr (address of a): %p\n", ptr);
+   printf("Value pointed to by ptr (value of a): %d\n", *ptr);
+
+   return 0;
+}
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q13_a"><input type="radio" id="q13_a" name="Question13" value="A. It stores the value of a, not its address." required> A. It stores the value of a, not its address.</label>
+                            <label for="q13_b"><input type="radio" id="q13_b" name="Question13" value="B. It holds the address of a and can be used to access or modify a's value." required> B. It holds the address of a and can be used to access or modify a's value.</label>
+                            <label for="q13_c"><input type="radio" id="q13_c" name="Question13" value="C. It points to a completely unrelated memory location." required> C. It points to a completely unrelated memory location.</label>
+                            <label for="q13_d"><input type="radio" id="q13_d" name="Question13" value="D. It causes a segmentation fault when dereferenced." required> D. It causes a segmentation fault when dereferenced.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>14. A programmer wants to store a flag that can have one of three possible values (0, 1, or 2) in a structure. What feature of C structures can be used to optimize memory usage in this case?</strong></p>
+                        <div class="radio-group">
+                            <label for="q14_a"><input type="radio" id="q14_a" name="Question14" value="A) Bitwise operations" required> A) Bitwise operations</label>
+                            <label for="q14_b"><input type="radio" id="q14_b" name="Question14" value="B) Bit fields" required> B) Bit fields</label>
+                            <label for="q14_c"><input type="radio" id="q14_c" name="Question14" value="C) Unions" required> C) Unions</label>
+                            <label for="q14_d"><input type="radio" id="q14_d" name="Question14" value="D) Enumerations" required> D) Enumerations</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>15. What is the correct way to declare a pointer to a function that returns int and takes two int parameters?</strong></p>
+                        <div class="radio-group">
+                            <label for="q15_a"><input type="radio" id="q15_a" name="Question15" value="A) int *func(int, int);" required> A) `int *func(int, int);`</label>
+                            <label for="q15_b"><input type="radio" id="q15_b" name="Question15" value="B) int (*func)(int, int);" required> B) `int (*func)(int, int);`</label>
+                            <label for="q15_c"><input type="radio" id="q15_c" name="Question15" value="C) int (*func(int, int));" required> C) `int (*func(int, int));`</label>
+                            <label for="q15_d"><input type="radio" id="q15_d" name="Question15" value="D) (*int func)(int, int);" required> D) `(*int func)(int, int);`</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <p class="no-select"><strong>16. What is the output of this code?</strong></p>
+                        <pre class="code-block"><code>int a = 10;
+int *p = &a;
+printf("%d", *p);
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q16_a"><input type="radio" id="q16_a" name="Question16" value="A. Address of a" required> A. Address of a</label>
+                            <label for="q16_b"><input type="radio" id="q16_b" name="Question16" value="B. 10" required> B. 10</label>
+                            <label for="q16_c"><input type="radio" id="q16_c" name="Question16" value="C. Compilation error" required> C. Compilation error</label>
+                            <label for="q16_d"><input type="radio" id="q16_d" name="Question16" value="D. 0" required> D. 0</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p class="no-select"><strong>17. What will be the output of the following C code?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt;
+int main() {
+   char msg[] = "Techie";
+   char *ptr = msg;
+   ptr += 3;
+   printf("%s", ptr);
+   return 0;
+}
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q17_a"><input type="radio" id="q17_a" name="Question17" value="A. Techie" required> A. Techie</label>
+                            <label for="q17_b"><input type="radio" id="q17_b" name="Question17" value="B. chie" required> B. chie</label>
+                            <label for="q17_c"><input type="radio" id="q17_c" name="Question17" value="C. hie" required> C. hie</label>
+                            <label for="q17_d"><input type="radio" id="q17_d" name="Question17" value="D. Compilation error" required> D. Compilation error</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>18. What will happen if the file "myfile.txt" cannot be opened in write mode in the given program?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+int main() {
+   char str[100];
+
+   printf("Enter a string: ");
+   gets(str);  // Note: gets() is unsafe, use fgets() in real programs
+
+   int length = strlen(str);  // Using string function
+
+   printf("Length of the string is: %d\n", length);
+
+   return 0;
+}
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q18_a"><input type="radio" id="q18_a" name="Question18" value="A. The program will skip writing and directly read from the file." required> A. The program will skip writing and directly read from the file.</label>
+                            <label for="q18_b"><input type="radio" id="q18_b" name="Question18" value="B. The program will crash without any message." required> B. The program will crash without any message.</label>
+                            <label for="q18_c"><input type="radio" id="q18_c" name="Question18" value="C. The program will display "Error opening file!" and exit." required> C. The program will display "Error opening file!" and exit.</label>
+                            <label for="q18_d"><input type="radio" id="q18_d" name="Question18" value="D. The program will create a backup file and continue." required> D. The program will create a backup file and continue.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>19. A programmer wants to represent a person's address as part of their overall details. What feature of C structures can be used to group the address details (street, city, state, zip) together within the person's structure?</strong></p>
+                        <div class="radio-group">
+                            <label for="q19_a"><input type="radio" id="q19_a" name="Question19" value="A) Nested structures" required> A) Nested structures</label>
+                            <label for="q19_b"><input type="radio" id="q19_b" name="Question19" value="B) Arrays of structures" required> B) Arrays of structures</label>
+                            <label for="q19_c"><input type="radio" id="q19_c" name="Question19" value="C) Pointers to structures" required> C) Pointers to structures</label>
+                            <label for="q19_d"><input type="radio" id="q19_d" name="Question19" value="D) Functions that return structures" required> D) Functions that return structures</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>20. What does the expression `found - str` do after `char *found = strchr(str, 'a');`?</strong></p>
+                        <div class="radio-group">
+                            <label for="q20_a"><input type="radio" id="q20_a" name="Question20" value="A) Adds an offset to the character pointer" required> A) Adds an offset to the character pointer</label>
+                            <label for="q20_b"><input type="radio" id="q20_b" name="Question20" value="B) Returns the memory address of 'a'" required> B) Returns the memory address of 'a'</label>
+                            <label for="q20_c"><input type="radio" id="q20_c" name="Question20" value="C) Computes the index of 'a' in the string" required> C) Computes the index of 'a' in the string</label>
+                            <label for="q20_d"><input type="radio" id="q20_d" name="Question20" value="D) Returns a null pointer" required> D) Returns a null pointer</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p class="no-select"><strong>21. How can you access structure members?</strong></p>
+                        <div class="radio-group">
+                            <label for="q21_a"><input type="radio" id="q21_a" name="Question21" value="A. Using the comma , operator" required> A. Using the comma `,` operator</label>
+                            <label for="q21_b"><input type="radio" id="q21_b" name="Question21" value="B. Using the dot . operator" required> B. Using the dot `.` operator</label>
+                            <label for="q21_c"><input type="radio" id="q21_c" name="Question21" value="C. Using the star * operator" required> C. Using the star `*` operator</label>
+                            <label for="q21_d"><input type="radio" id="q21_d" name="Question21" value="D. Using the at @ operator" required> D. Using the at `@` operator</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>22. What will happen when the following code is executed?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt;
+int main() {
+   FILE *fp = fopen("data.txt", "r+");
+   if (fp == NULL) {
+       printf("Error opening file.\n");
+       return 1;
+   }
+   fprintf(fp, "Hello World!");
+   fclose(fp);
+   return 0;
+}
+</code></pre>
+                        <p class="no-select">Assume the file data.txt does not exist before running the program.</p>
+                        <div class="radio-group">
+                            <label for="q22_a"><input type="radio" id="q22_a" name="Question22" value="A. The program creates data.txt and writes "Hello World!"" required> A. The program creates data.txt and writes "Hello World!"</label>
+                            <label for="q22_b"><input type="radio" id="q22_b" name="Question22" value="B. The program prints "Error opening file."" required> B. The program prints "Error opening file."</label>
+                            <label for="q22_c"><input type="radio" id="q22_c" name="Question22" value="C. The program throws a compile-time error" required> C. The program throws a compile-time error</label>
+                            <label for="q22_d"><input type="radio" id="q22_d" name="Question22" value="D. The program opens the file in append mode and adds "Hello World!" at the end" required> D. The program opens the file in append mode and adds "Hello World!" at the end</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>23. What will happen if "myfile.txt" does not exist when the program tries to open it in read mode?</strong></p>
+                        <pre class="code-block"><code>#include &lt;stdio.h&gt;
+int main() {
+   FILE *fptr;
+   char data[100];
+
+   // Writing to the file
+   fptr = fopen("myfile.txt", "w"); // open in write mode
+   if (fptr == NULL) {
+       printf("Error opening file!\n");
+       return 1;
+   }
+
+   printf("Enter some text to write into the file: ");
+   fgets(data, sizeof(data), stdin);
+   fprintf(fptr, "%s", data);
+   fclose(fptr);
+   printf("Data written to file successfully.\n");
+
+   // Reading from the file
+   fptr = fopen("myfile.txt", "r"); // open in read mode
+   if (fptr == NULL) {
+       printf("Error opening file!\n");
+       return 1;
+   }
+
+   printf("Reading from the file:\n");
+   while (fgets(data, sizeof(data), fptr) != NULL) {
+       printf("%s", data);
+   }
+   fclose(fptr);
+
+   return 0;
+}
+</code></pre>
+                        <div class="radio-group">
+                            <label for="q23_a"><input type="radio" id="q23_a" name="Question23" value="A. It creates a new empty file named "myfile.txt"." required> A. It creates a new empty file named "myfile.txt".</label>
+                            <label for="q23_b"><input type="radio" id="q23_b" name="Question23" value="B. It reads from a temporary file instead." required> B. It reads from a temporary file instead.</label>
+                            <label for="q23_c"><input type="radio" id="q23_c" name="Question23" value="C. It returns NULL and prints an error message." required> C. It returns NULL and prints an error message.</label>
+                            <label for="q23_d"><input type="radio" id="q23_d" name="Question23" value="D. It appends default text into the file." required> D. It appends default text into the file.</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>24. A programmer wants to read data from a file in C. What is the first step in this process?</strong></p>
+                        <div class="radio-group">
+                            <label for="q24_a"><input type="radio" id="q24_a" name="Question24" value="A) Reading data from the file using fread()" required> A) Reading data from the file using `fread()`</label>
+                            <label for="q24_b"><input type="radio" id="q24_b" name="Question24" value="B) Closing the file using fclose()" required> B) Closing the file using `fclose()`</label>
+                            <label for="q24_c"><input type="radio" id="q24_c" name="Question24" value="C) Opening the file using fopen()" required> C) Opening the file using `fopen()`</label>
+                            <label for="q24_d"><input type="radio" id="q24_d" name="Question24" value="D) Writing data to the file using fwrite()" required> D) Writing data to the file using `fwrite()`</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group no-select">
+                        <p><strong>25. Why is `fgets()` used for reading the student name instead of `scanf("%s", s.name)`?</strong></p>
+                        <div class="radio-group">
+                            <label for="q25_a"><input type="radio" id="q25_a" name="Question25" value="A) Because scanf("%s") reads newline characters" required> A) Because `scanf("%s")` reads newline characters</label>
+                            <label for="q25_b"><input type="radio" id="q25_b" name="Question25" value="B) Because fgets() is faster than scanf()" required> B) Because `fgets()` is faster than `scanf()`</label>
+                            <label for="q25_c"><input type="radio" id="q25_c" name="Question25" value="C) Because fgets() can read names with spaces" required> C) Because `fgets()` can read names with spaces</label>
+                            <label for="q25_d"><input type="radio" id="q25_d" name="Question25" value="D) Because scanf() automatically closes the file" required> D) Because `scanf()` automatically closes the file</label>
+                        </div>
+                    </div>
+
+                    <p><strong>After submission wait until you see a tick</strong></p>
+                    <button type="submit" class="submit-button">Submit Quiz</button>
+                </div>
+            </form>
+
+            <div id="submissionSuccessMessage">
+                <div class="success-content">
+                    <i class="fas fa-check-circle success-icon-fa"></i> <p>Quiz Submitted Successfully!</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>Created by The Coders Club</p>
+        <a href="https://www.instagram.com/the_mce.coders_club?igsh=Z245eDZmdWhkcmRn" target="_blank">
+            <img src="IG.png" alt="Instagram" class="social-logo">
+        </a>
+        <a href="https://www.linkedin.com/in/thecodersclub-mce/" target="_blank">
+            <img src="LINKEDLN.png" alt="LinkedIn" class="social-logo">
+        </a>
+        <a href="https://www.youtube.com/@TheCodersClub_MCE" target="_blank">
+            <img src="YT.png" alt="YouTube" class="social-logo">
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb6HMGKKAwEe8OdjAF0X" target="_blank">
+            <img src="WP.svg" alt="WhatsApp" class="social-logo">
+        </a>
+    </footer>
+
+    <script>
+        // --- CONTROL KEYWORD HERE ---
+        // Change this variable to "disable" or "enable"
+        const linkControlStatus = "disable"; // Set to "enable" to activate links
+        // --- END CONTROL KEYWORD ---
+
+        // Object to store original text content for jumbling/unjumbling
+        const originalTextStore = {};
+
+        // Function to shuffle characters in a string
+        function shuffleString(str) {
+            let a = str.split("");
+            for (let i = a.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [a[i], a[j]] = [a[j], a[i]];
+            }
+            return a.join("");
+        }
+
+        // Function to jumble the text content of an element
+        function jumbleText(element) {
+            // Check if element has any text content to jumble and is not just whitespace
+            if (element && element.textContent && element.textContent.trim().length > 0) {
+                // Use a unique key for storage, preferring element ID or generating one
+                const elementKey = element.id || 'jumble-' + Math.random().toString(36).substring(2, 9);
+                if (!element.id) { // Assign ID if it didn't exist for consistent lookup
+                    element.id = elementKey;
+                }
+
+                // Store original text if not already stored
+                if (!originalTextStore[elementKey]) {
+                    originalTextStore[elementKey] = element.textContent;
+                }
+                element.textContent = shuffleString(element.textContent);
+            }
+        }
+
+        // Function to unjumble the text content of an element
+        function unjumbleText(element) {
+            if (element && element.id && originalTextStore[element.id]) {
+                element.textContent = originalTextStore[element.id];
+                // Optionally delete from store if you don't need it after unjumbling
+                // delete originalTextStore[element.id];
+            }
+        }
+
+        // Function for showing the submission success animation
+        function showSuccessAnimation() {
+            const successMessage = document.getElementById('submissionSuccessMessage');
+            successMessage.classList.add('show'); // Add 'show' class to display the overlay
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show'); // Remove 'show' class to hide the overlay
+            }, 3000); // The animation will be visible for 3 seconds
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setLinkStatus(); // Call the main function to set the quiz status based on the keyword
+            
+            // --- NEW CODE TO DISABLE COPY/PASTE ---
+            const inputsToRestrict = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
+
+            inputsToRestrict.forEach(input => {
+                input.addEventListener('copy', (e) => e.preventDefault());
+                input.addEventListener('cut', (e) => e.preventDefault());
+                input.addEventListener('paste', (e) => e.preventDefault());
+            });
+            // --- END NEW CODE ---
+        });
+
+        function setLinkStatus() {
+            const statusElement = document.getElementById('status');
+
+            const quizQuestionsSection = document.getElementById('quizQuestionsSection');
+            const quizOverlay = document.getElementById('quizOverlay');
+            const quizForm = document.getElementById('quizForm');
+            const submitButton = quizForm.querySelector('.submit-button');
+
+            // Select elements whose text needs to be jumbled
+            const elementsToJumble = quizQuestionsSection.querySelectorAll('h3, p, .radio-group label, .checkbox-group label');
+
+            if (linkControlStatus === "enable") {
+                // Quiz is Enabled
+                // Hide overlay first for smooth transition
+                quizOverlay.style.opacity = '0';
+
+                // After overlay fades out, remove its visibility and disable class from quiz section
+                setTimeout(() => {
+                    quizOverlay.style.visibility = 'hidden';
+                    quizQuestionsSection.classList.remove('quiz-disabled-overlay');
+                }, 500); // Matches CSS transition duration
+
+                // Enable relevant form elements inside the quiz questions section
+                quizQuestionsSection.querySelectorAll('input, textarea, select').forEach(input => { // Added select
+                    input.disabled = false;
+                });
+                submitButton.disabled = false; // Ensure submit button is enabled
+
+                // Unjumble text for questions and options
+                elementsToJumble.forEach(element => {
+                    unjumbleText(element);
+                });
+
+                statusElement.innerHTML = 'MINDMASH<br>fill within 30/6/25 6.00 PM IST!';
+                statusElement.style.color = '#008000'; // Green for active
+            } else { // Assumes "disable" or any other value means disabled
+                // Quiz is Disabled
+                // Show overlay immediately or with a slight delay
+                quizOverlay.style.visibility = 'visible';
+                quizOverlay.style.opacity = '1';
+
+                // Add the disabled styling to the quiz questions section for blur and opacity
+                quizQuestionsSection.classList.add('quiz-disabled-overlay');
+
+                // Disable relevant form elements inside the quiz questions section
+                quizQuestionsSection.querySelectorAll('input, textarea, select').forEach(input => { // Added select
+                    input.disabled = true;
+                });
+                submitButton.disabled = true; // Ensure submit button is disabled
+
+                // Jumble text for questions and options
+                elementsToJumble.forEach(element => {
+                    jumbleText(element);
+                });
+
+                statusElement.innerHTML = 'MINDMASH<br>Coming Soon!';
+                statusElement.style.color = '#CC0000'; // Red for closed
+            }
+        }
+
+        // Handle form submission to Google Sheet via Google Apps Script
+        const quizForm = document.getElementById('quizForm');
+        quizForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Check if the form is disabled by the linkControlStatus
+            if (this.querySelector('.submit-button').disabled) {
+                alert('The quiz is currently closed.');
+                return; // Stop submission if disabled
+            }
+
+            const formData = new FormData(quizForm);
+            const data = {};
+            for (let [key, value] of formData.entries()) {
+                if (key.endsWith('[]')) { // Handle checkbox arrays
+                    const originalKey = key.slice(0, -2);
+                    if (!data[originalKey]) {
+                        data[originalKey] = [];
+                    }
+                    data[originalKey].push(value);
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            // Convert checkbox arrays to comma-separated strings for easier GSheet logging
+            for (const key in data) {
+                if (Array.isArray(data[key])) {
+                    data[key] = data[key].join(', ');
+                }
+            }
+
+            // Replace 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE' with your deployed Apps Script URL
+            const scriptUrl = 'https://script.google.com/macros/s/AKfycbxv8SoMuCJ-OgnwFy5KatXccNBIzPfjLn6YJ0MkZNeDshqdaRjJfyOONsRnupxrWSxf/exec';
+            fetch(scriptUrl, {
+                method: 'POST',
+                mode: 'no-cors', // Important for sending data to Apps Script
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(data).toString()
+            })
+            .then(response => {
+                // If the fetch completes (even with no-cors), we assume the data was sent.
+                // Therefore, we can show the success animation.
+                showSuccessAnimation(); // CALL THE NEW ANIMATION FUNCTION HERE
+                quizForm.reset(); // Clear the form
+            })
+            .catch(error => {
+                console.error('Error submitting quiz:', error);
+                alert('There was an error submitting the quiz. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
