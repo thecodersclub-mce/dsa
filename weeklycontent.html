@@ -957,11 +957,78 @@ while low <= high:
 </div>
 
     <div id="friday-content-week1" class="day-content day-section">
-        <h2>Function Friday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
+    <h2>Function Friday</h2>
+    <div class="content-block">
+        <h3>Analyzing Time Complexity of Basic C Programs:</h3>
+        <p>Time complexity is a measure of how long an algorithm takes to complete, usually expressed as a function of the input size. Let's analyze the time complexity of a basic C program.</p>
+        <hr>
+        <h3>Example Program: Finding the Maximum Element in an Array</h3>
+        <div class="code-block">
+            <pre><code>#include &lt;stdio.h&gt;
+
+int findMax(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i < n; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int arr[] = {4, 2, 9, 6, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Maximum element: %d\n", findMax(arr, n));
+    return 0;
+}</code></pre>
         </div>
+        <hr>
+        <h3>Time Complexity Analysis:</h3>
+        <p>The <strong>findMax</strong> function iterates through the array once, comparing each element with the current maximum. The number of operations (comparisons and assignments) grows linearly with the size of the input array <strong>n</strong>.</p>
+        <ul>
+            <li><strong>Best-case scenario:</strong> The maximum element is at the first position, but the algorithm still iterates through the entire array, resulting in a time complexity of O(n)</li>
+            <li><strong>Worst-case scenario:</strong> The maximum element is at the last position, and the algorithm still iterates through the entire array, resulting in a time complexity of O(n)</li>
+            <li><strong>Average-case scenario:</strong> The maximum element can be anywhere in the array, but the algorithm still iterates through the entire array, resulting in a time complexity of O(n)</li>
+        </ul>
+        <p>Therefore, the time complexity of the <strong>findMax</strong> function is O(n), where n is the size of the input array.</p>
+        <h3>Explanation:</h3>
+        <ul>
+            <li>The time complexity is O(n) because the algorithm performs a constant amount of work for each element in the input array.</li>
+            <li>The loop iterates <strong>n-1</strong> times, and each iteration performs a constant number of operations (one comparison and potentially one assignment).</li>
+            <li>The time complexity is linear because the running time grows directly proportional to the size of the input array.</li>
+        </ul>
+        <h3>Examples:</h3>
+        <h4>Example 1: Small Array</h4>
+        <p>Input: <code>arr[] = {3, 1, 4, 2}</code><br>
+        Output: <code>Maximum element: 4</code></p>
+        <ul>
+            <li>Number of iterations: 3 (n-1 = 4-1 = 3)</li>
+            <li>Time complexity: O(n) = O(4)</li>
+        </ul>
+        <h4>Example 2: Large Array</h4>
+        <p>Input: <code>arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}</code><br>
+        Output: <code>Maximum element: 100</code></p>
+        <ul>
+            <li>Number of iterations: 9 (n-1 = 10-1 = 9)</li>
+            <li>Time complexity: O(n) = O(10)</li>
+        </ul>
+        <h4>Example 3: Array with Maximum Element at First Position</h4>
+        <p>Input: <code>arr[] = {100, 20, 30, 40, 50, 60, 70, 80, 90, 10}</code><br>
+        Output: <code>Maximum element: 100</code></p>
+        <ul>
+            <li>Number of iterations: 9 (n-1 = 10-1 = 9)</li>
+            <li>Time complexity: O(n) = O(10)</li>
+        </ul>
+        <h4>Example 4: Array with Maximum Element at Last Position</h4>
+        <p>Input: <code>arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}</code><br>
+        Output: <code>Maximum element: 100</code></p>
+        <ul>
+            <li>Number of iterations: 9 (n-1 = 10-1 = 9)</li>
+            <li>Time complexity: O(n) = O(10)</li>
+        </ul>
     </div>
+</div>
     <div id="saturday-content-week1" class="day-content day-section">
         <h2>Brain Cache</h2>
         <div class="content-block">
