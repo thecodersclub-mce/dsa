@@ -860,10 +860,101 @@ pre code {
 
     <div id="thursday-content-week1" class="day-content day-section">
         <h2>Te Ta Thursday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
+    <div class="content-block">
+        <h3>Big O Notation (Big O) in DSA – Simple Explanation with Examples</h3>
+        <h3>What is Big O Notation?</h3>
+        <p>Big O Notation is a way to describe the performance or complexity of an algorithm, especially in terms of time or space (memory) as the input size n grows.</p>
+        <h3> Why is it important?</h3>
+        <ul>
+            <li>It helps you compare algorithms.</li>
+            <li>It predicts how the algorithm will scale.</li>
+            <li>It shows the worst-case scenario.</li>
+        </ul>
+        <h3>Common Big O Notations:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Notation</th>
+                    <th>Name</th>
+                    <th>Example Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>O(1)</td>
+                    <td>Constant Time</td>
+                    <td>Accessing an array element: arr[3]</td>
+                </tr>
+                <tr>
+                    <td>O(log n)</td>
+                    <td>Logarithmic Time</td>
+                    <td>Binary Search</td>
+                </tr>
+                <tr>
+                    <td>O(n)</td>
+                    <td>Linear Time</td>
+                    <td>Loop through an array once</td>
+                </tr>
+                <tr>
+                    <td>O(n log n)</td>
+                    <td>Linearithmic Time</td>
+                    <td>Merge Sort, Quick Sort (avg. case)</td>
+                </tr>
+                <tr>
+                    <td>O(n²)</td>
+                    <td>Quadratic Time</td>
+                    <td>Nested loops (like Bubble Sort)</td>
+                </tr>
+                <tr>
+                    <td>O(2ⁿ)</td>
+                    <td>Exponential Time</td>
+                    <td>Solving Towers of Hanoi, Recursion-heavy</td>
+                </tr>
+                <tr>
+                    <td>O(n!)</td>
+                    <td>Factorial Time</td>
+                    <td>Brute-force permutations (like Travelling Salesman)</td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Simple Examples:</h3>
+        <h4> Example 1: O(1) – Constant Time</h4>
+        <div class="code-block">
+            <pre><code>def get_first_element(arr):
+    return arr[0]</code></pre>
         </div>
+        <p>No matter how big arr is, it just returns the first element.</p>
+        <h4>Example 2: O(n) – Linear Time</h4>
+        <div class="code-block">
+            <pre><code>def print_all_elements(arr):
+    for item in arr:
+        print(item)</code></pre>
+        </div>
+        <p>As the array size grows, the number of operations grows linearly.</p>
+        <h4>Example 3: O(n²) – Quadratic Time</h4>
+        <div class="code-block">
+            <pre><code>def print_pairs(arr):
+for i in arr:
+    for j in arr:
+        print(i, j)</code></pre>
+        </div>
+        <p>Two nested loops: if arr has 5 items, total prints = 5×5 = 25</p>
+        <h4>Example 4: O(log n) – Logarithmic Time (Binary Search)</h4>
+        <div class="code-block">
+            <pre><code>def binary_search(arr, target):
+low, high = 0, len(arr) - 1
+while low <= high:
+    mid = (low + high) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            low = mid + 1
+        else:
+            high = mid - 1</code></pre>
+</div>
+        <p>With each step, the search space is halved.</p>
     </div>
+</div>
 
     <div id="friday-content-week1" class="day-content day-section">
         <h2>Function Friday</h2>
