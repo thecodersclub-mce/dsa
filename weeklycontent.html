@@ -1355,12 +1355,12 @@ int main() {
     // --- CONTROL KEYWORD HERE ---
 // Define a variable to store the ID of the disabled week
 // Set this to the week you want to disable (e.g., 'week4', 'week2', or null if no week is disabled)
-let disabledWeekId = 'week1'; // Changed from 'null' to null to ensure no week is disabled
+let disabledWeekId = null; // Changed from 'null' to null to ensure no week is disabled
 
 // Define an array of disabled days for a given week (e.g., ['tuesday', 'thursday'] for week1)
 const disabledDays = {
     // Uncomment these lines and specify days if you want to disable specific days within weeks
-    //'week1': ['monday','tuesday','wednesday','thursday','friday'], // Example: No disabled days for Week 1
+    'week1': ['monday','tuesday','wednesday','thursday','friday'], // Example: No disabled days for Week 1
     // 'week2': [],
     // 'week3': [],
     // 'week4': [],
