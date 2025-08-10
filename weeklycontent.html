@@ -585,23 +585,16 @@ pre code {
         font-size: 0.8em;
         padding: 8px;
     }
-
-    /* --- Table Responsiveness for Mobile --- */
-    .table-responsive {
-        overflow-x: auto; /* Enable horizontal scrolling for the table container */
-        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+ .table-responsive {
+        overflow-x: auto; /* Enables horizontal scrolling */
+        -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
     }
 
     .content-block table {
-        /* On small screens, allow the table to take its natural width,
-            which will then be contained by the .table-responsive wrapper. */
-        width: 100%; /* Start with 100% width */
-        min-width: 400px; /* Set a minimum width for the table itself.
-                            Adjust this based on your table content.
-                            This prevents extreme squishing of columns.*/
-        table-layout: auto; /* Allow column widths to adjust based on content */
+        width: 100%;
+        min-width: 400px; /* Ensures the table itself has a minimum size */
+        table-layout: auto;
     }
-
     /* Remove the problematic display changes for table elements on mobile */
     .content-block table,
     .content-block thead,
@@ -859,10 +852,9 @@ pre code {
 </div>
 
     <div id="thursday-content-week1" class="day-content day-section">
-        <h2>Te Ta Thursday</h2>
+    <h2>Te Ta Thursday</h2>
     <div class="content-block">
         <h3>Big O Notation (Big O) in DSA – Simple Explanation with Examples</h3>
-        <h3>What is Big O Notation?</h3>
         <p>Big O Notation is a way to describe the performance or complexity of an algorithm, especially in terms of time or space (memory) as the input size n grows.</p>
         <h3> Why is it important?</h3>
         <ul>
@@ -871,52 +863,56 @@ pre code {
             <li>It shows the worst-case scenario.</li>
         </ul>
         <h3>Common Big O Notations:</h3>
-        <table>
-            <thead>
-                <tr>
-                    <th>Notation</th>
-                    <th>Name</th>
-                    <th>Example Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>O(1)</td>
-                    <td>Constant Time</td>
-                    <td>Accessing an array element: arr[3]</td>
-                </tr>
-                <tr>
-                    <td>O(log n)</td>
-                    <td>Logarithmic Time</td>
-                    <td>Binary Search</td>
-                </tr>
-                <tr>
-                    <td>O(n)</td>
-                    <td>Linear Time</td>
-                    <td>Loop through an array once</td>
-                </tr>
-                <tr>
-                    <td>O(n log n)</td>
-                    <td>Linearithmic Time</td>
-                    <td>Merge Sort, Quick Sort (avg. case)</td>
-                </tr>
-                <tr>
-                    <td>O(n²)</td>
-                    <td>Quadratic Time</td>
-                    <td>Nested loops (like Bubble Sort)</td>
-                </tr>
-                <tr>
-                    <td>O(2ⁿ)</td>
-                    <td>Exponential Time</td>
-                    <td>Solving Towers of Hanoi, Recursion-heavy</td>
-                </tr>
-                <tr>
-                    <td>O(n!)</td>
-                    <td>Factorial Time</td>
-                    <td>Brute-force permutations (like Travelling Salesman)</td>
-                </tr>
-            </tbody>
-        </table>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Notation</th>
+                        <th>Name</th>
+                        <th>Example Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>O(1)</td>
+                        <td>Constant Time</td>
+                        <td>Accessing an array element: arr[3]</td>
+                    </tr>
+                    <tr>
+                        <td>O(log n)</td>
+                        <td>Logarithmic Time</td>
+                        <td>Binary Search</td>
+                    </tr>
+                    <tr>
+                        <td>O(n)</td>
+                        <td>Linear Time</td>
+                        <td>Loop through an array once</td>
+                    </tr>
+                    <tr>
+                        <td>O(n log n)</td>
+                        <td>Linearithmic Time</td>
+                        <td>Merge Sort, Quick Sort (avg. case)</td>
+                    </tr>
+                    <tr>
+                        <td>O(n²)</td>
+                        <td>Quadratic Time</td>
+                        <td>Nested loops (like Bubble Sort)</td>
+                    </tr>
+                    <tr>
+                        <td>O(2ⁿ)</td>
+                        <td>Exponential Time</td>
+                        <td>Solving Towers of Hanoi, Recursion-heavy</td>
+                    </tr>
+                    <tr>
+                        <td>O(n!)</td>
+                        <td>Factorial Time</td>
+                        <td>Brute-force permutations (like Travelling Salesman)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
         <h3>Simple Examples:</h3>
         <h4> Example 1: O(1) – Constant Time</h4>
         <div class="code-block">
@@ -936,7 +932,7 @@ pre code {
             <pre><code>def print_pairs(arr):
 for i in arr:
     for j in arr:
-        print(i, j)</code></pre>
+      print(i, j)</code></pre>
         </div>
         <p>Two nested loops: if arr has 5 items, total prints = 5×5 = 25</p>
         <h4>Example 4: O(log n) – Logarithmic Time (Binary Search)</h4>
@@ -951,21 +947,18 @@ while low <= high:
             low = mid + 1
         else:
             high = mid - 1</code></pre>
-</div>
+        </div>
         <p>With each step, the search space is halved.</p>
     </div>
 </div>
-
     <div id="friday-content-week1" class="day-content day-section">
     <h2>Function Friday</h2>
     <div class="content-block">
         <h3>Analyzing Time Complexity of Basic C Programs:</h3>
         <p>Time complexity is a measure of how long an algorithm takes to complete, usually expressed as a function of the input size. Let's analyze the time complexity of a basic C program.</p>
-        <hr>
         <h3>Example Program: Finding the Maximum Element in an Array</h3>
         <div class="code-block">
             <pre><code>#include &lt;stdio.h&gt;
-
 int findMax(int arr[], int n) {
     int max = arr[0];
     for (int i = 1; i < n; i++) {
@@ -983,7 +976,6 @@ int main() {
     return 0;
 }</code></pre>
         </div>
-        <hr>
         <h3>Time Complexity Analysis:</h3>
         <p>The <strong>findMax</strong> function iterates through the array once, comparing each element with the current maximum. The number of operations (comparisons and assignments) grows linearly with the size of the input array <strong>n</strong>.</p>
         <ul>
@@ -1000,28 +992,28 @@ int main() {
         </ul>
         <h3>Examples:</h3>
         <h4>Example 1: Small Array</h4>
-        <p>Input: <code>arr[] = {3, 1, 4, 2}</code><br>
+        <p>Input: <pre><code>arr[] = {3, 1, 4, 2}</code></pre><br>
         Output: <code>Maximum element: 4</code></p>
         <ul>
             <li>Number of iterations: 3 (n-1 = 4-1 = 3)</li>
             <li>Time complexity: O(n) = O(4)</li>
         </ul>
         <h4>Example 2: Large Array</h4>
-        <p>Input: <code>arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}</code><br>
+        <p>Input: <pre><code>arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}</code></pre><br>
         Output: <code>Maximum element: 100</code></p>
         <ul>
             <li>Number of iterations: 9 (n-1 = 10-1 = 9)</li>
             <li>Time complexity: O(n) = O(10)</li>
         </ul>
         <h4>Example 3: Array with Maximum Element at First Position</h4>
-        <p>Input: <code>arr[] = {100, 20, 30, 40, 50, 60, 70, 80, 90, 10}</code><br>
+        <p>Input: <pre><code>arr[] = {100, 20, 30, 40, 50, 60, 70, 80, 90, 10}</code></pre><br>
         Output: <code>Maximum element: 100</code></p>
         <ul>
             <li>Number of iterations: 9 (n-1 = 10-1 = 9)</li>
             <li>Time complexity: O(n) = O(10)</li>
         </ul>
         <h4>Example 4: Array with Maximum Element at Last Position</h4>
-        <p>Input: <code>arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}</code><br>
+        <p>Input: <pre><code>arr[] = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100}</code></pre><br>
         Output: <code>Maximum element: 100</code></p>
         <ul>
             <li>Number of iterations: 9 (n-1 = 10-1 = 9)</li>
@@ -1029,15 +1021,65 @@ int main() {
         </ul>
     </div>
 </div>
-    <div id="saturday-content-week1" class="day-content day-section">
-        <h2>Brain Cache</h2>
-        <div class="content-block">
-            <p>Quiz answers will be uploaded soon!</p>
-          <!--  <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
-    Attend Week 1 Quiz
-</button></center>-->
-        </div>
+<div id="saturday-content-week1" class="day-content day-section">
+    <h2>Brain Cache</h2>
+    <div class="content-block">
+        <h3>1. The "Undo" feature in a text editor is usually implemented using:</h3>
+        <ol>
+            <li>Queue</li>
+            <li><strong>Stack</strong></li>
+            <li>Array</li>
+            <li>Hash Table</li>
+        </ol>
+        <h3>2. Why is learning DSA important for developers?</h3>
+        <ol>
+            <li>To make code look colorful</li>
+            <li><strong>To build efficient and optimized solutions</strong></li>
+            <li>To avoid writing comments in code</li>
+            <li>To learn more programming languages</li>
+        </ol>
+        <h3>3. Which of the following statements about time and space complexity is always true?</h3>
+        <ol>
+            <li>If an algorithm has better time complexity, it will always have better space complexity too.</li>
+            <li>An algorithm with O(1) space complexity never uses any memory beyond input.</li>
+            <li><strong>It is possible for two different algorithms solving the same problem to have the same time complexity but different space complexities.</strong></li>
+            <li>Space complexity only depends on the size of the input, not on the operations performed.</li>
+        </ol>
+        <h3>4. A programmer needs to choose between two algorithms. Algorithm A has a time complexity of O(n log n), and Algorithm B has a time complexity of O(n^2). As the input size (n) increases, which of the following statements is true regarding their efficiency?</h3>
+        <ol>
+            <li>Algorithm B is more efficient because a quadratic function grows slower than a linearithmic function.</li>
+            <li>Both algorithms have similar efficiency, so the choice between them does not matter.</li>
+            <li><strong>Algorithm A is more efficient because its number of operations grows much slower than Algorithm B's as n increases.</strong></li>
+            <li>Algorithm B is more efficient because a larger exponent indicates a faster algorithm.</li>
+        </ol>
+        <h3>5. In the findMax function, if the size of the input array is 10, how many iterations will the loop perform?</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int findMax(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i &lt; n; i++) {
+        if (arr[i] &gt; max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int arr[] = {4, 2, 9, 6, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Maximum element: %d\n", findMax(arr, n));
+    return 0;
+}
+</code></pre>
+        <ol>
+            <li>8</li>
+            <li><strong>9</strong></li>
+            <li>10</li>
+            <li>11</li>
+        </ol>
     </div>
+</div>
 </div>
 
 
@@ -1092,6 +1134,10 @@ int main() {
         <h2>Brain Cache</h2>
         <div class="content-block">
             <p>Week 2 Quiz coming soon!</p>
+            <!--<p>Quiz answers will be uploaded soon!</p>-->
+            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
+    Week 2 Quiz
+</button></center>
         </div>
     </div>
 </div>
@@ -1147,6 +1193,10 @@ int main() {
         <h2>Brain Cache</h2>
         <div class="content-block">
             <p>Week 3 Quiz coming soon!</p>
+            <!--<p>Quiz answers will be uploaded soon!</p>-->
+            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
+    Week 3 Quiz
+</button></center>
         </div>
     </div>
 </div>
@@ -1203,6 +1253,10 @@ int main() {
         <h2>Brain Cache</h2>
         <div class="content-block">
             <p>Week 4 Quiz coming soon!</p>
+            <!--<p>Quiz answers will be uploaded soon!</p>-->
+            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
+    Week 4 Quiz
+</button></center>
         </div>
     </div>
 </div>
@@ -1265,6 +1319,10 @@ int main() {
         <h2>Brain Cache</h2>
         <div class="content-block">
             <p>Week 5 Quiz coming soon!</p>
+            <!--<p>Quiz answers will be uploaded soon!</p>-->
+            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
+    Week 5 Quiz
+</button></center>
         </div>
     </div>
 </div>
@@ -1353,21 +1411,23 @@ int main() {
     </footer>
 
 <script>
-    // --- CONTROL KEYWORD HERE ---
-// Define a variable to store the ID of the disabled week
-// Set this to the week you want to disable (e.g., 'week4', 'week2', or null if no week is disabled)
-let disabledWeekId = null; // Changed from 'null' to null to ensure no week is disabled
+// --- CONTROL KEYWORD HERE ---
+// Define a constant array of all enabled weeks.
+// Any week not listed here will be treated as disabled.
+const enabledWeeks = [
+    'week1', 'week2', 'week3', 'week4', 'week5',
+    'week6', 'week7', 'week8', 'week9', 'week10', 'week11'
+];
 
-// Define an array of disabled days for a given week (e.g., ['tuesday', 'thursday'] for week1)
+// Define an array of disabled days for a given week.
 const disabledDays = {
-    // Uncomment these lines and specify days if you want to disable specific days within weeks
-   // 'week1': ['monday','tuesday','wednesday','thursday','friday'], // Example: No disabled days for Week 1
-    // 'week2': [],
-    // 'week3': [],
-    // 'week4': [],
-    // 'week5': [],
-    // 'week6': [],
-    // 'week7': [], // Mindmash - no disabled days here for now
+   // 'week1': [],
+   // 'week2': [],
+   // 'week3': [],
+   // 'week4': [],
+   // 'week5': [],
+   // 'week6': [],
+   // 'week7': [],
 };
 // --- END CONTROL KEYWORD ---
 
@@ -1386,15 +1446,12 @@ function shuffleString(str) {
 
 // Function to jumble the text content of an element
 function jumbleText(element) {
-    // Check if element has any text content to jumble and is not just whitespace
     if (element && element.textContent && element.textContent.trim().length > 0) {
-        // Use a unique key for storage, preferring element ID or generating one
         const elementKey = element.id || 'jumble-' + Math.random().toString(36).substring(2, 9);
-        if (!element.id) { // Assign ID if it didn't exist for consistent lookup
+        if (!element.id) {
             element.id = elementKey;
         }
 
-        // Store original text if not already stored
         if (!originalTextStore[elementKey]) {
             originalTextStore[elementKey] = element.textContent;
         }
@@ -1406,99 +1463,105 @@ function jumbleText(element) {
 function unjumbleText(element) {
     if (element && element.id && originalTextStore[element.id]) {
         element.textContent = originalTextStore[element.id];
-        // Optionally delete from store if you don't need it after unjumbling
-        // delete originalTextStore[element.id];
     }
 }
 
 // Function to show content for a specific week
 function showWeek(weekId, clickedButton) {
-    // Hide all week content sections
+    const isWeekEnabled = enabledWeeks.includes(weekId);
+
     const weekContents = document.querySelectorAll('.week-content');
     weekContents.forEach(content => {
         content.classList.remove('active-content');
-        content.classList.remove('content-disabled-overlay'); // Ensure this is removed when not disabled
+        content.classList.remove('content-disabled-overlay');
     });
 
-    // Deactivate all main tab buttons
     const mainTabButtons = document.querySelectorAll('.main-tab-nav .tab-button');
     mainTabButtons.forEach(button => {
         button.classList.remove('active');
     });
 
-    // Show the selected week's content
     const selectedWeekContent = document.getElementById(weekId);
     selectedWeekContent.classList.add('active-content');
 
-    // Activate the clicked week button
     if (clickedButton) {
         clickedButton.classList.add('active');
     }
 
-    // Check if the current week is disabled (will always be false with disabledWeekId = null)
-    if (weekId === disabledWeekId) {
+    if (!isWeekEnabled) {
         selectedWeekContent.classList.add('content-disabled-overlay');
-        // Jumble text for questions and options within the entire disabled week
         selectedWeekContent.querySelectorAll('h3, p, h4, span, .quiz-option, li').forEach(element => {
             jumbleText(element);
         });
 
-        // Ensure day buttons for a disabled week do not have 'active' class
         selectedWeekContent.querySelectorAll('.nested-tab-nav .tab-button').forEach(button => {
             button.classList.remove('active');
         });
 
-        // Hide all day content within the disabled week, and also apply blur
         selectedWeekContent.querySelectorAll('.day-content').forEach(content => {
-            content.classList.remove('active-content'); // Hide any active day content
-            content.classList.add('content-disabled-overlay'); // Apply blur to all day contents
+            content.classList.remove('active-content');
+            content.classList.add('content-disabled-overlay');
             content.querySelectorAll('h4, p, span, li, .quiz-option').forEach(element => {
                 jumbleText(element);
             });
         });
 
-    } else { // Week is enabled
+    } else {
         selectedWeekContent.classList.remove('content-disabled-overlay');
-        // Unjumble text for questions and options within the entire enabled week
         selectedWeekContent.querySelectorAll('h3, p, h4, span, .quiz-option, li').forEach(element => {
             unjumbleText(element);
         });
 
-        // Re-add onclick handler for nested day buttons for enabled week
-        selectedWeekContent.querySelectorAll('.nested-tab-nav .tab-button').forEach(button => {
-            // Extract the dayId directly from the button's onclick attribute
-            const onclickAttribute = button.getAttribute('onclick');
-            const dayIdMatch = onclickAttribute.match(/showDay\('([^']+)'/); // Regex to get the first argument of showDay
-            if (dayIdMatch && dayIdMatch[1]) {
-                const originalDayId = dayIdMatch[1];
-                // Set the onclick attribute using the extracted ID, ensuring the weekId is also passed
-                button.setAttribute('onclick', `showDay('${originalDayId}', this, '${weekId}')`);
-            } else {
-                console.warn(`Could not extract dayId from onclick attribute for button:`, button);
+        const dayButtons = selectedWeekContent.querySelectorAll('.nested-tab-nav .tab-button');
+        let firstAvailableDayButton = null;
+
+        dayButtons.forEach(button => {
+            const dayNameMatch = button.getAttribute('onclick').match(/showDay\('([^']+)'/);
+            if (dayNameMatch) {
+                const dayName = dayNameMatch[1].split('-')[0];
+                if (!disabledDays[weekId] || !disabledDays[weekId].includes(dayName)) {
+                    if (!firstAvailableDayButton) {
+                        firstAvailableDayButton = button;
+                    }
+                }
+            }
+        });
+        
+        dayButtons.forEach(button => {
+            const dayNameMatch = button.getAttribute('onclick').match(/showDay\('([^']+)'/);
+            if (dayNameMatch) {
+                const dayName = dayNameMatch[1].split('-')[0];
+                if (disabledDays[weekId] && disabledDays[weekId].includes(dayName)) {
+                    button.classList.add('disabled');
+                    button.setAttribute('data-original-onclick', button.getAttribute('onclick'));
+                    button.removeAttribute('onclick');
+                } else {
+                    button.classList.remove('disabled');
+                    if (button.hasAttribute('data-original-onclick')) {
+                        button.setAttribute('onclick', button.getAttribute('data-original-onclick'));
+                        button.removeAttribute('data-original-onclick');
+                    }
+                }
             }
         });
 
-        // Determine the default day content to show for the *currently active* week
-        // Find the first nested tab button within the selected week and activate its content
-        const firstDayButton = selectedWeekContent.querySelector('.nested-tab-nav .tab-button');
-        if (firstDayButton) {
-            // Extract the dayId from the onclick of the first button
-            const onclickAttribute = firstDayButton.getAttribute('onclick');
+        if (firstAvailableDayButton) {
+            const onclickAttribute = firstAvailableDayButton.getAttribute('onclick');
             const dayIdMatch = onclickAttribute.match(/showDay\('([^']+)'/);
             if (dayIdMatch && dayIdMatch[1]) {
                 const defaultDayId = dayIdMatch[1];
-                showDay(defaultDayId, firstDayButton, weekId);
+                showDay(defaultDayId, firstAvailableDayButton, weekId);
             } else {
                 console.warn(`Could not determine default day ID for week ${weekId}.`);
             }
         } else {
-            // If there are no day buttons, ensure any currently visible day content is hidden.
+            console.warn(`All days for week ${weekId} are disabled. No day content will be shown.`);
             const dayContents = selectedWeekContent.querySelectorAll('.day-content');
             dayContents.forEach(content => {
                 content.classList.remove('active-content');
-                content.classList.remove('content-disabled-overlay');
+                content.classList.add('content-disabled-overlay');
                 content.querySelectorAll('h4, p, span, li, .quiz-option').forEach(element => {
-                    unjumbleText(element);
+                    jumbleText(element);
                 });
             });
         }
@@ -1509,157 +1572,192 @@ function showWeek(weekId, clickedButton) {
 function showDay(dayIdWithWeek, clickedButton, weekId) {
     const weekContentDiv = document.getElementById(weekId);
 
-    // Hide and un-blur/unjumble all day content sections within the current week first
     const dayContents = weekContentDiv.querySelectorAll('.day-content');
     dayContents.forEach(content => {
         content.classList.remove('active-content');
-        content.classList.remove('content-disabled-overlay'); // Always remove before potentially adding it back
+        content.classList.remove('content-disabled-overlay');
         content.querySelectorAll('h4, p, span, li, .quiz-option').forEach(element => {
-            unjumbleText(element); // Always unjumble previous content
+            unjumbleText(element);
         });
     });
 
-    // Deactivate all nested day tab buttons within the current week
     const dayTabButtons = weekContentDiv.querySelectorAll('.nested-tab-nav .tab-button');
     dayTabButtons.forEach(button => {
         button.classList.remove('active');
     });
 
-    // Extract just the day name from dayIdWithWeek (e.g., 'monday' from 'monday-content-week1')
     const dayName = dayIdWithWeek.split('-')[0];
 
     const targetDayContent = document.getElementById(dayIdWithWeek);
 
-    // Show the selected day's content
-    if (targetDayContent) { // Ensure target content exists before trying to show it
+    if (targetDayContent) {
         targetDayContent.classList.add('active-content');
     }
 
-    // Activate the clicked day button
     if (clickedButton) {
         clickedButton.classList.add('active');
     }
 
-    // Check if the specific day is disabled for this week OR if the entire week is disabled
-    if ((disabledDays[weekId] && disabledDays[weekId].includes(dayName)) || weekId === disabledWeekId) {
-        // Apply blur to the day's content if it's disabled or its parent week is disabled
+    const isWeekEnabled = enabledWeeks.includes(weekId);
+    if ((disabledDays[weekId] && disabledDays[weekId].includes(dayName)) || !isWeekEnabled) {
         if (targetDayContent) {
             targetDayContent.classList.add('content-disabled-overlay');
-            // Jumble the text contents within this specific disabled day
             targetDayContent.querySelectorAll('h4, p, span, li, .quiz-option').forEach(element => {
                 jumbleText(element);
             });
         }
-        // Also, ensure the clicked button (if it's a disabled day) becomes disabled style
         if (clickedButton) {
             clickedButton.classList.add('disabled');
-            // Temporarily remove its onclick to prevent re-activating jumbled content if clicked again
-            clickedButton.setAttribute('data-original-onclick', clickedButton.getAttribute('onclick'));
-            clickedButton.removeAttribute('onclick');
         }
     } else {
-        // Unjumble text if the day is enabled
         if (targetDayContent) {
             targetDayContent.querySelectorAll('h4, p, span, li, .quiz-option').forEach(element => {
                 unjumbleText(element);
             });
         }
-        // Re-enable the button if it was previously disabled
         if (clickedButton) {
             clickedButton.classList.remove('disabled');
-            // Restore original onclick if it was stored
-            if (clickedButton.hasAttribute('data-original-onclick')) {
-                clickedButton.setAttribute('onclick', clickedButton.getAttribute('data-original-onclick'));
-                clickedButton.removeAttribute('data-original-onclick');
-            }
         }
     }
 }
 
-// Function to apply initial setup (handles button disabling based on disabledWeeks/Days)
+// Function to apply initial setup (handles button disabling based on enabledWeeks)
 function applyInitialWeekSetup() {
-    // Disable week buttons if the entire week is marked as disabled
     document.querySelectorAll('.main-tab-nav .tab-button').forEach(button => {
         const weekIdMatch = button.getAttribute('onclick').match(/'(week\d+)'/);
-        if (weekIdMatch && weekIdMatch[1] === disabledWeekId) {
+        const weekId = weekIdMatch ? weekIdMatch[1] : null;
+
+        if (weekId && !enabledWeeks.includes(weekId)) {
             button.classList.add('disabled');
-            button.setAttribute('data-original-onclick', button.getAttribute('onclick')); // Store original
-            button.removeAttribute('onclick'); // Disable click
+            button.setAttribute('data-original-onclick', button.getAttribute('onclick'));
+            button.removeAttribute('onclick');
         } else {
             button.classList.remove('disabled');
-            // Restore onclick if it was previously disabled and now enabled
             if (button.hasAttribute('data-original-onclick')) {
                 button.setAttribute('onclick', button.getAttribute('data-original-onclick'));
                 button.removeAttribute('data-original-onclick');
             }
         }
     });
-
-    // Disable specific day buttons if they are in the disabledDays list
-    // This needs to be done dynamically when a week is shown, not at initial setup for all
-    // because day buttons only exist within an active week's DOM.
 }
-
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
-    applyInitialWeekSetup(); // Apply initial setup for week buttons
+    applyInitialWeekSetup();
 
-    const hash = window.location.hash; // Get hash from URL
-    let weekToShow = 'week1'; // Default to Week 1
+    const hash = window.location.hash;
+    let weekToShow = 'week1';
 
     if (hash) {
         const weekIdFromHash = hash.substring(1);
         const weekButton = document.querySelector(`.main-tab-nav button[onclick*="${weekIdFromHash}"]`);
 
-        if (weekButton && !weekButton.classList.contains('disabled')) {
-            weekToShow = weekIdFromHash; // Use hash if valid and not disabled
-        } else if (weekButton && weekButton.classList.contains('disabled')) {
+        if (weekButton && enabledWeeks.includes(weekIdFromHash)) {
+            weekToShow = weekIdFromHash;
+        } else if (weekButton && !enabledWeeks.includes(weekIdFromHash)) {
             console.warn(`Attempted to link to disabled week: ${weekIdFromHash}. Showing Week 1 instead.`);
         } else {
             console.warn(`Invalid or non-existent week ID in hash: ${hash}. Showing Week 1 instead.`);
         }
     }
 
-    // Find the button for the determined weekToShow
     const targetWeekButton = document.querySelector(`.main-tab-nav .tab-button[onclick*="${weekToShow}"]`);
     if (targetWeekButton) {
         showWeek(weekToShow, targetWeekButton);
     } else {
-        // Fallback if somehow the defaultWeekButton is not found
         console.error("Default week button not found!");
     }
 
-
-    // --- Quiz Logic - Instant Feedback with Clickable Options ---
-    // Nested structure for answers: answers[weekId][dayName][questionId]
     const answers = {
         'week6': {
             'monday': {
-                'q1': 'c', // Monday Q1: getc() can be a macro, while fgetc() is always a function
-                'q2': 'a'  // Monday Q2: putc() is a macro, while fputc() is a function
+                'q1': 'c',
+                'q2': 'a'
             },
             'tuesday': {
-                'q1': 'b', // Tuesday Q1: malloc()
-                'q2': 'd'  // Tuesday Q2: It deallocates memory previously allocated...
+                'q1': 'b',
+                'q2': 'd'
             },
             'wednesday': {
-                'q1': 'd', // Wednesday Q1: struct
-                'q2': 'c'  // Wednesday Q2: Structures store all members in separate memory locations, while unions store all members in the same memory location.
+                'q1': 'd',
+                'q2': 'c'
             },
-            // Add more days here as needed:
-            // 'thursday': {
-            //     'q1': 'your_answer_for_thursday_q1',
-            //     'q2': 'your_answer_for_thursday_q2'
-            // },
-            'friday': { 
-                'q1': 'c', // Tuesday Q1: malloc()
+            'thursday': {
+                'q1': 'c',
+                'q2': 'c'
+            },
+            'friday': {
+                'q1': 'c',
                 'q2': 'b'
             },
-            // 'saturday': { /* ... */ }
         },
-        'week7': { // Added answers for Week 7 (Mindmash Quiz 1)
-            'quiz1': { // Changed 'monday' to 'quiz1' for Mindmash as per your button ID
+        'week7': {
+            'monday': {
+                'q1': 'a',
+            },
+            'tuesday': {
+                'q1': 'a',
+            },
+            'wednesday': {
+                'q1': 'c',
+            },
+            'thursday': {
+                'q1': 'b',
+            },
+            'friday': {
+                'q1': 'b',
+            },
+        },
+        'week8': {
+            'monday': {
+                'q1': 'c',
+            },
+            'tuesday': {
+                'q1': 'b',
+                'q2': 'b',
+            },
+            'wednesday': {
+                'q1': 'a',
+            },
+            'thursday': {
+                'q1': 'b',
+            },
+            'friday': {
+                'q1': 'd',
+            },
+            'saturday': {
+                'q1': 'b',
+            },
+        },
+        'week9': {
+            'tuesday': {
+                'q1': 'b',
+            },
+            'friday': {
+                'q1': 'b',
+            },
+        },
+        'week10': {
+            'monday': {
+                'q1': 'b',
+                'q2': 'c',
+                'q3': 'b',
+                'q4': 'a',
+                'q5': 'c',
+            },
+            'wednesday': {
+                'q1': 'c',
+            },
+            'thursday': {
+                'q1': 'b',
+            },
+            'friday': {
+                'q1': 'd',
+            },
+        },
+
+        'week11': {
+            'quiz1': {
                 'q1': 'b',
                 'q2': 'b',
                 'q3': 'a',
@@ -1669,74 +1767,59 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // checkAnswer function now takes weekId, dayName, questionName, selectedValue, AND the specific feedbackElement
     function checkAnswer(weekId, dayName, questionName, selectedValue, feedbackElement) {
-        feedbackElement.style.display = 'block'; // Show feedback area
-
-        // Clear previous feedback classes
+        feedbackElement.style.display = 'block';
         feedbackElement.classList.remove('correct', 'incorrect');
-
-        const correctAnswer = answers[weekId]?.[dayName]?.[questionName]; // Safely access nested answer
+        const correctAnswer = answers[weekId]?.[dayName]?.[questionName];
 
         if (selectedValue === correctAnswer) {
             feedbackElement.textContent = 'Correct!';
             feedbackElement.classList.add('correct');
         } else {
             let correctDisplay = correctAnswer;
-            // If the answer value is a single letter (a,b,c,d), format it as "option A"
             if (correctAnswer && ['a', 'b', 'c', 'd'].includes(correctAnswer.toLowerCase())) {
                 correctDisplay = `option ${correctAnswer.toUpperCase()}`;
             } else if (!correctAnswer) {
-                correctDisplay = " (Answer not found in script, please check)"; // Fallback for missing answers
+                correctDisplay = " (Answer not found in script, please check)";
             }
             feedbackElement.textContent = `Incorrect. The correct answer is ${correctDisplay}.`;
             feedbackElement.classList.add('incorrect');
         }
     }
 
-    // Get ALL 'quiz-option' divs on the page, regardless of the day
     const quizOptions = document.querySelectorAll('.quiz-container .quiz-option');
 
     quizOptions.forEach(optionDiv => {
         optionDiv.addEventListener('click', (event) => {
             const clickedOption = event.target;
-            const questionName = clickedOption.getAttribute('data-question'); // e.g., 'q1'
-            const selectedValue = clickedOption.getAttribute('data-value'); // e.g., 'c'
+            const questionName = clickedOption.getAttribute('data-question');
+            const selectedValue = clickedOption.getAttribute('data-value');
 
-            // Find the closest parent day-content div to get weekId and dayName
             const dayContentDiv = clickedOption.closest('.day-content');
             if (!dayContentDiv) {
                 console.error("Clicked quiz option is not within a .day-content div.");
                 return;
             }
-            const dayContentId = dayContentDiv.id; // e.g., 'monday-content-week6' or 'quiz1-content-week7'
+            const dayContentId = dayContentDiv.id;
             const parts = dayContentId.split('-');
-            // Assuming ID format is 'dayname-content-weekX' or 'quizname-content-weekX'
-            const dayName = parts[0]; // 'monday' or 'quiz1'
-            const weekId = parts[2]; // 'week6' or 'week7'
+            const dayName = parts[0];
+            const weekId = parts[2];
 
-            // Find the specific quiz-feedback element within the current question-block
             const feedbackElement = clickedOption.closest('.question-block').querySelector('.quiz-feedback');
             if (!feedbackElement) {
                 console.error("Quiz feedback element not found within the question block.");
                 return;
             }
 
-            // Deselect all other options for this specific question (within the same question-block)
             clickedOption.closest('.options').querySelectorAll('.quiz-option').forEach(opt => {
                 opt.classList.remove('selected');
             });
 
-            // Select the clicked option
             clickedOption.classList.add('selected');
 
-            // Provide feedback using the dynamically found elements and parsed IDs
             checkAnswer(weekId, dayName, questionName, selectedValue, feedbackElement);
         });
     });
-    // --- END Quiz Logic ---
-
-});
-</script>
+});</script>
 </body>
 </html>
