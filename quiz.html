@@ -71,67 +71,86 @@
 <h3>Quiz Questions</h3>
 
 <div class="form-group no-select">
-<p><strong>1. The "Undo" feature in a text editor is usually implemented using:</strong></p>
+<p><strong>1. char arr[4] = {'A', 'B', 'C', 'D'};
+If Base_Address = 2000 and sizeof(char) = 1 byte, what will be the address of arr[2]?</strong></p>
 <div class="radio-group">
-<label><input type="radio" id="q1_a" name="Question1" value="A" required>A. Queue</label>
-<label><input type="radio" id="q1_b" name="Question1" value="B">B. Stack </label>
-<label><input type="radio" id="q1_c" name="Question1" value="C">C. Array</label>
-<label><input type="radio" id="q1_d" name="Question1" value="D">D. Hash Table</label>
+<label><input type="radio" id="q1_a" name="Question1" value="A" required>A. 2001</label>
+<label><input type="radio" id="q1_b" name="Question1" value="B">B. 2002</label>
+<label><input type="radio" id="q1_c" name="Question1" value="C">C. 2003</label>
+<label><input type="radio" id="q1_d" name="Question1" value="D">D. 2004</label>
 </div>
 </div>
 <div class="form-group no-select">
-<p><strong>2. Why is learning DSA important for developers?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q2_a" name="Question2" value="A" required>A. To make code look colorful</label>
-<label><input type="radio" id="q2_b" name="Question2" value="B">B. To build efficient and optimized solutions</label>
-<label><input type="radio" id="q2_c" name="Question2" value="C">C. To avoid writing comments in code</label>
-<label><input type="radio" id="q2_d" name="Question2" value="D">D. To learn more programming languages</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>3. Which of the following statements about time and space complexity is always true?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q3_a" name="Question3" value="A" required>A. If an algorithm has better time complexity, it will always have better space complexity too.</label>
-<label><input type="radio" id="q3_b" name="Question3" value="B">B. An algorithm with O(1) space complexity never uses any memory beyond input.</label>
-<label><input type="radio" id="q3_c" name="Question3" value="C">C. It is possible for two different algorithms solving the same problem to have the same time complexity but different space complexities.</label>
-<label><input type="radio" id="q3_d" name="Question3" value="D">D. Space complexity only depends on the size of the input, not on the operations performed.</label>
-</div>
+<p><strong>2. You are given an array: <code>arr = {5, 15, 25, 35}</code></strong></p>
+<p><strong>Perform the following operations:</strong></p>
+<ul>
+    <li>Insertion: Add 45 at the end.</li>
+    <li>Updation: Change the value at index 2 to 99.</li>
+    <li>Traversal: Print all the elements after the above changes.</li>
+</ul>
+<textarea id="q2_answer" name="Question2" rows="5" required placeholder="Enter your answer here..."></textarea>
 </div>
 <div class="form-group no-select">
-<p><strong>4. A programmer needs to choose between two algorithms. Algorithm A has a time complexity of O(n log n), and Algorithm B has a time complexity of O(n<sup>2</sup>). As the input size (n) increases, which of the following statements is true regarding their efficiency?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q4_a" name="Question4" value="A" required>A. Algorithm B is more efficient because a quadratic function grows slower than a linearithmic function.</label>
-<label><input type="radio" id="q4_b" name="Question4" value="B">B. Both algorithms have similar efficiency, so the choice between them does not matter.</label>
-<label><input type="radio" id="q4_c" name="Question4" value="C">C. Algorithm A is more efficient because its number of operations grows much slower than Algorithm B's as n increases.</label>
-<label><input type="radio" id="q4_d" name="Question4" value="D">D. Algorithm B is more efficient because a larger exponent indicates a faster algorithm.</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>5. In the `findMax` function, if the size of the input array is 10, how many iterations will the loop perform?</strong></p>
-<pre><code>#include &lt;stdio.h&gt;
+<p><strong>3. Given the provided C code for a linear search function, what is the worst-case time complexity, and under which condition does it occur?</strong></p>
+<pre><code>#include <stdio.h>
 
-int findMax(int arr[], int n) {
-int max = arr[0];
-for (int i = 1; i &lt; n; i++) {
-if (arr[i] &gt; max) {
-max = arr[i];
-}
-}
-return max;
+int linearSearch(int arr[], int n, int target) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i; // Found → return index
+        }
+    }
+    return -1; // Not found
 }
 
 int main() {
-int arr[] = {4, 2, 9, 6, 5, 1};
-int n = sizeof(arr) / sizeof(arr[0]);
-printf("Maximum element: %d\n", 
-findMax(arr, n));
-return 0;
-}</code></pre>
+    int arr[] = {5, 8, 1, 4, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 4;
+
+    int result = linearSearch(arr, n, target);
+
+    if (result != -1)
+        printf("Element found at index %d\n", result);
+    else
+        printf("Element not found\n");
+
+    return 0;
+}
+</code></pre>
 <div class="radio-group">
-<label><input type="radio" id="q5_a" name="Question5" value="A" required>A. 8</label>
-<label><input type="radio" id="q5_b" name="Question5" value="B">B. 9</label>
-<label><input type="radio" id="q5_c" name="Question5" value="C">C. 10</label>
-<label><input type="radio" id="q5_d" name="Question5" value="D">D. 11</label>
+<label><input type="radio" id="q3_a" name="Question3" value="A" required>A) O(1), when the target element is found at the first index of the array.</label>
+<label><input type="radio" id="q3_b" name="Question3" value="B">B) O(n), when the target element is the last one in the array or is not present in the array at all.</label>
+<label><input type="radio" id="q3_c" name="Question3" value="C">C) O(n), when the array is unsorted, forcing a full traversal of the list.</label>
+<label><input type="radio" id="q3_d" name="Question3" value="D">D) O(log n), because the search repeatedly divides the problem in half to find the target.</label>
+</div>
+</div>
+<div class="form-group no-select">
+<p><strong>4. According to the provided key points, which of the following is a key disadvantage of the Binary Search algorithm?</strong></p>
+<div class="radio-group">
+<label><input type="radio" id="q4_a" name="Question4" value="A" required>A) It is less efficient than a linear search for large datasets.</label>
+<label><input type="radio" id="q4_b" name="Question4" value="B">B) It can only be used on unsorted arrays.</label>
+<label><input type="radio" id="q4_c" name="Question4" value="C">C) Its best-case time complexity is O(log₂n).</label>
+<label><input type="radio" id="q4_d" name="Question4" value="D">D) It works only on sorted collections.</label>
+</div>
+</div>
+<div class="form-group no-select">
+<p><strong>5. What will be the output of the following code snippet?</strong></p>
+<pre><code>int arr[] = {3, 1, 4, 2, 5};
+int n = sizeof(arr) / sizeof(arr[0]);
+int max = arr[0];
+for (int i = 1; i < n; i++) {
+    if (arr[i] > max) {
+        max = arr[i];
+    }
+}
+printf("%d", max);
+</code></pre>
+<div class="radio-group">
+<label><input type="radio" id="q5_a" name="Question5" value="A" required>A) 1</label>
+<label><input type="radio" id="q5_b" name="Question5" value="B">B) 3</label>
+<label><input type="radio" id="q5_c" name="Question5" value="C">C) 4</label>
+<label><input type="radio" id="q5_d" name="Question5" value="D">D) 5</label>
 </div>
 </div>
 <p><strong>After submission wait until you see a tick</strong></p>
@@ -163,7 +182,7 @@ return 0;
         </a>
     </footer>
 
-   <script>
+    <script>
     // --- CONTROL KEYWORD HERE ---
     // Change this variable to "disable" or "enable"
     const linkControlStatus = "disable"; // Set to "enable" to activate links
@@ -264,31 +283,31 @@ return 0;
         // Priority 1: Manual override via linkControlStatus
         if (linkControlStatus === "enable") {
             quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>fill within 10/8/25 6.00 PM IST!'; // Indicate manual override
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 2 QUIZ<br>fill within 17/08/25 6.00 PM IST!'; // Indicate manual override
             statusElement.style.color = '#008000'; // Green
         }
         // Priority 2: Timer control, if enabled
         else if (timerControlStatus === "enable") {
             if (currentTime >= quizStartTime && currentTime < quizEndTime) {
                 quizShouldBeEnabled = true;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>Quiz is LIVE! Ends on 06/07/2025 6:00 PM IST!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 2 QUIZ<br>Quiz is LIVE! Ends on 17/08/2025 6:00 PM IST!';
                 statusElement.style.color = '#008000'; // Green for active
             } else if (currentTime < quizStartTime) {
                 // Quiz not yet started
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 2 QUIZ<br>wait for updates!';
                 statusElement.style.color = '#FFA500'; // Orange for upcoming
             } else {
                 // Quiz ended
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 2 QUIZ<br>wait for updates!';
                 statusElement.style.color = '#CC0000'; // Red for closed
             }
         }
         // Priority 3: Default to disabled if neither manual nor timer is enabling it
         else {
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>wait for updates!'; // Indicate manual disable
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 2 QUIZ<br>wait for updates!'; // Indicate manual disable
             statusElement.style.color = '#CC0000'; // Red
         }
 
