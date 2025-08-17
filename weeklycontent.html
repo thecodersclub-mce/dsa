@@ -1117,12 +1117,64 @@ int main() {
     </div>
 </div>
 
-    <div id="tuesday-content-week2" class="day-content day-section">
-        <h2>Techie Tuesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+<div id="tuesday-content-week2" class="day-content day-section">
+    <h2>Techie Tuesday</h2>
+    <div class="content-block">
+        <h3>C++ Array Operations Explained</h3>
+        <p>This C++ code demonstrates three fundamental operations on a data structure known as an <strong>array</strong>: <strong>insertion</strong>, <strong>traversal</strong>, and <strong>updation</strong>.</p>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[5] = {1, 2, 3, 4};
+    int n = 4;
+
+    // Insertion
+    arr[n] = 5; // Insert at end
+    n++;
+
+    // Traversal
+    for(int i = 0; i < n; i++)
+        cout << arr[i] << " ";
+
+    // Updation
+    arr[2] = 99; // Update element at index 2
+}</code></pre>
+
+        <h4>Code Breakdown</h4>
+        <ul>
+            <li><strong>int arr[5] = {1, 2, 3, 4};</strong><br>
+                This line declares an integer array named <strong>arr</strong> with a maximum size of 5. It's initialized with four elements: 1, 2, 3, and 4. The fifth slot is currently empty.</li>
+            <li><strong>int n = 4;</strong><br>
+                This variable <strong>n</strong> keeps track of the current number of elements in the array. Since we initialized the array with four elements, <strong>n</strong> is set to 4.</li>
+        </ul>
+
+        <h4>Insertion</h4>
+        <p>This section adds a new element to the end of the array.</p>
+        <ul>
+            <li><strong>arr[n] = 5;</strong><br>
+                The variable <strong>n</strong> currently holds the value 4, which is the index of the next available slot in the array (arr[4]). The code places the value <strong>5</strong> into this slot.</li>
+            <li><strong>n++;</strong><br>
+                After the insertion, <strong>n</strong> is incremented to 5, reflecting the new total number of elements.</li>
+        </ul>
+
+        <h4>Traversal</h4>
+        <p><strong>Traversal</strong> means visiting every element in the array. This <strong>for</strong> loop is used to iterate through the array from the first element (index 0) up to the last element (index <strong>n-1</strong>).</p>
+        <ul>
+            <li><strong>for(int i = 0; i < n; i++)</strong><br>
+                The loop starts at index 0, continues as long as the index <strong>i</strong> is less than the current size of the array (<strong>n</strong>), and increments <strong>i</strong> after each iteration.</li>
+            <li><strong>cout << arr[i] << " ";</strong><br>
+                Inside the loop, this line prints each element to the console, followed by a space. The output at this point would be: <strong>1 2 3 4 5</strong>.</li>
+        </ul>
+
+        <h4>Updation</h4>
+        <p><strong>Updation</strong> means changing the value of an existing element. Here, the value at a specific index is replaced.</p>
+        <ul>
+            <li><strong>arr[2] = 99;</strong><br>
+                This line accesses the element at index 2 (the third element in the array) and changes its value from <strong>3</strong> to <strong>99</strong>. The array now effectively contains <strong>{1, 2, 99, 4, 5}</strong>.</li>
+        </ul>
     </div>
+</div>
 
     <div id="wednesday-content-week2" class="day-content day-section">
         <h2>Syntax Snapshots Wednesday</h2>
