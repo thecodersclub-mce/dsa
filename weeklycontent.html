@@ -1164,6 +1164,29 @@ int main() {
                 <li><strong>Updation:</strong> {5, 15, 99, 35, 45}</li>
                 <li><strong>Traversal:</strong> {5, 15, 99, 35, 45}</li>
             </ul></p>
+            <p>or</p>
+            <p><strong>Code:</strong></p>
+            <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[10] = {5, 15, 25, 35};
+    int n = 4;   // current size of array
+
+    // Insertion: Add 45 at the end
+    arr[n] = 45;
+    n++;
+
+    // Updation: Change value at index 2 to 99
+    arr[2] = 99;
+
+    // Traversal: Print all elements
+    printf("Array after changes: ");
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}</code></pre>
         <h3>3. Given the provided C code for a linear search function, what is the worst-case time complexity, and under which condition does it occur?</h3>
         <pre><code>#include &lt;stdio.h&gt;
 int linearSearch(int arr[], int n, int target) {
