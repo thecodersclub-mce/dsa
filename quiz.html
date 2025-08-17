@@ -184,7 +184,7 @@ printf("%d", max);
     <script>
     // --- CONTROL KEYWORD HERE ---
     // Change this variable to "disable" or "enable"
-    const linkControlStatus = "enable"; // Set to "enable" to activate links
+    const linkControlStatus = "disable"; // Set to "enable" to activate links
     // --- END CONTROL KEYWORD ---
 
     // --- TIMER CONTROL KEYWORD HERE ---
@@ -294,19 +294,19 @@ printf("%d", max);
             } else if (currentTime < quizStartTime) {
                 // Quiz not yet started
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3QUIZ<br>wait for updates!';
                 statusElement.style.color = '#FFA500'; // Orange for upcoming
             } else {
                 // Quiz ended
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!';
                 statusElement.style.color = '#CC0000'; // Red for closed
             }
         }
         // Priority 3: Default to disabled if neither manual nor timer is enabling it
         else {
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>wait for updates!'; // Indicate manual disable
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!'; // Indicate manual disable
             statusElement.style.color = '#CC0000'; // Red
         }
 
