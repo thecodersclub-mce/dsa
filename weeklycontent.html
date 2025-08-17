@@ -1145,15 +1145,83 @@ int main() {
         </div>
     </div>
     <div id="saturday-content-week2" class="day-content day-section">
-        <h2>Brain Cache</h2>
-        <div class="content-block">
-            <center><p>Week 2 Quiz is LIVE!</p></center>
-            <!--<p>Quiz answers will be uploaded soon!</p>-->
-            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
-    Week 2 Quiz
-</button></center>
-        </div>
+    <h2>Brain Cache</h2>
+    <div class="content-block">
+        <h3>1. char arr[4] = {'A', 'B', 'C', 'D'};<br>If Base_Address = 2000 and sizeof(char) = 1 byte, what will be the address of arr[2]?</h3>
+        <ol>
+            <li>2001</li>
+            <li><strong>2002</strong></li>
+            <li>2003</li>
+            <li>2004</li>
+        </ol>
+        <h3>2. You are given an array: arr = {5, 15, 25, 35}<br>Perform the following operations:<br>
+            <ul><li><strong>Insertion:</strong> Add 45 at the end.</li>
+                <li><strong>Updation:</strong> Change the value at index 2 to 99.</li>
+                <li><strong>Traversal:</strong> Print all the elements after the above changes.</li></ul></h3>
+        <p><strong>Answer:</strong> 
+            <ul>
+                <li><strong>Insertion:</strong> {5, 15, 25, 35, 45}</li>
+                <li><strong>Updation:</strong> {5, 15, 99, 35, 45}</li>
+                <li><strong>Traversal:</strong> {5, 15, 99, 35, 45}</li>
+            </ul></p>
+        <h3>3. Given the provided C code for a linear search function, what is the worst-case time complexity, and under which condition does it occur?</h3>
+        <pre><code>#include &lt;stdio.h&gt;
+int linearSearch(int arr[], int n, int target) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i; // Found → return index
+        }
+    }
+    return -1; // Not found
+}
+
+int main() {
+    int arr[] = {5, 8, 1, 4, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 4;
+
+    int result = linearSearch(arr, n, target);
+
+    if (result != -1)
+        printf("Element found at index %d\n", result);
+    else
+        printf("Element not found\n");
+
+    return 0;
+}
+</code></pre>
+        <ol>
+            <li>O(1), when the target element is found at the first index of the array.</li>
+            <li><strong>O(n), when the target element is the last one in the array or is not present in the array at all.</strong></li>
+            <li>O(n), when the array is unsorted, forcing a full traversal of the list.</li>
+            <li>O(log n), because the search repeatedly divides the problem in half to find the target.</li>
+        </ol>
+        <h3>4. According to the provided key points, which of the following is a key disadvantage of the Binary Search algorithm?</h3>
+        <ol>
+            <li>It is less efficient than a linear search for large datasets.</li>
+            <li>It can only be used on unsorted arrays.</li>
+            <li>Its best-case time complexity is $O(\log_2n)$.</li>
+            <li><strong>It works only on sorted collections.</strong></li>
+        </ol>
+        <h3>5. What will be the output of the following code snippet?</h3>
+        <pre><code>int arr[] = {3, 1, 4, 2, 5};
+int n = sizeof(arr) / sizeof(arr[0]);
+int max = arr[0];
+for (int i = 1; i < n; i++) {
+    if (arr[i] > max) {
+        max = arr[i];
+    }
+}
+printf("%d", max);
+</code></pre>
+        <ol>
+            <li>1</li>
+            <li>3</li>
+            <li>4</li>
+            <li><strong>5</strong></li>
+        </ol>
     </div>
+</div>
 </div>
 
         <div id="week3" class="week-content">
@@ -1436,7 +1504,7 @@ const enabledWeeks = [
 // Define an array of disabled days for a given week.
 const disabledDays = {
    // 'week1': [],
-   'week2': ['monday','tuesday','wednesday','thursday','friday'],
+   //'week2': ['monday','tuesday','wednesday','thursday','friday'],
    // 'week3': [],
    // 'week4': [],
    // 'week5': [],
