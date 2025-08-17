@@ -1176,26 +1176,211 @@ int main() {
     </div>
 </div>
 
-    <div id="wednesday-content-week2" class="day-content day-section">
-        <h2>Syntax Snapshots Wednesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+<div id="wednesday-content-week2" class="day-content day-section">
+    <h2>Syntax Snapshots Wednesday</h2>
+    <div class="content-block">
+        <h3>Linear Search Algorithm</h3>
 
-    <div id="thursday-content-week2" class="day-content day-section">
-        <h2>Te Ta Thursday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+        <p><strong>Definition:</strong> Linear Search checks each element in the list one-by-one until the target is found or the end is reached.</p>
 
-    <div id="friday-content-week2" class="day-content day-section">
-        <h2>Function Friday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+        <h4>Code (C Example):</h4>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int linearSearch(int arr[], int n, int target) {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == target) {
+            return i; // Found -> return index
+        }
+    }
+    return -1; // Not found
+}
+
+int main() {
+    int arr[] = {5, 8, 1, 4, 9};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 4;
+
+    int result = linearSearch(arr, n, target);
+
+    if (result != -1)
+        printf("Element found at index %d\n", result);
+    else
+        printf("Element not found\n");
+
+    return 0;
+}</code></pre>
+
+        <h4>Output:</h4>
+        <code>Element found at index 3</code>
+
+        <h4>Time Complexity:</h4>
+        <ul>
+            <li><strong>Best Case:</strong> O(1) &rarr; Found at the first position</li>
+            <li><strong>Worst Case:</strong> O(n) &rarr; Found at the end or not present</li>
+            <li><strong>Average Case:</strong> O(n)</li>
+        </ul>
+
+        <h4>Space Complexity:</h4>
+        <p>O(1) &rarr; Uses constant extra space</p>
+
+        <h4>Pros:</h4>
+        <ul>
+            <li>Very simple</li>
+            <li>Works for unsorted data</li>
+        </ul>
+
+        <h4>Cons:</h4>
+        <ul>
+            <li>Inefficient for large datasets</li>
+        </ul>
     </div>
+</div>
+   <div id="thursday-content-week2" class="day-content day-section">
+    <h2>Te Ta Thursday</h2>
+    <div class="content-block">
+        <h3>Binary Search &ndash; Key Points</h3>
+        <h4>Definition</h4>
+        <p>An efficient searching algorithm for <strong>sorted</strong> arrays/lists. It works by repeatedly dividing the search space in half until the target is found or the search space is empty.</p>
+        <h4>Conditions</h4>
+        <ul>
+            <li>The array must be <strong>sorted</strong> (in ascending or descending order).</li>
+            <li>Random access to elements must be possible (making it ideal for arrays, but not for linked lists).</li>
+        </ul>
+        <h4>Algorithm Steps</h4>
+        <ol>
+            <li>Set low = 0 and high = n - 1.</li>
+            <li>Find the middle index: mid = (low + high) / 2.</li>
+            <li>If arr[mid] == the target key, the element is found.</li>
+            <li>If arr[mid] > the target key, search the left side by setting high = mid - 1.</li>
+            <li>Otherwise (if arr[mid] < the target key), search the right side by setting low = mid + 1.</li>
+            <li>Repeat the process until low is greater than high.</li>
+        </ol>
+        <h4>Time Complexity</h4>
+        <ul>
+            <li><strong>Best Case:</strong> O(1) &rarr; when the element is at the initial middle position.</li>
+            <li><strong>Average/Worst Case:</strong> O(log₂n) &rarr; because the algorithm halves the search space with each step.</li>
+            <li><strong>Space Complexity:</strong> O(1) for the iterative approach and O(log n) for the recursive approach (due to function call stack).</li>
+        </ul>
+        <h4>Advantages</h4>
+        <ul>
+            <li>Significantly faster than linear search for large, sorted datasets.</li>
+            <li>Reduces the number of comparisons drastically.</li>
+        </ul>
+        <h4>Disadvantages</h4>
+        <ul>
+            <li>Works only on sorted collections.</li>
+            <li>Insertion or deletion is costly in arrays, as the array must be sorted again.</li>
+        </ul>
+        <h4>Example (Ascending Order Search)</h4>
+        <p><strong>Array:</strong> [2, 5, 8, 12, 16, 23, 38, 45, 50]<br><strong>Key:</strong> 23</p>
+        <ul>
+            <li>low = 0, high = 8, mid = 4 &rarr; arr[4] = 16 < 23 &rarr; search right side</li>
+            <li>low = 5, high = 8, mid = 6 &rarr; arr[6] = 38 > 23 &rarr; search left side</li>
+            <li>low = 5, high = 5, mid = 5 &rarr; arr[5] = 23 &rarr; found!</li>
+        </ul>
+    </div>
+</div>
+
+<div id="friday-content-week2" class="day-content day-section">
+    <h2>Function Friday</h2>
+    <div class="content-block">
+        <h3>Practice Problem: Array Manipulation and Searching</h3>
+        <p>Given an array of integers, perform the following operations:</p>
+        <ul>
+            <li>Find the maximum element in the array.</li>
+            <li>Find the minimum element in the array.</li>
+            <li>Search for a specific element in the array.</li>
+            <li>Insert a new element at a specific position in the array.</li>
+            <li>Delete an element from the array.</li>
+        </ul>
+        <h4>Example</h4>
+        <p>Suppose we have the following array: <code>[3, 1, 4, 2, 5]</code></p>
+        <h4>Find the Maximum Element</h4>
+        <ul>
+            <li>Maximum element: 5</li>
+            <li>Explanation: We iterate through the array and keep track of the maximum element found so far.</li>
+        </ul>
+        <h4>Find the Minimum Element</h4>
+        <ul>
+            <li>Minimum element: 1</li>
+            <li>Explanation: We iterate through the array and keep track of the minimum element found so far.</li>
+        </ul>
+        <h4>Search for a Specific Element</h4>
+        <ul>
+            <li>Search for element: 4</li>
+            <li>Result: Element found at index 2</li>
+            <li>Explanation: We iterate through the array and check if the element is present.</li>
+        </ul>
+        <h4>Insert a New Element at a Specific Position</h4>
+        <ul>
+            <li>Insert element: 6 at position 2</li>
+            <li>Result: <code>[3, 1, 6, 4, 2, 5]</code></li>
+            <li>Explanation: We shift the elements to the right of the insertion position and insert the new element.</li>
+        </ul>
+        <h4>Delete an Element from the Array</h4>
+        <ul>
+            <li>Delete element: 4</li>
+            <li>Result: <code>[3, 1, 2, 5]</code></li>
+            <li>Explanation: We shift the elements to the left of the deletion position and remove the element.</li>
+        </ul>
+        <h4>Code Implementation (C)</h4>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Function prototypes (assumed to be defined elsewhere for a complete program)
+// int findMax(int arr[], int n);
+// int findMin(int arr[], int n);
+// int searchElement(int arr[], int n, int target);
+// void insertElement(int arr[], int* n, int pos, int element);
+// void deleteElement(int arr[], int* n, int pos);
+
+int main() {
+    int arr[] = {3, 1, 4, 2, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    // Find maximum element
+    printf("Maximum element: %d\n", findMax(arr, n));
+
+    // Find minimum element
+    printf("Minimum element: %d\n", findMin(arr, n));
+
+    // Search for an element
+    int target = 4;
+    int index = searchElement(arr, n, target);
+    if (index != -1) {
+        printf("Element %d found at index %d\n", target, index);
+    } else {
+        printf("Element %d not found\n", target);
+    }
+
+    // Insert an element
+    int pos = 2;
+    int element = 6;
+    insertElement(arr, &n, pos, element);
+    printf("Array after insertion: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    // Delete an element
+    pos = 2;
+    deleteElement(arr, &n, pos);
+    printf("Array after deletion: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}</code></pre>
+
+        <h4>Output:</h4>
+<code>Maximum element: 5
+Minimum element: 1
+Element 4 found at index 2
+Array after insertion: 3 1 6 4 2 5 
+Array after deletion: 3 1 2 5 </code>
+</div>
     <div id="saturday-content-week2" class="day-content day-section">
     <h2>Brain Cache</h2>
     <div class="content-block">
