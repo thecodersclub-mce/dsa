@@ -71,23 +71,46 @@
 <h3>Quiz Questions</h3>
 
 <div class="form-group no-select">
-<p><strong>1. <code>char arr[4] = {'A', 'B', 'C', 'D'};</code><br>
-If Base_Address = 2000 and sizeof(char) = 1 byte, what will be the address of arr[2]?</strong></p>
+<p><strong>1. A librarian is reorganizing the library's entire collection of books. The goal is to arrange all the books on the shelves alphabetically by the author's last name so that a specific book can be located quickly. According to the provided content, which type of sorting is the librarian applying?</strong></p>
 <div class="radio-group">
-<label><input type="radio" id="q1_a" name="Question1" value="A" required>A. 2001</label>
-<label><input type="radio" id="q1_b" name="Question1" value="B">B. 2002</label>
-<label><input type="radio" id="q1_c" name="Question1" value="C">C. 2003</label>
-<label><input type="radio" id="q1_d" name="Question1" value="D">D. 2004</label>
+<label><input type="radio" id="q1_a" name="Question1" value="A" required>A. Ascending/Descending order</label>
+<label><input type="radio" id="q1_b" name="Question1" value="B">B. Based on key values</label>
+<label><input type="radio" id="q1_c" name="Question1" value="C">C. Alphabetical/Lexicographical order</label>
+<label><input type="radio" id="q1_d" name="Question1" value="D">D. Ascending order</label>
 </div>
 </div>
 <div class="form-group no-select">
-<p><strong>2. You are given an array: <code>arr = {5, 15, 25, 35}</code></strong></p>
+<p><strong>2. Based on the provided C code and your knowledge of sorting algorithms, which of the following is more stable?</strong></p>
 <p><strong>Perform the following operations:</strong></p>
-<ul>
-    <li>Insertion: Add 45 at the end.</li>
-    <li>Updation: Change the value at index 2 to 99.</li>
-    <li>Traversal: Print all the elements after the above changes.</li>
-</ul>
+<pre><code>#include <stdio.h>
+
+void bubbleSort(int arr[], int n) {
+    int i, j, temp;
+    for (i = 0; i < n-1; i++) {
+        for (j = 0; j < n-i-1; j++) {
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+    }
+}
+
+void selectionSort(int arr[], int n) {
+    int i, j, min_idx, temp;
+    for (i = 0; i < n-1; i++) {
+        min_idx = i;
+        for (j = i+1; j < n; j++) {
+            if (arr[j] < arr[min_idx]) {
+                min_idx = j;
+            }
+        }
+        temp = arr[min_idx];
+        arr[min_idx] = arr[i];
+        arr[i] = temp;
+    }
+}</code></pre>
 <textarea id="q2_answer" name="Question2" rows="5" required placeholder="Enter your answer here..."></textarea>
 </div>
 <div class="form-group no-select">
@@ -118,39 +141,31 @@ printf("Element not found\n");
 return 0;
 }</code></pre>
 <div class="radio-group">
-<label><input type="radio" id="q3_a" name="Question3" value="A" required>A) O(1), when the target element is found at the first index of the array.</label>
-<label><input type="radio" id="q3_b" name="Question3" value="B">B) O(n), when the target element is the last one in the array or is not present in the array at all.</label>
-<label><input type="radio" id="q3_c" name="Question3" value="C">C) O(n), when the array is unsorted, forcing a full traversal of the list.</label>
-<label><input type="radio" id="q3_d" name="Question3" value="D">D) O(log n), because the search repeatedly divides the problem in half to find the target.</label>
+<label><input type="radio" id="q3_a" name="Question3" value="A" required>A. Bubble Sort is more stable.</label>
+<label><input type="radio" id="q3_b" name="Question3" value="B">B. Selection Sort is more stable.</label>
+<label><input type="radio" id="q3_c" name="Question3" value="C">C. Both are equally stable.</label>
+<label><input type="radio" id="q3_d" name="Question3" value="D">D. Neither algorithm is stable.</label>
 </div>
 </div>
 <div class="form-group no-select">
-<p><strong>4. According to the provided key points, which of the following is a key disadvantage of the Binary Search algorithm?</strong></p>
+<p><strong>4. What would be the first two sub-arrays after the "Divide" step of Merge Sort is applied to the array <strong>[5, 2, 8, 4, 1, 9]</strong>?</strong></p>
 <div class="radio-group">
-<label><input type="radio" id="q4_a" name="Question4" value="A" required>A) It is less efficient than a linear search for large datasets.</label>
-<label><input type="radio" id="q4_b" name="Question4" value="B">B) It can only be used on unsorted arrays.</label>
-<label><input type="radio" id="q4_c" name="Question4" value="C">C) Its best-case time complexity is O(log₂n).</label>
-<label><input type="radio" id="q4_d" name="Question4" value="D">D) It works only on sorted collections.</label>
+<label><input type="radio" id="q4_a" name="Question4" value="A" required>A. [5, 2, 8] and [4, 1, 9]</label>
+<label><input type="radio" id="q4_b" name="Question4" value="B">B. [5, 2, 8, 4] and [1, 9]</label>
+<label><input type="radio" id="q4_c" name="Question4" value="C">C. [5, 2] and [8, 4, 1, 9]</label>
+<label><input type="radio" id="q4_d" name="Question4" value="D">D. [5] and [2, 8, 4, 1, 9]</label>
 </div>
 </div>
 <div class="form-group no-select">
-<p><strong>5. What will be the output of the following code snippet?</strong></p>
-<pre><code>int arr[] = {3, 1, 4, 2, 5};
-int n = sizeof(arr) / sizeof(arr[0]);
-int max = arr[0];
-for (int i = 1; i < n; i++) {
-    if (arr[i] > max) {
-        max = arr[i];
-    }
-}
-printf("%d", max);
-</code></pre>
-<div class="radio-group">
-<label><input type="radio" id="q5_a" name="Question5" value="A" required>A) 1</label>
-<label><input type="radio" id="q5_b" name="Question5" value="B">B) 3</label>
-<label><input type="radio" id="q5_c" name="Question5" value="C">C) 4</label>
-<label><input type="radio" id="q5_d" name="Question5" value="D">D) 5</label>
-</div>
+<p><strong>5. What are the five key steps of the Quick Sort algorithm?</strong></p>
+<ul>
+    <li>Divide-and-Conquer</li>
+    <li>Pivot Selection</li>
+    <li>Partitioning</li>
+    <li>Recursion</li>
+    <li>Combining</li>
+</ul>
+<textarea id="q2_answer" name="Question5" rows="5" required placeholder="Enter your answer here..."></textarea>
 </div>
 <p><strong>After submission wait until you see a tick</strong></p>
 <button type="submit" class="submit-button">Submit Quiz</button>
@@ -282,19 +297,19 @@ printf("%d", max);
         // Priority 1: Manual override via linkControlStatus
         if (linkControlStatus === "enable") {
             quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>fill within 10/8/25 6.00 PM IST!'; // Indicate manual override
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>fill within 23/08/25 6.00 PM IST!'; // Indicate manual override
             statusElement.style.color = '#008000'; // Green
         }
         // Priority 2: Timer control, if enabled
         else if (timerControlStatus === "enable") {
             if (currentTime >= quizStartTime && currentTime < quizEndTime) {
                 quizShouldBeEnabled = true;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>Quiz is LIVE! Ends on 06/07/2025 6:00 PM IST!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 31 QUIZ<br>Quiz is LIVE! Ends on 23/08/2025 6:00 PM IST!';
                 statusElement.style.color = '#008000'; // Green for active
             } else if (currentTime < quizStartTime) {
                 // Quiz not yet started
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!';
                 statusElement.style.color = '#FFA500'; // Orange for upcoming
             } else {
                 // Quiz ended
