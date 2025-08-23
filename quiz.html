@@ -297,24 +297,24 @@ return 0;
         // Priority 1: Manual override via linkControlStatus
         if (linkControlStatus === "enable") {
             quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>fill within 23/08/25 6.00 PM IST!'; // Indicate manual override
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>fill within 24/08/25 6.00 PM IST!'; // Indicate manual override
             statusElement.style.color = '#008000'; // Green
         }
         // Priority 2: Timer control, if enabled
         else if (timerControlStatus === "enable") {
             if (currentTime >= quizStartTime && currentTime < quizEndTime) {
                 quizShouldBeEnabled = true;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 31 QUIZ<br>Quiz is LIVE! Ends on 23/08/2025 6:00 PM IST!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>Quiz is LIVE! Ends on 24/08/2025 6:00 PM IST!';
                 statusElement.style.color = '#008000'; // Green for active
             } else if (currentTime < quizStartTime) {
                 // Quiz not yet started
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>wait for updates!';
                 statusElement.style.color = '#FFA500'; // Orange for upcoming
             } else {
                 // Quiz ended
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>wait for updates!';
                 statusElement.style.color = '#CC0000'; // Red for closed
             }
         }
