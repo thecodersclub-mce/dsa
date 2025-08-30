@@ -65,115 +65,65 @@
 
 <hr>
 
-<div id="quizQuestionsSection">
-<div id="quizOverlay">
-</div>
-<h3>Quiz Questions</h3>
+<div class="quiz-container">
+        <h2>Linked List Quiz</h2>
+        <form id="quizForm" onsubmit="submitQuiz(event)">
+            <div id="quizQuestionsSection">
+                <div id="quizOverlay"></div>
+                <h3>Quiz Questions</h3>
 
-<div class="form-group no-select">
-<p><strong>1. A librarian is reorganizing the library's entire collection of books. The goal is to arrange all the books on the shelves alphabetically by the author's last name so that a specific book can be located quickly. According to the provided content, which type of sorting is the librarian applying?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q1_a" name="Question1" value="A" required>A. Ascending/Descending order</label>
-<label><input type="radio" id="q1_b" name="Question1" value="B">B. Based on key values</label>
-<label><input type="radio" id="q1_c" name="Question1" value="C">C. Alphabetical/Lexicographical order</label>
-<label><input type="radio" id="q1_d" name="Question1" value="D">D. Ascending order</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>2. Based on the provided C code and your knowledge of sorting algorithms, which of the following is more stable?</strong></p>
-<p><strong>Perform the following operations:</strong></p>
-<pre><code>#include <stdio.h>
+                <div class="form-group no-select">
+                    <p><strong>1. In a Circular Linked List, the last node points to:</strong></p>
+                    <div class="radio-group">
+                        <label><input type="radio" id="q1_a" name="Question1" value="A" required>A. NULL</label>
+                        <label><input type="radio" id="q1_b" name="Question1" value="B">B. The previous node</label>
+                        <label><input type="radio" id="q1_c" name="Question1" value="C">C. The head (first node)</label>
+                        <label><input type="radio" id="q1_d" name="Question1" value="D">D. Random node</label>
+                    </div>
+                </div>
 
-void bubbleSort(int arr[], int n) {
-    int i, j, temp;
-    for (i = 0; i < n-1; i++) {
-        for (j = 0; j < n-i-1; j++) {
-            if (arr[j] > arr[j+1]) {
-                temp = arr[j];
-                arr[j] = arr[j+1];
-                arr[j+1] = temp;
-            }
-        }
-    }
-}
+                <div class="form-group no-select">
+                    <p><strong>2. You are given an array of size n. You need to answer multiple queries of the form: Find the sum of elements from index L to R. Which data structure is most efficient for this task?</strong></p>
+                    <div class="radio-group">
+                        <label><input type="radio" id="q2_a" name="Question2" value="A" required>A. Stack</label>
+                        <label><input type="radio" id="q2_b" name="Question2" value="B">B. Queue</label>
+                        <label><input type="radio" id="q2_c" name="Question2" value="C">C. Segment Tree</label>
+                        <label><input type="radio" id="q2_d" name="Question2" value="D">D. Linked List</label>
+                    </div>
+                </div>
+                
+                <div class="form-group no-select">
+                    <p><strong>3. What is the primary advantage of a Linked List over an array?</strong></p>
+                    <div class="radio-group">
+                        <label><input type="radio" id="q3_a" name="Question3" value="A" required>A. Linked lists are a type of data structure, while arrays are not.</label>
+                        <label><input type="radio" id="q3_b" name="Question3" value="B">B. Linked lists use pointers, whereas arrays do not.</label>
+                        <label><input type="radio" id="q3_c" name="Question3" value="C">C. Linked lists store elements in continuous memory, which arrays do not.</label>
+                        <label><input type="radio" id="q3_d" name="Question3" value="D">D. Linked lists do not require continuous memory, making insertion and deletion more efficient.</label>
+                    </div>
+                </div>
 
-void selectionSort(int arr[], int n) {
-    int i, j, min_idx, temp;
-    for (i = 0; i < n-1; i++) {
-        min_idx = i;
-        for (j = i+1; j < n; j++) {
-            if (arr[j] < arr[min_idx]) {
-                min_idx = j;
-            }
-        }
-        temp = arr[min_idx];
-        arr[min_idx] = arr[i];
-        arr[i] = temp;
-    }
-}</code></pre>
-<textarea id="q2_answer" name="Question2" rows="5" required placeholder="Enter your answer here..."></textarea>
-</div>
-<div class="form-group no-select">
-<p><strong>3. Given the provided C code for a linear search function, what is the worst-case time complexity, and under which condition does it occur?</strong></p>
-<pre><code>#include &lt;stdio.h&gt;
-int linearSearch(int arr[],int n,int target)
-{
-for (int i = 0; i < n; i++) {
-if (arr[i] == target) {
-return i;
-}
-}
-return -1;
-}
-
-int main() {
-int arr[] = {5, 8, 1, 4, 9};
-int n = sizeof(arr) / sizeof(arr[0]);
-int target = 4;
-
-int result = linearSearch(arr, n, target);
-
-if (result != -1)
-printf("Element found at index %d\n",result);
-else
-printf("Element not found\n");
-
-return 0;
-}</code></pre>
-<div class="radio-group">
-<label><input type="radio" id="q3_a" name="Question3" value="A" required>A. Bubble Sort is more stable.</label>
-<label><input type="radio" id="q3_b" name="Question3" value="B">B. Selection Sort is more stable.</label>
-<label><input type="radio" id="q3_c" name="Question3" value="C">C. Both are equally stable.</label>
-<label><input type="radio" id="q3_d" name="Question3" value="D">D. Neither algorithm is stable.</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>4. What would be the first two sub-arrays after the "Divide" step of Merge Sort is applied to the array <strong>[5, 2, 8, 4, 1, 9]</strong>?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q4_a" name="Question4" value="A" required>A. [5, 2, 8] and [4, 1, 9]</label>
-<label><input type="radio" id="q4_b" name="Question4" value="B">B. [5, 2, 8, 4] and [1, 9]</label>
-<label><input type="radio" id="q4_c" name="Question4" value="C">C. [5, 2] and [8, 4, 1, 9]</label>
-<label><input type="radio" id="q4_d" name="Question4" value="D">D. [5] and [2, 8, 4, 1, 9]</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>5. What are the five key steps of the Quick Sort algorithm?</strong></p>
-<ul>
-    <li>Divide-and-Conquer</li>
-    <li>Pivot Selection</li>
-    <li>Partitioning</li>
-    <li>Recursion</li>
-    <li>Combining</li>
-</ul>
-<textarea id="q2_answer" name="Question5" rows="5" required placeholder="Enter your answer here..."></textarea>
-</div>
-<p><strong>After submission wait until you see a tick</strong></p>
+                <div class="form-group no-select">
+                    <p><strong>4. Which type of linked list is characterized by having each node reference both the previous and the next node, allowing for traversal in two directions?</strong></p>
+                    <textarea id="q4_answer" name="Question4" rows="5" required placeholder="Enter your answer here..."></textarea>
+                </div>
+                
+                <div class="form-group no-select">
+                    <p><strong>5. What is a key advantage of a doubly linked list over a singly linked list?</strong></p>
+                    <div class="radio-group">
+                        <label><input type="radio" id="q5_a" name="Question5" value="A" required>A. Less memory usage</label>
+                        <label><input type="radio" id="q5_b" name="Question5" value="B">B. Efficient insertion/deletion at any position</label>
+                        <label><input type="radio" id="q5_c" name="Question5" value="C">C. Circular traversal</label>
+                        <label><input type="radio" id="q5_d" name="Question5" value="D">D. Dynamic memory allocation</label>
+                    </div>
+                    </div>
+                    </div>
+                    <p><strong>After submission wait until you see a tick</strong></p>
 <button type="submit" class="submit-button">Submit Quiz</button>
-</div>
-</form>
+                    </form>
 <div id="submissionSuccessMessage">
 <div class="success-content">
 <i class="fas fa-check-circle success-icon-fa"></i> <p>Quiz Submitted Successfully!</p>
+</div>
 </div>
 </div>
 </div>
@@ -199,7 +149,7 @@ return 0;
     <script>
     // --- CONTROL KEYWORD HERE ---
     // Change this variable to "disable" or "enable"
-    const linkControlStatus = "disable"; // Set to "enable" to activate links
+    const linkControlStatus = "enable"; // Set to "enable" to activate links
     // --- END CONTROL KEYWORD ---
 
     // --- TIMER CONTROL KEYWORD HERE ---
@@ -297,24 +247,24 @@ return 0;
         // Priority 1: Manual override via linkControlStatus
         if (linkControlStatus === "enable") {
             quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>fill within 24/08/25 6.00 PM IST!'; // Indicate manual override
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>fill within 31/8/25 6.00 PM IST!'; // Indicate manual override
             statusElement.style.color = '#008000'; // Green
         }
         // Priority 2: Timer control, if enabled
         else if (timerControlStatus === "enable") {
             if (currentTime >= quizStartTime && currentTime < quizEndTime) {
                 quizShouldBeEnabled = true;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>Quiz is LIVE! Ends on 24/08/2025 6:00 PM IST!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>Quiz is LIVE! Ends on 06/07/2025 6:00 PM IST!';
                 statusElement.style.color = '#008000'; // Green for active
             } else if (currentTime < quizStartTime) {
                 // Quiz not yet started
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3QUIZ<br>wait for updates!';
                 statusElement.style.color = '#FFA500'; // Orange for upcoming
             } else {
                 // Quiz ended
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!';
                 statusElement.style.color = '#CC0000'; // Red for closed
             }
         }
