@@ -149,7 +149,7 @@
     <script>
     // --- CONTROL KEYWORD HERE ---
     // Change this variable to "disable" or "enable"
-    const linkControlStatus = "enable"; // Set to "enable" to activate links
+    const linkControlStatus = "disable"; // Set to "enable" to activate links
     // --- END CONTROL KEYWORD ---
 
     // --- TIMER CONTROL KEYWORD HERE ---
@@ -254,24 +254,24 @@
         else if (timerControlStatus === "enable") {
             if (currentTime >= quizStartTime && currentTime < quizEndTime) {
                 quizShouldBeEnabled = true;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 1 QUIZ<br>Quiz is LIVE! Ends on 06/07/2025 6:00 PM IST!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>Quiz is LIVE! Ends on 06/07/2025 6:00 PM IST!';
                 statusElement.style.color = '#008000'; // Green for active
             } else if (currentTime < quizStartTime) {
                 // Quiz not yet started
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>starts at 6.00 PM 30/08/2025!';
                 statusElement.style.color = '#FFA500'; // Orange for upcoming
             } else {
                 // Quiz ended
                 quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!';
+                statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>starts at 6.00 PM 30/08/2025!';
                 statusElement.style.color = '#CC0000'; // Red for closed
             }
         }
         // Priority 3: Default to disabled if neither manual nor timer is enabling it
         else {
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 3 QUIZ<br>wait for updates!'; // Indicate manual disable
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 4 QUIZ<br>starts at 6.00 PM 30/08/2025!'; // Indicate manual disable
             statusElement.style.color = '#CC0000'; // Red
         }
 
