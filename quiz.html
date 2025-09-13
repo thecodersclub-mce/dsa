@@ -69,55 +69,6 @@
 <div id="quizOverlay">
 </div>
 <h3>Quiz Questions</h3>
-<div class="form-group no-select">
-    <p><strong>1. Which of the following real-world scenarios is most effectively modeled using a stack data structure?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q1_a" name="Question1" value="A" required>A. The flow of traffic at a one-way intersection.</label>
-        <label><input type="radio" id="q1_b" name="Question1" value="B">B. The line of customers waiting at a checkout counter.</label>
-        <label><input type="radio" id="q1_c" name="Question1" value="C">C. The undo/redo functionality in a text editor.</label>
-        <label><input type="radio" id="q1_d" name="Question1" value="D">D. A playlist that shuffles songs randomly.</label>
-    </div>
-</div>
-
-<div class="form-group no-select">
-    <p><strong>2. Which principle does a Stack data structure follow?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q2_a" name="Question2" value="A" required>A. First-In, First-Out (FIFO)</label>
-        <label><input type="radio" id="q2_b" name="Question2" value="B">B. Last-In, Last-Out (LILO)</label>
-        <label><input type="radio" id="q2_c" name="Question2" value="C">C. First-In, Last-Out (FILO)</label>
-        <label><input type="radio" id="q2_d" name="Question2" value="D">D. Last-In, First-Out (LIFO)</label>
-    </div>
-</div>
-
-<div class="form-group no-select">
-    <p><strong>3. What is the correct action for the enqueue operation?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q3_a" name="Question3" value="A" required>A. Removing an element from the front of the queue.</label>
-        <label><input type="radio" id="q3_b" name="Question3" value="B">B. Getting the value of the front element without removing it.</label>
-        <label><input type="radio" id="q3_c" name="Question3" value="C">C. Inserting a new element at the rear of the queue.</label>
-        <label><input type="radio" id="q3_d" name="Question3" value="D">D. Checking if the queue is empty.</label>
-    </div>
-</div>
-
-<div class="form-group no-select">
-    <p><strong>4. What is the primary difference between a stack and a queue?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q4_a" name="Question4" value="A" required>A. Stacks are used for storing data, while queues are not.</label>
-        <label><input type="radio" id="q4_b" name="Question4" value="B">B. Stacks follow a Last-In, First-Out (LIFO) principle, while queues follow a First-In, First-Out (FIFO) principle.</label>
-        <label><input type="radio" id="q4_c" name="Question4" value="C">C. Stacks can only store numbers, while queues can store any data type.</label>
-        <label><input type="radio" id="q4_d" name="Question4" value="D">D. Stacks are dynamic data structures, while queues are static.</label>
-    </div>
-</div>
-
-<div class="form-group no-select">
-    <p><strong>5. Which of the following scenarios is most effectively handled by a stack data structure?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q5_a" name="Question5" value="A" required>A. Storing a list of people in a queue waiting to be served.</label>
-        <label><input type="radio" id="q5_b" name="Question5" value="B">B. Keeping track of the history of visited web pages in a web browser to enable a "back" button.</label>
-        <label><input type="radio" id="q5_c" name="Question5" value="C">C. Managing a circular list of tasks that repeat in a loop.</label>
-        <label><input type="radio" id="q5_d" name="Question5" value="D">D. Storing a student's ID and name for quick, random access.</label>
-    </div>
-</div>
 <!-- ADD QUIZ QNS BEFORE THIS-->
 <p><strong>After submission wait until you see a tick</strong></p>
 <button type="submit" class="submit-button">Submit Quiz</button>
@@ -251,7 +202,7 @@
         // Priority 1: Manual override via linkControlStatus
         if (linkControlStatus === "enable") {
             quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 5 QUIZ<br>fill within 07/09/25 6.00 PM IST!'; // Indicate manual override
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 6 QUIZ<br>fill within 14/09/25 6.00 PM IST!'; // Indicate manual override
             statusElement.style.color = '#008000'; // Green
         }
         // Priority 2: Timer control, if enabled
