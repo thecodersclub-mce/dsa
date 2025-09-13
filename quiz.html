@@ -69,6 +69,67 @@
 <div id="quizOverlay">
 </div>
 <h3>Quiz Questions</h3>
+    <div class="form-group no-select">
+    <p><strong>1. A data structure where each node can have at most two children is known as what?</strong></p>
+    <div class="radio-group">
+        <label><input type="radio" id="q1_a" name="Question1" value="A" required>A) A Full Tree</label>
+        <label><input type="radio" id="q1_b" name="Question1" value="B">B) A Complete Tree</label>
+        <label><input type="radio" id="q1_c" name="Question1" value="C">C) A Binary Tree</label>
+        <label><input type="radio" id="q1_d" name="Question1" value="D">D) A Skewed Tree</label>
+    </div>
+</div>
+
+<div class="form-group no-select">
+    <p><strong>2. In the context of a hash table, what is a "collision"?</strong></p>
+    <div class="radio-group">
+        <label><input type="radio" id="q2_a" name="Question2" value="A" required>A) A situation where the hash table's capacity has been reached.</label>
+        <label><input type="radio" id="q2_b" name="Question2" value="B">B) When two or more different keys compute to the same hash value, leading to the same index in the table.</label>
+        <label><input type="radio" id="q2_c" name="Question2" value="C">C) A failed attempt to insert an element into the table.</label>
+        <label><input type="radio" id="q2_d" name="Question2" value="D">D) The process of finding an element in a hash table.</label>
+    </div>
+</div>
+
+<div class="form-group no-select">
+    <p><strong>3. The following C program creates a binary tree with the numbers 1, 2, 3, 4, and 5. What will be the output of the provided C program's postorder traversal function?</strong></p>
+    <p><ul><li>1 is the root.</li>
+    <li>2 is the left child of 1.</li>
+    <li>3 is the right child of 1.</li>
+    <li>4 is the left child of 2.</li>
+    <li>5 is the right child of 2.</li></ul></p>
+    <code>void postorderTraversal(struct Node* root) {
+    if (root != NULL) {
+        postorderTraversal(root->left);
+        postorderTraversal(root->right);
+        printf("%d ", root->data);
+    }
+}</code>
+    <div class="radio-group">
+        <label><input type="radio" id="q3_a" name="Question3" value="A" required>A) 4 5 2 3 1</label>
+        <label><input type="radio" id="q3_b" name="Question3" value="B">B) 1 2 4 5 3</label>
+        <label><input type="radio" id="q3_c" name="Question3" value="C">C) 4 2 5 1 3</label>
+        <label><input type="radio" id="q3_d" name="Question3" value="D">D) 1 2 3 4 5</label>
+    </div>
+</div>
+
+<div class="form-group no-select">
+    <p><strong>4. Which of the following data structures is best suited for an application that needs to manage a list of tasks in the order they are received, ensuring the oldest task is always processed first?</strong></p>
+    <div class="radio-group">
+        <label><input type="radio" id="q4_a" name="Question4" value="A" required>A) Stack</label>
+        <label><input type="radio" id="q4_b" name="Question4" value="B">B) Queue</label>
+        <label><input type="radio" id="q4_c" name="Question4" value="C">C) Array</label>
+        <label><input type="radio" id="q4_d" name="Question4" value="D">D) Hash Table</label>
+    </div>
+</div>
+
+<div class="form-group no-select">
+    <p><strong>5. What is the primary advantage of using Breadth-First Search (BFS) over Depth-First Search (DFS) when finding the shortest path in an unweighted graph?</strong></p>
+    <div class="radio-group">
+        <label><input type="radio" id="q5_a" name="Question5" value="A" required>A) BFS uses less memory than DFS.</label>
+        <label><input type="radio" id="q5_b" name="Question5" value="B">B) BFS is guaranteed to find the shortest path.</label>
+        <label><input type="radio" id="q5_c" name="Question5" value="C">C) DFS can get stuck in an infinite loop on cyclic graphs.</label>
+        <label><input type="radio" id="q5_d" name="Question5" value="D">D) BFS is more efficient for dense graphs.</label>
+    </div>
+</div>
 <!-- ADD QUIZ QNS BEFORE THIS-->
 <p><strong>After submission wait until you see a tick</strong></p>
 <button type="submit" class="submit-button">Submit Quiz</button>
@@ -104,7 +165,7 @@
     <script>
     // --- CONTROL KEYWORD HERE ---
     // Change this variable to "disable" or "enable"
-    const linkControlStatus = "disable"; // Set to "enable" to activate links
+    const linkControlStatus = "enable"; // Set to "enable" to activate links
     // --- END CONTROL KEYWORD ---
 
     // --- TIMER CONTROL KEYWORD HERE ---
