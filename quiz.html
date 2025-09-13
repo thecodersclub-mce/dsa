@@ -96,13 +96,13 @@
     <li>3 is the right child of 1.</li>
     <li>4 is the left child of 2.</li>
     <li>5 is the right child of 2.</li></ul></p>
-    <code>void postorderTraversal(struct Node* root) {
+    <pre><code>void postorderTraversal(struct Node* root) {
     if (root != NULL) {
         postorderTraversal(root->left);
         postorderTraversal(root->right);
         printf("%d ", root->data);
     }
-}</code>
+}</code></pre>
     <div class="radio-group">
         <label><input type="radio" id="q3_a" name="Question3" value="A" required>A) 4 5 2 3 1</label>
         <label><input type="radio" id="q3_b" name="Question3" value="B">B) 1 2 4 5 3</label>
