@@ -1813,40 +1813,303 @@ arr[i] = temp;
         <button class="tab-button" onclick="showDay('saturday-content-week6', this, 'week6')">Saturday</button>
     </div>
     
-    <div id="monday-content-week6" class="day-content day-section">
-        <h2>Monday Maverick</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+<div id="monday-content-week6" class="day-content day-section">
+    <h2>Monday Maverick</h2>
+    <div class="content-block">
+        <h3>Trees and graphs</h3>
 
-    <div id="tuesday-content-week6" class="day-content day-section">
-        <h2>Techie Tuesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+        <h4>Tree in DSA</h4>
+        <p>Hierarchical structure (like a family tree).</p>
+        <p>Root (top), Leaf (end), Parent–Child, Siblings, Height, Level, Subtree.</p>
 
-    <div id="wednesday-content-week6" class="day-content day-section">
-        <h2>Syntax Snapshots Wednesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+        <h4>Binary Tree</h4>
+        <p>Each node has at most 2 children → Left & Right.</p>
+        
+        <h4>Types:</h4>
+        <ul>
+            <li>Full → 0 or 2 kids</li>
+            <li>Complete → filled level-wise</li>
+            <li>Perfect → all leaves at same level</li>
+            <li>Skewed → one-sided</li>
+        </ul>
 
-    <div id="thursday-content-week6" class="day-content day-section">
-        <h2>Te Ta Thursday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+        <h4>Binary Search Tree (BST)</h4>
+        <p>Special Binary Tree with ordered property:</p>
+        <p>Left < Root < Right</p>
+        <p>Inorder traversal = sorted list</p>
+        <p>Fast search, insert, delete (O(log n) if balanced).</p>
+
+        <h4>In short:</h4>
+        <ul><li>Tree = hierarchy</li>
+        <li>Binary Tree = max 2 children</li>
+        <li>BST = sorted binary tree</li></ul>
     </div>
+</div>
+
+<div id="tuesday-content-week6" class="day-content day-section">
+    <h2>Techie Tuesday</h2>
+    <div class="content-block">
+        <h3>BST OPERATIONS</h3>
+        
+        <h4>Binary Search:</h4>
+        <p>Binary Search is an efficient searching algorithm that works on a sorted list by repeatedly dividing the search interval in half until the target element is found or the interval becomes empty.</p>
+        
+        <h4>Simple BST Program</h4>
+        <p><strong>Code:</strong></p>
+        <pre><code>    def __init__(self, key):
+        self.key = key      # value of node
+        self.left = None    # left child
+        self.right = None   # right child
+
+# INSERT operation
+def insert(root, key):
+    if root is None:              # if tree is empty
+        return Node(key)
+    if key < root.key:              # smaller → go left
+        root.left = insert(root.left, key)
+    elif key > root.key:             # larger → go right
+        root.right = insert(root.right, key)
+    return root
+
+# SEARCH operation
+def search(root, key):
+    if root is None:              # not found
+        return None
+    if root.key == key:            # found
+        return root
+    if key < root.key:              # search left
+        return search(root.left, key)
+    return search(root.right, key)  # search right
+
+# DELETE operation
+def delete(root, key):
+    if root is None:
+        return root
+    if key < root.key:              # go left
+        root.left = delete(root.left, key)
+    elif key > root.key:             # go right
+        root.right = delete(root.right, key)
+    else:  # found node to delete
+        if root.left is None:      # 1 child or no child
+            return root.right
+        elif root.right is None:
+            return root.left
+        # 2 children → find min in right subtree
+        temp = root.right
+        while temp.left:
+            temp = temp.left
+        root.key = temp.key
+        root.right = delete(root.right, temp.key)
+    return root</code></pre>
+
+        <h4>---------------- Example ----------------</h4>
+        <pre><code>root = None
+# Insert values
+for val in [50, 30, 70, 20, 40, 60, 80]:
+    root = insert(root, val)
+
+print("Search 40:", "Found" if search(root, 40) else "Not Found")
+
+root = delete(root, 20)    # Delete leaf
+root = delete(root, 30)    # Delete node with one child
+root = delete(root, 50)    # Delete node with two children</code></pre>
+
+        <h4>Explanation</h4>
+        <p><strong>Insert →</strong> If new value is smaller → go left; if bigger → go right; if empty → create new node.</p>
+        <p><strong>Search →</strong> Compare with root: if equal → found; if smaller → go left; if bigger → go right.</p>
+        <p><strong>Delete</strong></p>
+        <ol>
+            <li>If node has no child → just remove it.</li>
+            <li>If node has one child → replace with that child.</li>
+            <li>If node has two children → replace with the smallest value in right subtree.</li>
+        </ol>
+    </div>
+</div>
+
+<div id="wednesday-content-week6" class="day-content day-section">
+    <h2>Syntax Snapshots Wednesday</h2>
+    <div class="content-block">
+        <h3>Tree Traversals</h3>
+
+        <h4>Definition:</h4>
+        <p>Tree Traversal means visiting each node of a tree exactly once in a specific order.</p>
+
+        <p>There are 3 main Depth-First Traversals (DFS):</p>
+
+        <h4>1. Inorder (L → Root → R)</h4>
+        <p>Visit Left subtree, then Root, then Right subtree</p>
+        <p>For Binary Search Tree (BST), Inorder traversal gives elements in sorted order</p>
+
+        <h4>2. Preorder (Root → L → R)</h4>
+        <p>Visit Root first, then Left subtree, then Right subtree</p>
+        <p>Useful for creating a copy of a tree or prefix expression notation</p>
+
+        <h4>3. Postorder (L → R → Root)</h4>
+        <p>Visit Left subtree, then Right subtree, then Root</p>
+        <p>Useful for deleting/freeing the tree, or postfix expression evaluation</p>
+
+        <h4>C Program – Tree Traversals</h4>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// Structure of a tree node
+struct Node {
+    int data;
+    struct Node* left;
+    struct Node* right;
+};
+
+// Create a new node
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->left = newNode->right = NULL;
+    return newNode;
+}
+
+// Inorder Traversal
+void inorder(struct Node* root) {
+    if (root != NULL) {
+        inorder(root->left);
+        printf("%d ", root->data);
+        inorder(root->right);
+    }
+}
+
+// Preorder Traversal
+void preorder(struct Node* root) {
+    if (root != NULL) {
+        printf("%d ", root->data);
+        preorder(root->left);
+        preorder(root->right);
+    }
+}
+
+// Postorder Traversal
+void postorder(struct Node* root) {
+    if (root != NULL) {
+        postorder(root->left);
+        postorder(root->right);
+        printf("%d ", root->data);
+    }
+}
+
+int main() {
+    struct Node* root = createNode(1);
+    root->left = createNode(2);
+    root->right = createNode(3);
+    root->left->left = createNode(4);
+    root->left->right = createNode(5);
+
+    printf("Inorder Traversal: ");
+    inorder(root);
+    printf("\n");
+
+    printf("Preorder Traversal: ");
+    preorder(root);
+    printf("\n");
+
+    printf("Postorder Traversal: ");
+    postorder(root);
+    printf("\n");
+
+    return 0;
+}
+</code></pre>
+<h4>Output:</h4>
+<code>Inorder Traversal: 4 2 5 1 3
+Preorder Traversal: 1 2 4 5 3
+Postorder Traversal: 4 5 2 3 1</code>
+
+        <h4>Time Complexity:</h4>
+        <p>O(n) (all nodes are visited once)</p>
+
+        <h4>Space Complexity:</h4>
+        <p>O(h) (h = height of tree, due to recursion stack)</p>
+
+        <h4>Use Cases:</h4>
+        <p>Inorder → Sorted traversal in BST<br>Preorder → Tree construction / Expression trees<br>Postorder → Deleting tree / Expression evaluation</p>
+    </div>
+</div>
+
+   <div id="thursday-content-week6" class="day-content day-section">
+    <h2>Te Ta Thursday</h2>
+    <div class="content-block">
+        <p>At its core, Data Structures and Algorithms (DSA) is a fundamental concept in computer science that deals with two key aspects:</p>
+        <ul>
+            <li>
+                <strong>Data Structures:</strong> These are specific ways of organizing and storing data in a computer so that it can be accessed and used efficiently. Think of them as different types of containers, each with its own strengths and weaknesses depending on what you need to do. Common examples include:
+                <ul>
+                    <li>Arrays: A simple list of items.</li>
+                    <li>Linked Lists: A chain of items.</li>
+                    <li>Stacks: A pile of items where you can only access the top one (Last-In, First-Out).</li>
+                    <li>Queues: A line of items where the first one in is the first one out (First-In, First-Out).</li>
+                    <li>Trees: A hierarchical structure, like a family tree or a file system.</li>
+                    <li>Graphs: A network of connected items, like a social network.</li>
+                    <li>Hash Tables: A way to store and retrieve items very quickly using a key.</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Algorithms:</strong> These are a set of step-by-step instructions or rules that are designed to solve a specific problem or perform a particular task. In the context of DSA, algorithms are often used to manipulate the data within the data structures. For example, you might have an algorithm to:
+                <ul>
+                    <li>Search for a specific item in a data structure.</li>
+                    <li>Sort the items in a data structure into a particular order.</li>
+                    <li>Insert a new item into a data structure.</li>
+                    <li>Delete an item from a data structure.</li>
+                </ul>
+            </li>
+        </ul>
+        <p>In simple terms:</p>
+        <p>Imagine you have a large library of books (the data).</p>
+        <ul>
+            <li>A data structure is how you choose to organize those books. You could stack them in a single pile (a stack), line them up on a long shelf (an array), or create a card catalog with references to where each book is (a hash table).</li>
+            <li>An algorithm is the set of instructions you follow to find a specific book. For a pile of books, your algorithm would be to take them off one by one until you find the one you're looking for. For the card catalog, your algorithm would be to look up the book's reference and go directly to its location.</li>
+        </ul>
+        <p>Why is DSA important?</p>
+        <p>The choice of data structure and algorithm can have a huge impact on the efficiency of a computer program. A well-chosen combination can make a program run much faster and use less memory, which is crucial for building complex and scalable software. Understanding DSA is therefore a fundamental skill for any programmer.</p>
+    </div>
+</div>
 
     <div id="friday-content-week6" class="day-content day-section">
-        <h2>Function Friday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+    <h2>Function Friday</h2>
+    <div class="content-block">
+        <h3>Graph Representation</h3>
+        <p>A graph is a non-linear data structure consisting of nodes or vertices connected by edges. There are two primary ways to represent graphs:</p>
+        
+        <h4>1. Adjacency Matrix</h4>
+        <ul>
+            <li><strong>Description:</strong> An adjacency matrix is a square matrix where the entry at row `i` and column `j` represents the weight of the edge between vertices `i` and `j`.</li>
+            <li><strong>Example:</strong> Consider a graph with vertices `A`, `B`, `C`, and `D`. The adjacency matrix for this graph would be a 4x4 matrix, where the entry at row `A` and column `B` represents the weight of the edge between `A` and `B`.</li>
+            <li><strong>Explanation:</strong> Adjacency matrices are useful for dense graphs, where most vertices are connected to each other. However, they can be memory-inefficient for sparse graphs.</li>
+        </ul>
+        
+        <h4>2. Adjacency List</h4>
+        <ul>
+            <li><strong>Description:</strong> An adjacency list is a collection of lists, where each list represents the vertices adjacent to a particular vertex.</li>
+            <li><strong>Example:</strong> Consider a graph with vertices `A`, `B`, `C`, and `D`. The adjacency list for this graph would be a list of vertices, where each vertex is associated with a list of its adjacent vertices.</li>
+            <li><strong>Explanation:</strong> Adjacency lists are useful for sparse graphs, where most vertices are not connected to each other. They can be more memory-efficient than adjacency matrices.</li>
+        </ul>
+        
+        <h3>Graph Traversal Algorithms</h3>
+        <p>Graph traversal algorithms are used to visit vertices in a graph. Two common graph traversal algorithms are:</p>
+        
+        <h4>1. Breadth-First Search (BFS)</h4>
+        <ul>
+            <li><strong>Description:</strong> BFS is a graph traversal algorithm that visits vertices in a breadthward motion, exploring all vertices at a given depth before moving to the next depth level.</li>
+            <li><strong>Example:</strong> Consider a graph with vertices `A`, `B`, `C`, and `D`, where `A` is connected to `B` and `C`, and `B` is connected to `D`. A BFS traversal starting from `A` would visit vertices in the order `A`, `B`, `C`, `D`.</li>
+            <li><strong>Explanation:</strong> BFS is useful for finding shortest paths in unweighted graphs.</li>
+        </ul>
+        
+        <h4>2. Depth-First Search (DFS)</h4>
+        <ul>
+            <li><strong>Description:</strong> DFS is a graph traversal algorithm that visits vertices in a depthward motion, exploring as far as possible along each branch before backtracking.</li>
+            <li><strong>Example:</strong> Consider a graph with vertices `A`, `B`, `C`, and `D`, where `A` is connected to `B` and `C`, and `B` is connected to `D`. A DFS traversal starting from `A` might visit vertices in the order `A`, `B`, `D`, `C`.</li>
+            <li><strong>Explanation:</strong> DFS is useful for detecting cycles in graphs and for topological sorting.</li>
+        </ul>
+        
+        <p>These graph traversal algorithms have numerous applications in computer science, including finding shortest paths, detecting cycles, and solving graph-related problems.</p>
     </div>
+</div>
    <div id="saturday-content-week6" class="day-content day-section">
     <h2>Brain Cache</h2>
     <div class="content-block">
@@ -1917,10 +2180,20 @@ printf("%d ", root->data);
     
     <div id="monday-content-week7" class="day-content day-section">
         <h2>Monday Maverick</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
+        <div class="quiz-container">
+        <h3>Questions:</h3>
+    <div class="question-block">
+        <p>1. Which of the following data structures is best suited for implementing recursion?</p>
+        <div class="options">
+            <div class="quiz-option" data-question="q1" data-value="a">A. Queue;</div>
+            <div class="quiz-option" data-question="q1" data-value="b">B. Stack</div>
+            <div class="quiz-option" data-question="q1" data-value="c">C. Linked list</div>
+            <div class="quiz-option" data-question="q1" data-value="d">D. Tree</div>
         </div>
+        <div class="quiz-feedback"></div>
     </div>
+
+    </div></div>
 
     <div id="tuesday-content-week7" class="day-content day-section">
         <h2>Techie Tuesday</h2>
@@ -2332,7 +2605,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'week7': {
             'monday': {
-                'q1': 'a',
+                'q1': 'b',
             },
             'tuesday': {
                 'q1': 'a',
