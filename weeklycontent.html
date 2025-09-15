@@ -644,6 +644,19 @@ pre code {
         content: none; /* Crucial: Remove the data-label pseudo-element */
     }
 }
+ .content-block-table {
+                min-width: 300px; /* Maintain minimum width for scrollable table */
+            }
+            .content-block-table th, .content-block-table td {
+                font-size: 0.8em;
+                padding: 8px;
+            }
+            /* Adjustments for board members table on small screens */
+            .board-members-table th,
+            .board-members-table td {
+                padding: 5px; /* Significantly reduced padding */
+                font-size: 0.75em; /* Even smaller font size */
+            }
 /* Large devices (desktops, 901px and up - uses existing styles for max-width 900px and up) */
 /* No specific media query needed here as base styles handle larger screens */
 .quiz-container {
@@ -1499,40 +1512,253 @@ printf("%d", max);
         <button class="tab-button" onclick="showDay('saturday-content-week3', this, 'week3')">Saturday</button>
     </div>
 
-    <div id="monday-content-week3" class="day-content day-section">
-        <h2>Monday Maverick</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+<div id="monday-content-week3" class="day-content day-section">
+    <h2>Monday Mavericky</h2>
+    <div class="content-block">
+        <h3>Sorting Techniques</h3>
 
-    <div id="tuesday-content-week3" class="day-content day-section">
-        <h2>Techie Tuesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+        <h4>Concept:</h4>
+        <p>Sorting is a process of arranging data in a particular order—most commonly ascending (smallest to largest) or descending (largest to smallest).</p>
+        <p>It is a fundamental concept in computer science because many tasks become easier and more efficient once the data is sorted (like searching, analyzing, or displaying results).</p>
 
-    <div id="wednesday-content-week3" class="day-content day-section">
-        <h2>Syntax Snapshots Wednesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+        <h4>Types of Sorting:</h4>
+        <ul>
+            <li>Ascending / Descending order</li>
+            <li>Alphabetical / Lexicographical order</li>
+            <li>Based on key values (e.g., sorting students by marks, employees by salary)</li>
+        </ul>
 
-    <div id="thursday-content-week3" class="day-content day-section">
-        <h2>Te Ta Thursday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+        <h4>Real World Application:</h4>
+        <ul>
+            <li>E-commerce → Sort products by price or rating</li>
+            <li>Search engines → Results sorted by relevance/date</li>
+            <li>Databases → ORDER BY queries for organized output</li>
+            <li>Contacts & Files → Sorted by name, size, or date</li>
+            <li>Banking → Transactions sorted by amount/date</li>
+            <li>Task management → Tasks sorted by deadline/priority</li>
+        </ul>
     </div>
+</div>
+<div id="tuesday-content-week3" class="day-content day-section">
+    <h2>Techie Tuesday</h2>
+    <div class="content-block">
+        <h3>Bubble Sort vs Selection Sort</h3>
+
+        <h4>Bubble Sort</h4>
+        <p>Repeatedly compares adjacent elements and swaps them if they are in the wrong order.</p>
+        <p><strong>Time Complexity:</strong></p>
+        <ul>
+            <li>Best Case → O(n) (already sorted)</li>
+            <li>Worst Case → O(n²)</li>
+        </ul>
+        <p><strong>Code (Python):</strong></p>
+        <pre><code>def bubble_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+    return arr
+
+print(bubble_sort([64, 25, 12, 22, 11]))</code></pre>
+<h4>Output</h4>
+<code>11, 12, 22, 25, 64</code>
+
+        <h4>Selection Sort</h4>
+        <p>Selects the minimum element and places it at the correct position in each pass.</p>
+        <p><strong>Time Complexity:</strong></p>
+        <ul>
+            <li>Best Case → O(n²)</li>
+            <li>Worst Case → O(n²)</li>
+        </ul>
+        <p><strong>Code (Python):</strong></p>
+        <pre><code>def selection_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        min_idx = i
+        for j in range(i+1, n):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+    return arr
+
+print(selection_sort([64, 25, 12, 22, 11]))</code></pre>
+        <h4>Output</h4>
+        <code>11, 12, 22, 25, 64</code>
+        <h4>Comparison Table</h4>
+        <div class="table-responsive">
+                <table class="content-block-table">
+            <thead>
+                <tr>
+                    <th>Algorithm</th>
+                    <th>Best Case</th>
+                    <th>Worst Case</th>
+                    <th>Stable?</th>
+                    <th>Space</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Bubble Sort</td>
+                    <td>O(n)</td>
+                    <td>O(n²)</td>
+                    <td>Yes</td>
+                    <td>O(1)</td>
+                </tr>
+                <tr>
+                    <td>Selection Sort</td>
+                    <td>O(n²)</td>
+                    <td>O(n²)</td>
+                    <td>No</td>
+                    <td>O(1)</td>
+                </tr>
+            </tbody>
+        </table></div>
+        <p><strong>Insight:</strong>
+            <ol><li>Bubble Sort is slightly better if the list is almost sorted, but Selection Sort does fewer swaps.</li>
+            <li>Both are not efficient for large datasets – we use Merge Sort, Quick Sort, Heap Sort instead.</li></ol>  
+    </div>
+</div>
+
+<div id="wednesday-content-week3" class="day-content day-section">
+    <h2>Syntax Snapshots Wednesday</h2>
+    <div class="content-block">
+        <h3>Insertion Sort Algorithm</h3>
+
+        <h4>Definition:</h4>
+        <p>Insertion Sort builds the final sorted array one element at a time, by picking an element and inserting it into its correct position among the already sorted part.</p>
+
+        <pre><code>#include &lt;stdio.h&gt;
+
+void insertionSort(int arr[], int n) {
+    for (int i = 1; i < n; i++) {
+        int key = arr[i];
+        int j = i - 1;
+
+        // Shift elements greater than key to one position ahead
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+
+int main() {
+    int arr[] = {12, 11, 13, 5, 6};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    insertionSort(arr, n);
+
+    printf("Sorted array: ");
+    for (int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}</code></pre>
+<h4>Output:</h4>
+<code>Sorted array: 5 6 11 12 13</code>
+
+        <h4>Time Complexity:</h4>
+        <ul>
+            <li><strong>Best Case (already sorted):</strong> O(n)</li>
+            <li><strong>Worst Case (reverse sorted):</strong> O(n²)</li>
+            <li><strong>Average Case:</strong> O(n²)</li>
+        </ul>
+
+        <h4>Space Complexity:</h4>
+        <ul>
+            <li>O(1) → In-place sorting</li>
+        </ul>
+
+        <h4>Pros:</h4>
+        <ul>
+            <li>Simple and easy to implement</li>
+            <li>Efficient for small datasets or nearly sorted arrays</li>
+        </ul>
+
+        <h4>Cons:</h4>
+        <ul>
+            <li>Slow for large datasets (O(n²))</li>
+        </ul>
+
+        <h4>Practice Task:</h4>
+        <ol>
+            <li>Write an Insertion Sort program to sort an array in descending order.</li>
+            <li>Try to count and print the number of comparisons made during sorting.</li>
+        </ol>
+    </div>
+</div>
+
+<div id="thursday-content-week3" class="day-content day-section">
+    <h2>Te Ta Thursday</h2>
+    <div class="content-block">
+        <h3>Merge Sort in DSA</h3>
+
+        <h4>Steps of Merge Sort:</h4>
+        <ol>
+            <li><strong>Divide</strong> → Split the array into two halves.</li>
+            <li><strong>Conquer</strong> → Recursively sort each half.</li>
+            <li><strong>Combine</strong> → Merge the two sorted halves into a single sorted array.</li>
+        </ol>
+
+        <h4>Example:</h4>
+        <p>Array = [38, 27, 43, 3, 9, 82, 10]</p>
+        <p>Step 1: <strong>Divide</strong> → [38, 27, 43] and [3, 9, 82, 10]</p>
+        <p>Step 2: <strong>Further divide</strong> → [38] [27,43] and [3,9] [82,10]</p>
+        <p>Step 3: <strong>Sort & merge</strong> → [27,38,43] and [3,9,10,82]</p>
+        <p>Step 4: <strong>Final merge</strong> → [3,9,10,27,38,43,82]</p>
+
+
+        <h4>Time Complexity:</h4>
+        <p>Best Case: O(n log n)</p>
+        <p>Average Case: O(n log n)</p>
+        <p>Worst Case: O(n log n)</p>
+
+        <h4>Space Complexity:</h4>
+        <p>O(n) (extra space required for merging)</p>
+
+        <h4>Key Points:</h4>
+        <ul>
+            <li><strong>Always O(n log n)</strong> → more efficient than Bubble Sort/Insertion Sort.</li>
+            <li>Uses recursion.</li>
+            <li>Stable sorting algorithm (preserves order of equal elements).</li>
+        </ul>
+    </div>
+</div>
 
     <div id="friday-content-week3" class="day-content day-section">
-        <h2>Function Friday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+    <h2>Function Friday</h2>
+    <div class="content-block">
+        <h3>Quick Sort</h3>
+        <p>Quick sort is a popular sorting algorithm that uses the divide-and-conquer technique to sort an array of elements. Here's a concise summary:</p>
+
+        <h4>Key Points</h4>
+        <ul>
+            <li><strong>Divide-and-Conquer</strong>: Divide the array into smaller sub-arrays and solve each sub-array recursively.</li>
+            <li><strong>Pivot Selection</strong>: Choose a pivot element from the array to partition the other elements.</li>
+            <li><strong>Partitioning</strong>: Partition the array into two sub-arrays: elements less than the pivot and elements greater than the pivot.</li>
+            <li><strong>Recursion</strong>: Recursively apply the quick sort algorithm to the sub-arrays.</li>
+            <li><strong>Combining</strong>: Combine the sorted sub-arrays to get the final sorted array.</li>
+        </ul>
+
+        <h4>Example</h4>
+        <p>Suppose we have the array <strong>[5, 2, 9, 1, 7, 3]</strong>. We choose the first element <strong>5</strong> as the pivot, partition the array into <strong>[2, 1, 3]</strong> and <strong>[9, 7]</strong>, and recursively sort the sub-arrays. The final sorted array is <strong>[1, 2, 3, 5, 7, 9]</strong></p>
+
+        <h4>Time Complexity</h4>
+        <ul>
+            <li><strong>Average Case</strong>: O(n log n)</li>
+            <li><strong>Worst Case</strong>: O(n^2) if the pivot is chosen poorly.</li>
+        </ul>
+
+        <h4>C Implementation</h4>
+        <p>The provided C implementation demonstrates the quick sort algorithm using a recursive approach. The <strong>partition</strong> function rearranges the array, and the <strong>quick_sort</strong> function recursively applies the partitioning process to the sub-arrays.</p>
+
+        <h4>Output</h4>
+        <p>The output of the C implementation shows the original array <strong>[5, 2, 9, 1, 7, 3]</strong> and the sorted array <strong>[1, 2, 3, 5, 7, 9]</strong>.</p>
     </div>
+</div>
     <div id="saturday-content-week3" class="day-content day-section">
     <h2>Brain Cache</h2>
     <div class="content-block">
@@ -1625,40 +1851,270 @@ arr[i] = temp;
     </div>
 
     
-    <div id="monday-content-week4" class="day-content day-section">
-        <h2>Monday Maverick</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+<div id="monday-content-week4" class="day-content day-section">
+    <h2>Monday Maverick</h2>
+    <div class="content-block">
+        <h3>Introduction to Linked List:</h3>
+        <p>A linear data structure where nodes are connected using pointers.</p>
+        <p>Each node = data + pointer.</p>
+        <p>Unlike arrays, linked lists are dynamic and non-contiguous.</p>
+
+        <h3>Types of Linked Lists:</h3>
+        <ul>
+            <li>Singly Linked List – one pointer (next).</li>
+            <li>Doubly Linked List – two pointers (next & prev).</li>
+            <li>Circular Linked List – last node connects to first.</li>
+            <li>Circular Doubly Linked List – combination of both.</li>
+        </ul>
+
+        <h3>Operations:</h3>
+        <p>Insertion, Deletion, Traversal, Searching, Updating.</p>
+
+        <h3>Use Cases:</h3>
+        <ul>
+            <li>Dynamic memory management.</li>
+            <li>Implementing stacks, queues, graphs, hash tables.</li>
+        </ul>
+
+        <h3>Real-world:</h3>
+        <ul>
+            <li>Browser history</li>
+            <li>text editor undo/redo</li>
+            <li>playlists</li>
+            <li>OS memory management.</li>
+        </ul>
+
+        <h3>Pros & Cons:</h3>
+        <ul>
+            <li>Dynamic size, easy insertion/deletion.</li>
+            <li>Extra memory for pointers, no direct indexing.</li>
+        </ul>
     </div>
+</div>
 
     <div id="tuesday-content-week4" class="day-content day-section">
-        <h2>Techie Tuesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+    <h2>Techie Tuesday</h2>
+    <div class="content-block">
+        <h3>Segment Tree</h3>
+
+        <h4>What is a Segment Tree?</h4>
+        <p>A Segment Tree is a binary tree data structure used for answering range queries and performing range updates efficiently.</p>
+
+        <h4>Why not just use arrays?</h4>
+        <p>For operations like finding sum/min/max in a subarray, arrays take O(n) per query.</p>
+        <p>With Segment Tree, it reduces to O(log n) per query/update.</p>
+
+        <h4>How it works?</h4>
+        <p>The array is divided into segments (intervals).</p>
+        <p>Each node of the tree stores information (like sum or min) about a segment.</p>
+        <p>Queries are answered by combining results from relevant segments.</p>
+
+        <h4>Applications:</h4>
+        <ul>
+            <li>Competitive programming problems (range queries).</li>
+            <li>Range Sum Queries (RSQ).</li>
+            <li>Minimum/Maximum in a subarray.</li>
+            <li>Used in game leaderboards, stock price analysis, and data analytics.</li>
+        </ul>
     </div>
+</div>
 
     <div id="wednesday-content-week4" class="day-content day-section">
         <h2>Syntax Snapshots Wednesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+    <div class="content-block">
+        <h3>Comparison of Linked Lists</h3>
+
+        <h4>Singly Linked List:</h4>
+        <ul>
+            <li>Node structure: Each node has a reference to the next node</li>
+            <li>Traversal: Can only traverse in one direction</li>
+            <li>Insertion/Deletion: Efficient insertion and deletion at the beginning or end</li>
+            <li>Memory usage: Less memory usage due to single pointer</li>
+            <li>Use cases: Dynamic memory allocation, efficient insertion/deletion</li>
+        </ul>
+
+        <h4>Doubly Linked List:</h4>
+        <ul>
+            <li>Node structure: Each node has references to both previous and next nodes</li>
+            <li>Traversal: Can traverse in both forward and backward directions</li>
+            <li>Insertion/Deletion: Efficient insertion and deletion at any position</li>
+            <li>Memory usage: More memory usage due to two pointers</li>
+            <li>Use cases: Efficient insertion/deletion at any position, browser history</li>
+        </ul>
+
+        <h4>Circular Linked List:</h4>
+        <ul>
+            <li>Node structure: Last node points back to the first node</li>
+            <li>Traversal: Can traverse in a circular manner</li>
+            <li>Insertion/Deletion: Efficient for implementing buffers and queues</li>
+            <li>Memory usage: Similar to singly linked list</li>
+            <li>Use cases: Buffers, queues, traffic simulation</li>
+        </ul>
+
+        <p>This comparison highlights the key differences and use cases for each type of linked list.</p>
+    </div>
     </div>
 
-    <div id="thursday-content-week4" class="day-content day-section">
-        <h2>Te Ta Thursday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+   <div id="thursday-content-week4" class="day-content day-section">
+    <h2>Te Ta Thursday</h2>
+    <div class="content-block">
+        <h3>Linked List in Data Structures</h3>
+        <p>A Linked List is a linear data structure where elements (called nodes) are connected using pointers. Each node contains:</p>
+        <ul>
+            <li><strong>Data</strong> → stores the value</li>
+            <li><strong>Pointer</strong> → stores the address of the next node</li>
+        </ul>
+        <p>Unlike arrays, linked lists don’t require continuous memory, making insertion and deletion more efficient.</p>
 
+        <h4>Types of Linked Lists:</h4>
+        <ol>
+            <li><strong>Singly Linked List</strong> → Each node points to the next node only.</li>
+            <li><strong>Doubly Linked List</strong> → Each node has two pointers: one to the next and one to the previous node.</li>
+            <li><strong>Circular Linked List</strong> → The last node connects back to the first node, forming a circle.</li>
+            <li><strong>Doubly Circular Linked List</strong> → Combines circular and bidirectional traversal.</li>
+        </ol>
+    </div>
+</div>
     <div id="friday-content-week4" class="day-content day-section">
-        <h2>Function Friday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+    <h2>Function Friday</h2>
+    <div class="content-block">
+        <h3>Doubly Linked List (DLL)</h3>
+
+        <h4>Definition:</h4>
+        <p>A Doubly Linked List is a type of linked list where each node contains:</p>
+        <ul>
+            <li><strong>data</strong> → The actual value</li>
+            <li><strong>prev</strong> → Pointer to the previous node</li>
+            <li><strong>next</strong> → Pointer to the next node</li>
+        </ul>
+        <p>This allows bi-directional traversal (forward & backward).</p>
+
+        <h4>Basic Operations in DLL:</h4>
+        <ol>
+            <li><strong>Insertion</strong>
+                <ul>
+                    <li>At the beginning</li>
+                    <li>At the end</li>
+                    <li>After a given node</li>
+                </ul>
+            </li>
+            <li><strong>Deletion</strong>
+                <ul>
+                    <li>From the beginning</li>
+                    <li>From the end</li>
+                    <li>A given node</li>
+                </ul>
+            </li>
+            <li><strong>Traversal</strong>
+                <ul>
+                    <li>Forward (head → tail)</li>
+                    <li>Backward (tail → head)</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h4>C Program (Basic DLL with Insert at Beginning, Insert at End, Forward Traversal):</h4>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+// Structure of a node
+struct Node {
+    int data;
+    struct Node* prev;
+    struct Node* next;
+};
+
+
+// Function to create a new node
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode->data = data;
+    newNode->prev = NULL;
+    newNode->next = NULL;
+    return newNode;
+}
+
+// Insert at the beginning
+void insertAtBeginning(struct Node** head, int data) {
+    struct Node* newNode = createNode(data);
+    if (*head != NULL) {
+        newNode->next = *head;
+        (*head)->prev = newNode;
+    }
+    *head = newNode;
+}
+
+
+// Insert at the end
+void insertAtEnd(struct Node** head, int data) {
+    struct Node* newNode = createNode(data);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    struct Node* temp = *head;
+    while (temp->next != NULL) {
+        temp = temp->next;
+    }
+    temp->next = newNode;
+    newNode->prev = temp;
+}
+
+
+// Traverse forward
+void displayForward(struct Node* head) {
+    struct Node* temp = head;
+    printf("Forward Traversal: ");
+    while (temp != NULL) {
+        printf("%d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
+}
+
+int main() {
+    struct Node* head = NULL;
+
+    insertAtBeginning(&head, 10);
+    insertAtBeginning(&head, 5);
+    insertAtEnd(&head, 20);
+
+    displayForward(head);
+
+    return 0;
+}</code></pre>
+<h4>Output:</h4>
+<code>Forward Traversal: 5 10 20</code>
+
+        <h4>Complexities:</h4>
+        <ul>
+            <li><strong>Insertion/Deletion:</strong> O(1) (if position is known)</li>
+            <li><strong>Traversal:</strong> O(n)</li>
+            <li><strong>Space Complexity:</strong> O(n) (due to extra pointer prev)</li>
+        </ul>
+
+        <h4>Pros:</h4>
+        <ol>
+            <li>Can traverse in both directions</li>
+            <li>Easy deletion of a given node</li>
+        </ol>
+
+        <h4>Cons:</h4>
+        <ol>
+            <li>Extra memory required for prev pointer</li>
+            <li>Slightly more complex than singly linked list</li>
+        </ol>
+
+        <h4>Practice Task:</h4>
+        <p>Extend the above program to add:</p>
+        <ol>
+            <li>Delete from beginning</li>
+            <li>Delete from end</li>
+            <li>Backward traversal</li>
+        </ol>
     </div>
+</div>
+
     <div id="saturday-content-week4" class="day-content day-section">
     <h2>Brain Cache</h2>
     <div class="content-block">
@@ -1721,39 +2177,313 @@ arr[i] = temp;
 
 
     <div id="monday-content-week5" class="day-content day-section">
-        <h2>Monday Maverick</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+    <h2>Monday Maverick</h2>
+    <div class="content-block">
+        <h4>Stack in DSA:-</h4>
+        <p>Linear data structure following <strong>LIFO (Last In, First Out)</strong>.</p>
+        
+        <h4>Operations:</h4>
+        <ul>
+            <li>Push → insert</li>
+            <li>Pop → remove</li>
+            <li>Peek/Top → view top element</li>
+        </ul>
 
-    <div id="tuesday-content-week5" class="day-content day-section">
-        <h2>Techie Tuesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+        <h4>Use Cases</h4>
+        <ul>
+            <li>Function call (call stack)</li>
+            <li>Undo/Redo (editors)</li>
+            <li>Expression evaluation (infix → postfix)</li>
+            <li>Balanced parentheses checking</li>
+            <li>Backtracking (mazes, puzzles)</li>
+            <li>Browser history (Back button)</li>
+            <li>Recursion & memory management</li>
+        </ul>
     </div>
+</div>
 
-    <div id="wednesday-content-week5" class="day-content day-section">
-        <h2>Syntax Snapshots Wednesday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+<div id="tuesday-content-week5" class="day-content day-section">
+    <h2>Techie Tuesday</h2>
+    <div class="content-block">
+        <h3>Stack in Data Structures</h3>
 
-    <div id="thursday-content-week5" class="day-content day-section">
-        <h2>Te Ta Thursday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
-    </div>
+        <h4>What is a Stack?</h4>
+        <p>A stack is a linear data structure that follows the <strong>LIFO</strong> principle (Last In, First Out).</p>
+        <p>Example in real life: Stack of plates/books → The last one placed is the first one removed.</p>
 
-    <div id="friday-content-week5" class="day-content day-section">
-        <h2>Function Friday</h2>
-        <div class="content-block">
-            <p>Content coming soon!</p>
-        </div>
+        <h4>Main Operations</h4>
+        <ol>
+            <li><strong>Push</strong> → Add an element on top of the stack</li>
+            <li><strong>Pop</strong> → Remove the top element from the stack</li>
+            <li><strong>Peek/Top</strong> → View the top element without removing it</li>
+            <li><strong>isEmpty</strong> → Check if the stack has no elements</li>
+        </ol>
+
+
+        <h4>Characteristics</h4>
+        <ul>
+            <li><strong>Order:</strong> LIFO (Last In, First Out)</li>
+            <li><strong>Access:</strong> Only the top element is accessible directly</li>
+            <li><strong>Efficiency:</strong> Both push and pop take O(1) time</li>
+        </ul>
+
+        <h4>Implementation Methods</h4>
+        <ol>
+            <li>
+                <strong>Using Array</strong>
+                <ul>
+                    <li>Easy to implement</li>
+                    <li>Fixed size (may cause overflow)</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Using Linked List</strong>
+                <ul>
+                    <li>Dynamic size (grows/shrinks as needed)</li>
+                    <li>Needs extra memory for pointers</li>
+                </ul>
+            </li>
+        </ol>
+        <h4>Applications of Stack</h4>
+        <ul>
+            <li>Undo/Redo operations in editors</li>
+            <li>Browser back/forward navigation</li>
+            <li>Expression evaluation (postfix, prefix)</li>
+            <li>Function call management (recursion uses stack)</li>
+            <li>Balancing symbols (like brackets in code)</li>
+        </ul>
+
+        <h4>Program:</h4>
+        <pre><code>#include &lt;iostream&gt;
+using namespace std;
+#define SIZE 5
+
+class Stack {
+    int arr[SIZE], top;
+public:
+    Stack() { top = -1; }
+
+    void push(int x) {
+        if (top == SIZE - 1) cout << "Overflow\n";
+        else arr[++top] = x;
+    }
+
+    void pop() {
+        if (top == -1) cout << "Underflow\n";
+        else cout << arr[top--] << " popped\n";
+    }
+
+    void peek() {
+        if (top == -1) cout << "Empty\n";
+        else cout << "Top = " << arr[top] << endl;
+    }
+};
+
+int main() {
+    Stack s;
+    s.push(10);
+    s.push(20);
+    s.peek();
+    s.pop();
+    s.peek();
+}</code></pre>
+<h4>Output:</h4>
+<code>Top = 20
+20 popped
+Top = 10</code>
     </div>
+</div>
+
+   <div id="wednesday-content-week5" class="day-content day-section">
+    <h2>Syntax Snapshots Wednesday</h2>
+    <div class="content-block">
+        <h3>Queue (FIFO)</h3>
+
+        <h4>Definition:</h4>
+        <p>A Queue is a linear data structure that works on the principle of <strong>FIFO (First In, First Out)</strong>. Think of it like a line at a ticket counter – the first person who enters is the first to leave.</p>
+
+        <h4>Queue Operations:</h4>
+        <ol>
+            <li><strong>Enqueue</strong> Insert element at the rear</li>
+            <li><strong>Dequeue</strong> Remove element from the front</li>
+            <li><strong>Peek/Front</strong> Get the front element without removing it</li>
+            <li><strong>IsEmpty</strong> Check if queue is empty</li>
+            <li><strong>IsFull</strong> Check if queue is full (in array implementation)</li>
+        </ol>
+
+        <h4>C Program – Queue using Array:</h4>
+        <pre><code>#include &lt;stdio.h&gt;
+#define MAX 5
+
+int queue[MAX];
+int front = -1, rear = -1;
+
+// Enqueue operation
+void enqueue(int data) {
+    if (rear == MAX - 1) {
+        printf("Queue Overflow\n");
+    } else {
+        if (front == -1) front = 0;
+        queue[++rear] = data;
+        printf("%d enqueued\n", data);
+    }
+}
+
+// Dequeue operation
+void dequeue() {
+    if (front == -1 || front > rear) {
+        printf("Queue Underflow\n");
+    } else {
+        printf("%d dequeued\n", queue[front++]);
+    }
+}
+
+// Peek operation
+void peek() {
+    if (front == -1 || front > rear) {
+        printf("Queue is empty\n");
+    } else {
+        printf("Front element: %d\n", queue[front]);
+    }
+}
+
+// Display operation
+void display() {
+    if (front == -1 || front > rear) {
+        printf("Queue is empty\n");
+    } else {
+        printf("Queue elements: ");
+        for (int i = front; i <= rear; i++) {
+            printf("%d ", queue[i]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    display();
+    peek();
+    dequeue();
+    display();
+    return 0;
+}
+</code></pre>
+
+        <h4>Complexities:</h4>
+        <ul>
+            <li>Enqueue: O(1)</li>
+            <li>Dequeue: O(1)</li>
+            <li>Peek: O(1)</li>
+            <li>Display: O(n)</li>
+        </ul>
+
+        <h4>Pros:</h4>
+        <ul>
+            <li>Simple and useful in scheduling (like CPU jobs)</li>
+            <li>Ensures fairness (FIFO order)</li>
+        </ul>
+    </div>
+</div>
+
+<div id="thursday-content-week5" class="day-content day-section">
+    <h2>Te Ta Thursday</h2>
+    <div class="content-block">
+        <h4>Circular Queue</h4>
+        <p>A type of queue where the last position is connected back to the first, forming a circle.</p>
+        <p>Solves the problem of unused space in a linear queue.</p>
+        <p>Operations: Enqueue, Dequeue, Front, Rear</p>
+
+        <h4>Deque (Double-Ended Queue)</h4>
+        <p>A queue where insertion and deletion can happen from both ends.</p>
+        
+        <h4>Types:</h4>
+        <ul>
+            <li>Input Restricted Deque (deletion at both ends, insertion at one end)</li>
+            <li>Output Restricted Deque (insertion at both ends, deletion at one end)</li>
+        </ul>
+
+        <h4>Use cases:</h4>
+        <p>Circular Queue: CPU scheduling, memory management.</p>
+        <p>Deque: Palindrome checking, sliding window problems.</p>
+
+        <p>Master these to level up your Data Structures & Algorithms skills!</p>
+    </div>
+</div>
+
+<div id="friday-content-week5" class="day-content day-section">
+    <h2>Function Friday</h2>
+    <div class="content-block">
+        <h3>Applications of Stacks</h3>
+
+        <p>Stacks have numerous applications in computer science, particularly in evaluating expressions and implementing recursion.</p>
+
+        <h4>Expressions Evaluation</h4>
+        <ul>
+            <li><strong>Description:</strong> Stacks can be used to evaluate postfix expressions, also known as Reverse Polish Notation (RPN). In postfix notation, operators follow their operands.</li>
+            <li><strong>Example:</strong> Evaluate the expression <strong>3 4 + 2 *</strong>. Using a stack, we can push the operands <strong>3</strong> and <strong>4</strong> onto the stack, then encounter the <strong>+</strong> operator, which pops the top two elements, adds them, and pushes the result <strong>7</strong> onto the stack. Next, we push <strong>2</strong> onto the stack and encounter the <strong>*</strong> operator, which pops the top two elements, multiplies them, and pushes the result <strong>14</strong> onto the stack.</li>
+            <li><strong>Explanation:</strong> Stacks are useful for evaluating postfix expressions because they allow us to efficiently manage the order of operations and handle nested expressions.</li>
+        </ul>
+
+        <h4>Recursion using Stack</h4>
+        <ul>
+            <li><strong>Description:</strong> Stacks can be used to implement recursive functions iteratively. By pushing function calls onto a stack, we can mimic the recursive call stack.</li>
+            <li><strong>Example:</strong> Consider a recursive function to calculate the factorial of a number <strong>n</strong>. We can implement this using a stack by pushing the numbers <strong>n</strong> to <strong>1</strong> onto the stack, then popping each number off the stack and multiplying it with the result.</li>
+            <li><strong>Explanation:</strong> Using a stack to implement recursion can help avoid the overhead of recursive function calls and reduce the risk of stack overflow errors.</li>
+        </ul>
+
+        <h4>Benefits</h4>
+        <ul>
+            <li><strong>Efficient evaluation:</strong> Stacks allow for efficient evaluation of postfix expressions and recursive functions.</li>
+            <li><strong>Flexibility:</strong> Stacks can be used to implement a wide range of algorithms and data structures.</li>
+        </ul>
+
+        <h4>Code Examples</h4>
+        <p>Here are some code examples in C to demonstrate the use of stacks for expression evaluation and recursion:</p>
+        <pre><code>// Postfix expression evaluation
+int evaluate_postfix(char* expression) {
+    int stack[100];
+    int top = -1;
+
+    for (int i = 0; expression[i]; i++) {
+        if (isdigit(expression[i])) {
+            stack[++top] = expression[i] - '0';
+        } else if (expression[i] == '+') {
+            int operand2 = stack[top--];
+            int operand1 = stack[top--];
+            stack[++top] = operand1 + operand2;
+        } else if (expression[i] == '*') {
+            int operand2 = stack[top--];
+            int operand1 = stack[top--];
+            stack[++top] = operand1 * operand2;
+        }
+    }
+
+    return stack[top];
+}
+
+// Recursion using stack
+int factorial(int n) {
+    int stack[100];
+    int top = -1;
+
+    for (int i = n; i >= 1; i--) {
+        stack[++top] = i;
+    }
+
+    int result = 1;
+    while (top >= 0) {
+        result *= stack[top--];
+    }
+
+    return result;
+}</code></pre>
+        <p>These code examples demonstrate the use of stacks of evaluating postfix expressions and implementing recursive functions iteratively.</p>
+    </div>
+</div>
+
     <div id="saturday-content-week5" class="day-content day-section">
     <h2>Brain Cache</h2>
     <div class="content-block">
