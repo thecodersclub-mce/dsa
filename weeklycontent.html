@@ -1532,15 +1532,81 @@ printf("%d", max);
         </div>
     </div>
     <div id="saturday-content-week3" class="day-content day-section">
-        <h2>Brain Cache</h2>
-        <div class="content-block">
-            <p>Week 3 Quiz coming soon!</p>
-            <!--<p>Quiz answers will be uploaded soon!</p>-->
-            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
-    Week 3 Quiz
-</button></center>
-        </div>
+    <h2>Brain Cache</h2>
+    <div class="content-block">
+        <h3>1. A librarian is reorganizing the library's entire collection of books. The goal is to arrange all the books on the shelves alphabetically by the author's last name so that a specific book can be located quickly. According to the provided content, which type of sorting is the librarian applying?</h3>
+        <ol>
+            <li>Ascending/Descending order</li>
+            <li>Based on key values</li>
+            <li><strong>Alphabetical/Lexicographical order</strong></li>
+            <li>Ascending order</li>
+        </ol>
+
+        <h3>2. Based on the provided C code and your knowledge of sorting algorithms, which of the following is more stable?</h3>
+        <p><strong>Code:</strong></p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+void bubbleSort(int arr[], int n) {
+int i, j, temp;
+for (i = 0; i < n-1; i++) {
+for (j = 0; j < n-i-1; j++) {
+if (arr[j] > arr[j+1]) {
+temp = arr[j];
+arr[j] = arr[j+1];
+arr[j+1] = temp;
+}
+}
+}
+}
+
+void selectionSort(int arr[], int n) {
+int i, j, min_idx, temp;
+for (i = 0; i < n-1; i++) {
+min_idx = i;
+for (j = i+1; j < n; j++) {
+if (arr[j] < arr[min_idx]) {
+min_idx = j;
+}
+}
+temp = arr[min_idx];
+arr[min_idx] = arr[i];
+arr[i] = temp;
+}
+}</code></pre>
+        <ol>
+            <li><strong>A. bubbleSort is more stable.</strong></li>
+            <li>B. selectionSort is more stable.</li>
+            <li>C. Both are equally stable.</li>
+            <li>D. Neither algorithm is stable.</li>
+        </ol>
+
+        <h3>3. Given the initial array `int arr[] = {12, 11, 13, 5, 6};`, what will be the state of the array after the first iteration of the for loop in the insertionSort function (when i = 1)?</h3>
+        <ol>
+            <li><strong>A. {11, 12, 13, 5, 6}</strong></li>
+            <li>B. {12, 11, 13, 5, 6}</li>
+            <li>C. {11, 13, 12, 5, 6}</li>
+            <li>D. {5, 6, 11, 12, 13}</li>
+        </ol>
+
+        <h3>4. What would be the first two sub-arrays after the "Divide" step of Merge Sort is applied to the array [5, 2, 8, 4, 1, 9]?</h3>
+        <ol>
+            <li><strong>[5, 2, 8] and [4, 1, 9]</strong></li>
+            <li>[5, 2, 8, 4] and [1, 9]</li>
+            <li>[5, 2] and [8, 4, 1, 9]</li>
+            <li>[5] and [2, 8, 4, 1, 9]</li>
+        </ol>
+
+        <h3>5. What are the five key steps of the Quick Sort algorithm?</h3>
+        <p><strong>Answer:</strong></p>
+        <ul>
+            <li>Pivot Selection</li>
+            <li>Partitioning</li>
+            <li>Recursion</li>
+            <li>Combining</li>
+            <li>Divide and Conquer</li>
+        </ul>
     </div>
+</div>
 </div>
 
         <div id="week4" class="week-content">
@@ -1592,15 +1658,44 @@ printf("%d", max);
         </div>
     </div>
     <div id="saturday-content-week4" class="day-content day-section">
-        <h2>Brain Cache</h2>
-        <div class="content-block">
-            <p>Week 4 Quiz coming soon!</p>
-            <!--<p>Quiz answers will be uploaded soon!</p>-->
-            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
-    Week 4 Quiz
-</button></center>
-        </div>
+    <h2>Brain Cache</h2>
+    <div class="content-block">
+        <h3>1. In a Circular Linked List, the last node points to:</h3>
+        <ol>
+            <li>a) NULL</li>
+            <li>b) The previous node</li>
+            <li><strong>c) The head (first node)</strong></li>
+            <li>d) Random node</li>
+        </ol>
+
+        <h3>2. You are given an array of size n. You need to answer multiple queries of the form: Find the sum of elements from index L to R. Which data structure is most efficient for this task?</h3>
+        <ol>
+            <li>A) Stack</li>
+            <li>B) Queue</li>
+            <li><strong>C) Segment Tree</strong></li>
+            <li>D) Linked List</li>
+        </ol>
+
+        <h3>3. What is the primary advantage of a Linked List over an array?</h3>
+        <ol>
+            <li>A. Linked lists are a type of data structure, while arrays are not.</li>
+            <li>B. Linked lists use pointers, whereas arrays do not.</li>
+            <li>C. Linked lists store elements in continuous memory, which arrays do not.</li>
+            <li><strong>D. Linked lists do not require continuous memory, making insertion and deletion more efficient.</strong></li>
+        </ol>
+
+        <h3>4. Which type of linked list is characterized by having each node reference both the previous and the next node, allowing for traversal in two directions?</h3>
+        <p><strong>Answer:</strong> Doubly Linked List</p>
+
+        <h3>5. What is a key advantage of a doubly linked list over a singly linked list?</h3>
+        <ol>
+            <li>A) Less memory usage</li>
+            <li><strong>B) Efficient insertion/deletion at any position</strong></li>
+            <li>C) Circular traversal</li>
+            <li>D) Dynamic memory allocation</li>
+        </ol>
     </div>
+</div>
 </div>
 
         <!--  <p style="text-align: center; font-style: italic; color: #555;">Content coming soon!</p> -->
@@ -1658,15 +1753,49 @@ printf("%d", max);
         </div>
     </div>
     <div id="saturday-content-week5" class="day-content day-section">
-        <h2>Brain Cache</h2>
-        <div class="content-block">
-            <p>Week 5 Quiz coming soon!</p>
-            <!--<p>Quiz answers will be uploaded soon!</p>-->
-            <center><button onclick="window.location.href='https://thecodersclub-mce.github.io/dsa/quiz.html'">
-    Week 5 Quiz
-</button></center>
-        </div>
+    <h2>Brain Cache</h2>
+    <div class="content-block">
+        <h3>1. Which of the following real-world scenarios is most effectively modeled using a stack data structure?</h3>
+        <ol>
+            <li>A) The flow of traffic at a one-way intersection.</li>
+            <li>B) The line of customers waiting at a checkout counter.</li>
+            <li><strong>C) The undo/redo functionality in a text editor.</strong></li>
+            <li>D) A playlist that shuffles songs randomly.</li>
+        </ol>
+
+        <h3>2. Which principle does a Stack data structure follow?</h3>
+        <ol>
+            <li>A) First-In, First-Out (FIFO)</li>
+            <li>B) Last-In, Last-Out (LILO)</li>
+            <li>C) First-In, Last-Out (FILO)</li>
+            <li><strong>D) Last-In, First-Out (LIFO)</strong></li>
+        </ol>
+
+        <h3>3. What is the correct action for the enqueue operation?</h3>
+        <ol>
+            <li>A) Removing an element from the front of the queue.</li>
+            <li>B) Getting the value of the front element without removing it.</li>
+            <li><strong>C) Inserting a new element at the rear of the queue.</strong></li>
+            <li>D) Checking if the queue is empty.</li>
+        </ol>
+
+        <h3>4. What is the primary difference between a stack and a queue?</h3>
+        <ol>
+            <li>A) Stacks are used for storing data, while queues are not.</li>
+            <li><strong>B) Stacks follow a Last-In, First-Out (LIFO) principle, while queues follow a First-In, First-Out (FIFO) principle.</strong></li>
+            <li>C) Stacks can only store numbers, while queues can store any data type.</li>
+            <li>D) Stacks are dynamic data structures, while queues are static.</li>
+        </ol>
+
+        <h3>5. Which of the following scenarios is most effectively handled by a stack data structure?</h3>
+        <ol>
+            <li>A) Storing a list of people in a queue waiting to be served.</li>
+            <li><strong>B) Keeping track of the history of visited web pages in a web browser to enable a "back" button.</strong></li>
+            <li>C) Managing a circular list of tasks that repeat in a loop.</li>
+            <li>D) Storing a student's ID and name for quick, random access.</li>
+        </ol>
     </div>
+</div>
 </div>
 
 <div id="week6" class="week-content">
@@ -1716,12 +1845,59 @@ printf("%d", max);
             <p>Content coming soon!</p>
         </div>
     </div>
-    <div id="saturday-content-week6" class="day-content day-section">
-        <h2>Brain Cache</h2>
-        <div class="content-block">
-            <p>Week 6 Quiz coming soon!</p>
-        </div>
+   <div id="saturday-content-week6" class="day-content day-section">
+    <h2>Brain Cache</h2>
+    <div class="content-block">
+        <h3>1. A data structure where each node can have at most two children is known as what?</h3>
+        <ol>
+            <li>A) A Full Tree</li>
+            <li>B) A Complete Tree</li>
+            <li><strong>C) A Binary Tree</strong></li>
+            <li>D) A Skewed Tree</li>
+        </ol>
+
+        <h3>2. In the context of a hash table, what is a "collision"?</h3>
+        <ol>
+            <li>A) A situation where the hash table's capacity has been reached.</li>
+            <li><strong>B) When two or more different keys compute to the same hash value, leading to the same index in the table.</strong></li>
+            <li>C) A failed attempt to insert an element into the table.</li>
+            <li>D) The process of finding an element in a hash table.</li>
+        </ol>
+
+        <h3>3. The following C program creates a binary tree with the numbers 1, 2, 3, 4, and 5. What will be the output of the provided C program's postorder traversal function?</h3>
+        <p>The tree is constructed as follows:<br>1 is the root.<br>2 is the left child of 1.<br>3 is the right child of 1.<br>4 is the left child of 2.<br>5 is the right child of 2.</p>
+        <pre><code>void postorderTraversal(struct Node* root) {
+if (root != NULL) {
+postorderTraversal(root->left);
+postorderTraversal(root->right);
+printf("%d ", root->data);
+}
+}
+</code></pre>
+        <ol>
+            <li><strong>A) 4 5 2 3 1</strong></li>
+            <li>B) 1 2 4 5 3</li>
+            <li>C) 4 2 5 1 3</li>
+            <li>D) 1 2 3 4 5</li>
+        </ol>
+
+        <h3>4. Which of the following data structures is best suited for an application that needs to manage a list of tasks in the order they are received, ensuring the oldest task is always processed first?</h3>
+        <ol>
+            <li>A) Stack</li>
+            <li><strong>B) Queue</strong></li>
+            <li>C) Array</li>
+            <li>D) Hash Table</li>
+        </ol>
+
+        <h3>5. What is the primary advantage of using Breadth-First Search (BFS) over Depth-First Search (DFS) when finding the shortest path in an unweighted graph?</h3>
+        <ol>
+            <li>A) BFS uses less memory than DFS.</li>
+            <li><strong>B) BFS is guaranteed to find the shortest path.</strong></li>
+            <li>C) DFS can get stuck in an infinite loop on cyclic graphs.</li>
+            <li>D) BFS is more efficient for dense graphs.</li>
+        </ol>
     </div>
+</div>
 </div>  <!-- add week6 content before these -->  
 <div id="week10" class="week-content">
 <p style="text-align: left; font-weight: bold; font-size: 18px; margin-bottom: 10px; color: #00408f;">Mindmash</p>
