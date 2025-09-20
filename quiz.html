@@ -1,35 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brain Cache - DSA Series</title>
-    <link rel="icon" href="TCC.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="quiz.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brain Cache - DSA Series</title>
+<link rel="icon" href="TCC.png" type="image/png">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="quiz.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="blue-container">
-        <div class="left-aligned">
-            <a href="index.html">
-                <img src="MCE_tab.png" alt="Logo" class="favicon-logo">
-            </a>
-            <div class="titles">
-                <h1 class="college-name">Mangayarkarasi College of Engineering</h1>
-                <h2 class="site-title">The Coders Club</h2>
-            </div>
-        </div>
-    </div>
+<div class="blue-container">
+<div class="left-aligned">
+<a href="index.html">
+<img src="MCE_tab.png" alt="Logo" class="favicon-logo">
+</a>
+<div class="titles">
+<h1 class="college-name">Mangayarkarasi College of Engineering</h1>
+<h2 class="site-title">The Coders Club</h2>
+</div>
+</div>
+</div>
 
-    <div class="button-container">
-        <button class="b-nav-button" onclick="window.location.href='index.html';">Home</button>
-        <button class="b-nav-button" onclick="window.location.href='weeklycontent.html';">Weekly Content</button>
-        <button class="b-nav-button active-nav-button" onclick="window.location.href='quiz.html';">Brain Cache</button>
-        <button class="b-nav-button" onclick="window.location.href='finalquiz.html';">Mindmash</button>
-        <button class="b-nav-button" onclick="window.location.href='leaderboard.html';">Leaderboard</button>
-        <button class="b-nav-button" onclick="window.location.href='feedback.html';">Feedback</button>
-    </div>
+<div class="button-container">
+<button class="b-nav-button" onclick="window.location.href='index.html';">Home</button>
+<button class="b-nav-button" onclick="window.location.href='weeklycontent.html';">Weekly Content</button>
+<button class="b-nav-button active-nav-button" onclick="window.location.href='quiz.html';">Brain Cache</button>
+<button class="b-nav-button" onclick="window.location.href='finalquiz.html';">Mindmash</button>
+<button class="b-nav-button" onclick="window.location.href='leaderboard.html';">Leaderboard</button>
+<button class="b-nav-button" onclick="window.location.href='feedback.html';">Feedback</button>
+</div>
 
 <div class="content-container">
 <center><h4 id="status"></h4></center>
@@ -69,67 +69,7 @@
 <div id="quizOverlay">
 </div>
 <h3>Quiz Questions</h3>
-    <div class="form-group no-select">
-    <p><strong>1. A data structure where each node can have at most two children is known as what?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q1_a" name="Question1" value="A" required>A) A Full Tree</label>
-        <label><input type="radio" id="q1_b" name="Question1" value="B">B) A Complete Tree</label>
-        <label><input type="radio" id="q1_c" name="Question1" value="C">C) A Binary Tree</label>
-        <label><input type="radio" id="q1_d" name="Question1" value="D">D) A Skewed Tree</label>
-    </div>
-</div>
 
-<div class="form-group no-select">
-    <p><strong>2. In the context of a hash table, what is a "collision"?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q2_a" name="Question2" value="A" required>A) A situation where the hash table's capacity has been reached.</label>
-        <label><input type="radio" id="q2_b" name="Question2" value="B">B) When two or more different keys compute to the same hash value, leading to the same index in the table.</label>
-        <label><input type="radio" id="q2_c" name="Question2" value="C">C) A failed attempt to insert an element into the table.</label>
-        <label><input type="radio" id="q2_d" name="Question2" value="D">D) The process of finding an element in a hash table.</label>
-    </div>
-</div>
-
-<div class="form-group no-select">
-    <p><strong>3. The following C program creates a binary tree with the numbers 1, 2, 3, 4, and 5. What will be the output of the provided C program's postorder traversal function?</strong></p>
-    <p><ul><li>1 is the root.</li>
-    <li>2 is the left child of 1.</li>
-    <li>3 is the right child of 1.</li>
-    <li>4 is the left child of 2.</li>
-    <li>5 is the right child of 2.</li></ul></p>
-    <pre><code>void postorderTraversal(struct Node* root) {
-    if (root != NULL) {
-        postorderTraversal(root->left);
-        postorderTraversal(root->right);
-        printf("%d ", root->data);
-    }
-}</code></pre>
-    <div class="radio-group">
-        <label><input type="radio" id="q3_a" name="Question3" value="A" required>A) 4 5 2 3 1</label>
-        <label><input type="radio" id="q3_b" name="Question3" value="B">B) 1 2 4 5 3</label>
-        <label><input type="radio" id="q3_c" name="Question3" value="C">C) 4 2 5 1 3</label>
-        <label><input type="radio" id="q3_d" name="Question3" value="D">D) 1 2 3 4 5</label>
-    </div>
-</div>
-
-<div class="form-group no-select">
-    <p><strong>4. Which of the following data structures is best suited for an application that needs to manage a list of tasks in the order they are received, ensuring the oldest task is always processed first?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q4_a" name="Question4" value="A" required>A) Stack</label>
-        <label><input type="radio" id="q4_b" name="Question4" value="B">B) Queue</label>
-        <label><input type="radio" id="q4_c" name="Question4" value="C">C) Array</label>
-        <label><input type="radio" id="q4_d" name="Question4" value="D">D) Hash Table</label>
-    </div>
-</div>
-
-<div class="form-group no-select">
-    <p><strong>5. What is the primary advantage of using Breadth-First Search (BFS) over Depth-First Search (DFS) when finding the shortest path in an unweighted graph?</strong></p>
-    <div class="radio-group">
-        <label><input type="radio" id="q5_a" name="Question5" value="A" required>A) BFS uses less memory than DFS.</label>
-        <label><input type="radio" id="q5_b" name="Question5" value="B">B) BFS is guaranteed to find the shortest path.</label>
-        <label><input type="radio" id="q5_c" name="Question5" value="C">C) DFS can get stuck in an infinite loop on cyclic graphs.</label>
-        <label><input type="radio" id="q5_d" name="Question5" value="D">D) BFS is more efficient for dense graphs.</label>
-    </div>
-</div>
 <!-- ADD QUIZ QNS BEFORE THIS-->
 <p><strong>After submission wait until you see a tick</strong></p>
 <button type="submit" class="submit-button">Submit Quiz</button>
@@ -146,239 +86,239 @@
 </div>
 
 
-    <footer>
-        <p>Created by The Coders Club</p>
-        <a href="https://www.instagram.com/the_mce.coders_club?igsh=Z245eDZmdWhkcmRn" target="_blank">
-            <img src="IG.png" alt="Instagram" class="social-logo">
-        </a>
-        <a href="https://www.linkedin.com/in/thecodersclub-mce/" target="_blank">
-            <img src="LINKEDLN.png" alt="LinkedIn" class="social-logo">
-        </a>
-        <a href="https://www.youtube.com/@TheCodersClub_MCE" target="_blank">
-            <img src="YT.png" alt="YouTube" class="social-logo">
-        </a>
-        <a href="https://whatsapp.com/channel/0029Vb6HMGKKAwEe8OdjAF0X" target="_blank">
-            <img src="WP.svg" alt="WhatsApp" class="social-logo">
-        </a>
-    </footer>
+<footer>
+<p>Created by The Coders Club</p>
+<a href="https://www.instagram.com/the_mce.coders_club?igsh=Z245eDZmdWhkcmRn" target="_blank">
+<img src="IG.png" alt="Instagram" class="social-logo">
+</a>
+<a href="https://www.linkedin.com/in/thecodersclub-mce/" target="_blank">
+<img src="LINKEDLN.png" alt="LinkedIn" class="social-logo">
+</a>
+<a href="https://www.youtube.com/@TheCodersClub_MCE" target="_blank">
+<img src="YT.png" alt="YouTube" class="social-logo">
+</a>
+<a href="https://whatsapp.com/channel/0029Vb6HMGKKAwEe8OdjAF0X" target="_blank">
+<img src="WP.svg" alt="WhatsApp" class="social-logo">
+</a>
+</footer>
 
-    <script>
-    // --- CONTROL KEYWORD HERE ---
-    // Change this variable to "disable" or "enable"
-    const linkControlStatus = "disable"; // Set to "enable" to activate links
-    // --- END CONTROL KEYWORD ---
+<script>
+// --- CONTROL KEYWORD HERE ---
+// Change this variable to "disable" or "enable"
+const linkControlStatus = "disable"; // Set to "enable" to activate links
+// --- END CONTROL KEYWORD ---
 
-    // --- TIMER CONTROL KEYWORD HERE ---
-    // Change this variable to "disable" or "enable" to use the timer
-    const timerControlStatus = "disable"; // Set to "enable" to activate time-based control
-    // Define the quiz start and end times in IST (Indian Standard Time)
-    // Format: "Month Day, Year HH:MM:SS AM/PM GMT+0530"
-    // Use an unambiguous format for Date object parsing.
-    // Example for 5th July 2025, 6:00 PM IST
-    const quizStartTime = new Date("August 30, 2025 18:00:00 GMT+0530"); // 6:00 PM IST
-    const quizEndTime = new Date("August 31, 2025 18:00:00 GMT+0530");   // 6:00 PM IST
-    // --- END TIMER CONTROL KEYWORD ---
-
-
-    // Object to store original text content for jumbling/unjumbling
-    const originalTextStore = {};
-
-    // Function to shuffle characters in a string
-    function shuffleString(str) {
-        let a = str.split("");
-        for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-        }
-        return a.join("");
-    }
-
-    // Function to jumble the text content of an element
-    function jumbleText(element) {
-        // Check if element has any text content to jumble and is not just whitespace
-        if (element && element.textContent && element.textContent.trim().length > 0) {
-            // Use a unique key for storage, preferring element ID or generating one
-            const elementKey = element.id || 'jumble-' + Math.random().toString(36).substring(2, 9);
-            if (!element.id) { // Assign ID if it didn't exist for consistent lookup
-                element.id = elementKey;
-            }
-
-            // Store original text if not already stored
-            if (!originalTextStore[elementKey]) {
-                originalTextStore[elementKey] = element.textContent;
-            }
-            element.textContent = shuffleString(element.textContent);
-        }
-    }
-
-    // Function to unjumble the text content of an element
-    function unjumbleText(element) {
-        if (element && element.id && originalTextStore[element.id]) {
-            element.textContent = originalTextStore[element.id];
-            // Optionally delete from store if you don't need it after unjumbling
-            // delete originalTextStore[element.id];
-        }
-    }
-
-    // Function for showing the submission success animation
-    function showSuccessAnimation() {
-        const successMessage = document.getElementById('submissionSuccessMessage');
-        successMessage.classList.add('show'); // Add 'show' class to display the overlay
-
-        // Hide after 3 seconds
-        setTimeout(() => {
-            successMessage.classList.remove('show'); // Remove 'show' class to hide the overlay
-        }, 3000); // The animation will be visible for 3 seconds
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        setLinkStatus(); // Call the main function to set the quiz status based on the keyword
-
-        // --- NEW CODE TO DISABLE COPY/PASTE ---
-        const inputsToRestrict = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
-
-        inputsToRestrict.forEach(input => {
-            input.addEventListener('copy', (e) => e.preventDefault());
-            input.addEventListener('cut', (e) => e.preventDefault());
-            input.addEventListener('paste', (e) => e.preventDefault());
-        });
-        // --- END NEW CODE ---
-    });
-
-    function setLinkStatus() {
-        const statusElement = document.getElementById('status');
-
-        const quizQuestionsSection = document.getElementById('quizQuestionsSection');
-        const quizOverlay = document.getElementById('quizOverlay');
-        const quizForm = document.getElementById('quizForm');
-        const submitButton = quizForm.querySelector('.submit-button');
-
-        // Select elements whose text needs to be jumbled
-        // Updated to select only paragraphs within .form-group that contain the questions
-        const elementsToJumble = quizQuestionsSection.querySelectorAll('.form-group p');
-
-        let quizShouldBeEnabled = false;
-        const currentTime = new Date();
-
-        // Priority 1: Manual override via linkControlStatus
-        if (linkControlStatus === "enable") {
-            quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>fill within 21/09/25 6.00 PM IST!'; // Indicate manual override
-            statusElement.style.color = '#008000'; // Green
-        }
-        // Priority 2: Timer control, if enabled
-        else if (timerControlStatus === "enable") {
-            if (currentTime >= quizStartTime && currentTime < quizEndTime) {
-                quizShouldBeEnabled = true;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>Quiz is LIVE! Ends on 21/09/2025 6:00 PM IST!';
-                statusElement.style.color = '#008000'; // Green for active
-            } else if (currentTime < quizStartTime) {
-                // Quiz not yet started
-                quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM 20/09/2025!';
-                statusElement.style.color = '#FFA500'; // Orange for upcoming
-            } else {
-                // Quiz ended
-                quizShouldBeEnabled = false;
-                statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM 20/09/2025!';
-                statusElement.style.color = '#CC0000'; // Red for closed
-            }
-        }
-        // Priority 3: Default to disabled if neither manual nor timer is enabling it
-        else {
-            quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM 20/09/2025!'; // Indicate manual disable
-            statusElement.style.color = '#CC0000'; // Red
-        }
+// --- TIMER CONTROL KEYWORD HERE ---
+// Change this variable to "disable" or "enable" to use the timer
+const timerControlStatus = "enable"; // Set to "enable" to activate time-based control
+// Define the quiz start and end times in IST (Indian Standard Time)
+// Format: "Month Day, Year HH:MM:SS AM/PM GMT+0530"
+// Use an unambiguous format for Date object parsing.
+// Example for 5th July 2025, 6:00 PM IST
+const quizStartTime = new Date("September 20, 2025 18:00:00 GMT+0530"); // 6:00 PM IST
+const quizEndTime = new Date("September 21, 2025 18:00:00 GMT+0530");   // 6:00 PM IST
+// --- END TIMER CONTROL KEYWORD ---
 
 
-        if (quizShouldBeEnabled) {
-            // Quiz is Enabled
-            quizOverlay.style.opacity = '0';
-            setTimeout(() => {
-                quizOverlay.style.visibility = 'hidden';
-                quizQuestionsSection.classList.remove('quiz-disabled-overlay');
-            }, 500);
+// Object to store original text content for jumbling/unjumbling
+const originalTextStore = {};
 
-            quizQuestionsSection.querySelectorAll('input, textarea, select').forEach(input => {
-                input.disabled = false;
-            });
-            submitButton.disabled = false;
+// Function to shuffle characters in a string
+function shuffleString(str) {
+let a = str.split("");
+for (let i = a.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[a[i], a[j]] = [a[j], a[i]];
+}
+return a.join("");
+}
 
-            elementsToJumble.forEach(element => {
-                unjumbleText(element);
-            });
-        } else {
-            // Quiz is Disabled
-            quizOverlay.style.visibility = 'visible';
-            quizOverlay.style.opacity = '1';
+// Function to jumble the text content of an element
+function jumbleText(element) {
+// Check if element has any text content to jumble and is not just whitespace
+if (element && element.textContent && element.textContent.trim().length > 0) {
+// Use a unique key for storage, preferring element ID or generating one
+const elementKey = element.id || 'jumble-' + Math.random().toString(36).substring(2, 9);
+if (!element.id) { // Assign ID if it didn't exist for consistent lookup
+element.id = elementKey;
+}
 
-            quizQuestionsSection.classList.add('quiz-disabled-overlay');
+// Store original text if not already stored
+if (!originalTextStore[elementKey]) {
+originalTextStore[elementKey] = element.textContent;
+}
+element.textContent = shuffleString(element.textContent);
+}
+}
 
-            quizQuestionsSection.querySelectorAll('input, textarea, select').forEach(input => {
-                input.disabled = true;
-            });
-            submitButton.disabled = true;
+// Function to unjumble the text content of an element
+function unjumbleText(element) {
+if (element && element.id && originalTextStore[element.id]) {
+element.textContent = originalTextStore[element.id];
+// Optionally delete from store if you don't need it after unjumbling
+// delete originalTextStore[element.id];
+}
+}
 
-            elementsToJumble.forEach(element => {
-                jumbleText(element);
-            });
-        }
-    }
+// Function for showing the submission success animation
+function showSuccessAnimation() {
+const successMessage = document.getElementById('submissionSuccessMessage');
+successMessage.classList.add('show'); // Add 'show' class to display the overlay
 
-    // Handle form submission to Google Sheet via Google Apps Script
-    const quizForm = document.getElementById('quizForm');
-    quizForm.addEventListener('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission
+// Hide after 3 seconds
+setTimeout(() => {
+successMessage.classList.remove('show'); // Remove 'show' class to hide the overlay
+}, 3000); // The animation will be visible for 3 seconds
+}
 
-        // Check if the form is disabled by the linkControlStatus or timer
-        if (this.querySelector('.submit-button').disabled) {
-            alert('The quiz is currently closed or not yet open.');
-            return; // Stop submission if disabled
-        }
+document.addEventListener('DOMContentLoaded', () => {
+setLinkStatus(); // Call the main function to set the quiz status based on the keyword
 
-        const formData = new FormData(quizForm);
-        const data = {};
-        for (let [key, value] of formData.entries()) {
-            if (key.endsWith('[]')) { // Handle checkbox arrays
-                const originalKey = key.slice(0, -2);
-                if (!data[originalKey]) {
-                    data[originalKey] = [];
-                }
-                data[originalKey].push(value);
-            } else {
-                data[key] = value;
-            }
-        }
+// --- NEW CODE TO DISABLE COPY/PASTE ---
+const inputsToRestrict = document.querySelectorAll('input[type="text"], input[type="email"], textarea');
 
-        // Convert checkbox arrays to comma-separated strings for easier GSheet logging
-        for (const key in data) {
-            if (Array.isArray(data[key])) {
-                data[key] = data[key].join(', ');
-            }
-        }
+inputsToRestrict.forEach(input => {
+input.addEventListener('copy', (e) => e.preventDefault());
+input.addEventListener('cut', (e) => e.preventDefault());
+input.addEventListener('paste', (e) => e.preventDefault());
+});
+// --- END NEW CODE ---
+});
 
-        // Replace 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE' with your deployed Apps Script URL
-        const scriptUrl = 'https://script.google.com/macros/s/AKfycby_BUIw3iWX2yH4vFDEU2HnpFzgiPz4GSdGCvZNAVIWlEZiI1JJOeniIW_WrlzQpgijpA/exec';
-        fetch(scriptUrl, {
-            method: 'POST',
-            mode: 'no-cors', // Important for sending data to Apps Script
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(data).toString()
-        })
-        .then(response => {
-            // If the fetch completes (even with no-cors), we assume the data was sent.
-            // Therefore, we can show the success animation.
-            showSuccessAnimation(); // CALL THE NEW ANIMATION FUNCTION HERE
-            quizForm.reset(); // Clear the form
-        })
-        .catch(error => {
-            console.error('Error submitting quiz:', error);
-            alert('There was an error submitting the quiz. Please try again.');
-        });
-    });
+function setLinkStatus() {
+const statusElement = document.getElementById('status');
+
+const quizQuestionsSection = document.getElementById('quizQuestionsSection');
+const quizOverlay = document.getElementById('quizOverlay');
+const quizForm = document.getElementById('quizForm');
+const submitButton = quizForm.querySelector('.submit-button');
+
+// Select elements whose text needs to be jumbled
+// Updated to select only paragraphs within .form-group that contain the questions
+const elementsToJumble = quizQuestionsSection.querySelectorAll('.form-group p');
+
+let quizShouldBeEnabled = false;
+const currentTime = new Date();
+
+// Priority 1: Manual override via linkControlStatus
+if (linkControlStatus === "enable") {
+quizShouldBeEnabled = true;
+statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>fill within 21/09/25 6.00 PM IST!'; // Indicate manual override
+statusElement.style.color = '#008000'; // Green
+}
+// Priority 2: Timer control, if enabled
+else if (timerControlStatus === "enable") {
+if (currentTime >= quizStartTime && currentTime < quizEndTime) {
+quizShouldBeEnabled = true;
+statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>Quiz is LIVE! Ends on 21/09/2025 6:00 PM IST!';
+statusElement.style.color = '#008000'; // Green for active
+} else if (currentTime < quizStartTime) {
+// Quiz not yet started
+quizShouldBeEnabled = false;
+statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM 20/09/2025!';
+statusElement.style.color = '#FFA500'; // Orange for upcoming
+} else {
+// Quiz ended
+quizShouldBeEnabled = false;
+statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM 20/09/2025!';
+statusElement.style.color = '#CC0000'; // Red for closed
+}
+}
+// Priority 3: Default to disabled if neither manual nor timer is enabling it
+else {
+quizShouldBeEnabled = false;
+statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM 20/09/2025!'; // Indicate manual disable
+statusElement.style.color = '#CC0000'; // Red
+}
+
+
+if (quizShouldBeEnabled) {
+// Quiz is Enabled
+quizOverlay.style.opacity = '0';
+setTimeout(() => {
+quizOverlay.style.visibility = 'hidden';
+quizQuestionsSection.classList.remove('quiz-disabled-overlay');
+}, 500);
+
+quizQuestionsSection.querySelectorAll('input, textarea, select').forEach(input => {
+input.disabled = false;
+});
+submitButton.disabled = false;
+
+elementsToJumble.forEach(element => {
+unjumbleText(element);
+});
+} else {
+// Quiz is Disabled
+quizOverlay.style.visibility = 'visible';
+quizOverlay.style.opacity = '1';
+
+quizQuestionsSection.classList.add('quiz-disabled-overlay');
+
+quizQuestionsSection.querySelectorAll('input, textarea, select').forEach(input => {
+input.disabled = true;
+});
+submitButton.disabled = true;
+
+elementsToJumble.forEach(element => {
+jumbleText(element);
+});
+}
+}
+
+// Handle form submission to Google Sheet via Google Apps Script
+const quizForm = document.getElementById('quizForm');
+quizForm.addEventListener('submit', function(e) {
+e.preventDefault(); // Prevent default form submission
+
+// Check if the form is disabled by the linkControlStatus or timer
+if (this.querySelector('.submit-button').disabled) {
+alert('The quiz is currently closed or not yet open.');
+return; // Stop submission if disabled
+}
+
+const formData = new FormData(quizForm);
+const data = {};
+for (let [key, value] of formData.entries()) {
+if (key.endsWith('[]')) { // Handle checkbox arrays
+const originalKey = key.slice(0, -2);
+if (!data[originalKey]) {
+data[originalKey] = [];
+}
+data[originalKey].push(value);
+} else {
+data[key] = value;
+}
+}
+
+// Convert checkbox arrays to comma-separated strings for easier GSheet logging
+for (const key in data) {
+if (Array.isArray(data[key])) {
+data[key] = data[key].join(', ');
+}
+}
+
+// Replace 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE' with your deployed Apps Script URL
+const scriptUrl = 'https://script.google.com/macros/s/AKfycby_BUIw3iWX2yH4vFDEU2HnpFzgiPz4GSdGCvZNAVIWlEZiI1JJOeniIW_WrlzQpgijpA/exec';
+fetch(scriptUrl, {
+method: 'POST',
+mode: 'no-cors', // Important for sending data to Apps Script
+headers: {
+'Content-Type': 'application/x-www-form-urlencoded',
+},
+body: new URLSearchParams(data).toString()
+})
+.then(response => {
+// If the fetch completes (even with no-cors), we assume the data was sent.
+// Therefore, we can show the success animation.
+showSuccessAnimation(); // CALL THE NEW ANIMATION FUNCTION HERE
+quizForm.reset(); // Clear the form
+})
+.catch(error => {
+console.error('Error submitting quiz:', error);
+alert('There was an error submitting the quiz. Please try again.');
+});
+});
 </script>
 </body>
 </html>
