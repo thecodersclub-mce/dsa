@@ -5,8 +5,8 @@ const timerControlStatus = "enable"; // Set to "enable" to activate time-based c
 // Format: "Month Day, Year HH:MM:SS AM/PM GMT+0530"
 // Use an unambiguous format for Date object parsing.
 // Example for 5th July 2025, 6:00 PM IST
-const quizStartTime = new Date("September 20, 2025 18:00:00 GMT+0530"); // 6:00 PM IST
-const quizEndTime = new Date("September 21, 2025 18:00:00 GMT+0530");   // 6:00 PM IST
+const quizStartTime = new Date("September 27, 2025 18:00:00 GMT+0530"); // 6:00 PM IST
+const quizEndTime = new Date("September 28, 2025 18:00:00 GMT+0530");  // 6:00 PM IST
 // --- END TIMER CONTROL KEYWORD ---
 
 
@@ -89,24 +89,24 @@ function setLinkStatus() {
     if (timerControlStatus === "enable") {
         if (currentTime >= quizStartTime && currentTime < quizEndTime) {
             quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>Quiz is LIVE! Ends on 21/09/2025 6:00 PM IST!';
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>Quiz is LIVE! Ends on 28/09/2025 6:00 PM IST!';
             statusElement.style.color = '#008000'; // Green for active
         } else if (currentTime < quizStartTime) {
             // Quiz not yet started
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM on 20/09/2025!';
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>starts at 6.00 PM on 27/09/2025!';
             statusElement.style.color = '#FFA500'; // Orange for upcoming
         } else {
             // Quiz ended
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM on 20/09/2025!';
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>starts at 6.00 PM on 27/09/2025!';
             statusElement.style.color = '#CC0000'; // Red for closed
         }
     }
     // Priority 3: Default to disabled if neither manual nor timer is enabling it
     else {
         quizShouldBeEnabled = false;
-        statusElement.innerHTML = 'BRAIN CACHE - WEEK 7 QUIZ<br>starts at 6.00 PM on 20/09/2025!'; // Indicate manual disable
+        statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>starts at 6.00 PM on 27/09/2025!'; // Indicate manual disable
         statusElement.style.color = '#CC0000'; // Red
     }
 
@@ -179,30 +179,30 @@ quizForm.addEventListener('submit', function(e) {
 
     // Replace 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_URL_HERE' with your deployed Apps Script URL
     const scriptUrl = 'https://script.google.com/macros/s/AKfycby_BUIw3iWX2yH4vFDEU2HnpFzgiPz4GSdGCvZNAVIWlEZiI1JJOeniIW_WrlzQpgijpA/exec';
-    
+
     // Temporarily disable the submit button to prevent double-clicks
     const submitButton = this.querySelector('.submit-button');
     submitButton.disabled = true;
 
     fetch(scriptUrl, {
-        method: 'POST',
-        mode: 'no-cors', // Important for sending data to Apps Script
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: new URLSearchParams(data).toString()
-    })
-    .then(response => {
-        // The no-cors mode prevents a true response object, so we assume success here.
-        showSuccessAnimation(); // CALL THE NEW ANIMATION FUNCTION HERE
-        quizForm.reset(); // Clear the form
-    })
-    .catch(error => {
-        console.error('Error submitting quiz:', error);
-        alert('There was an error submitting the quiz. Please try again.');
-    })
-    .finally(() => {
-        // Re-enable the button after the process is complete
-        submitButton.disabled = false;
-    });
+            method: 'POST',
+            mode: 'no-cors', // Important for sending data to Apps Script
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams(data).toString()
+        })
+        .then(response => {
+            // The no-cors mode prevents a true response object, so we assume success here.
+            showSuccessAnimation(); // CALL THE NEW ANIMATION FUNCTION HERE
+            quizForm.reset(); // Clear the form
+        })
+        .catch(error => {
+            console.error('Error submitting quiz:', error);
+            alert('There was an error submitting the quiz. Please try again.');
+        })
+        .finally(() => {
+            // Re-enable the button after the process is complete
+            submitButton.disabled = false;
+        });
 });
