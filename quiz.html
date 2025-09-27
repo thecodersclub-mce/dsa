@@ -1,150 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Brain Cache - DSA Series</title>
-<link rel="icon" href="TCC.png" type="image/png">
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="quiz.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Cache - DSA Series</title>
+    <link rel="icon" href="TCC.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
-<div class="blue-container">
-<div class="left-aligned">
-<a href="index.html">
-<img src="MCE_tab.png" alt="Logo" class="favicon-logo">
-</a>
-<div class="titles">
-<h1 class="college-name">Mangayarkarasi College of Engineering</h1>
-<h2 class="site-title">The Coders Club</h2>
-</div>
-</div>
-</div>
+    <div class="blue-container">
+        <div class="left-aligned">
+            <a href="index.html">
+                <img src="MCE_tab.png" alt="Logo" class="favicon-logo">
+            </a>
+            <div class="titles">
+                <h1 class="college-name">Mangayarkarasi College of Engineering</h1>
+                <h2 class="site-title">The Coders Club</h2>
+            </div>
+        </div>
+    </div>
 
-<div class="button-container">
-<button class="b-nav-button" onclick="window.location.href='index.html';">Home</button>
-<button class="b-nav-button" onclick="window.location.href='weeklycontent.html';">Weekly Content</button>
-<button class="b-nav-button active-nav-button" onclick="window.location.href='quiz.html';">Brain Cache</button>
-<button class="b-nav-button" onclick="window.location.href='finalquiz.html';">Mindmash</button>
-<button class="b-nav-button" onclick="window.location.href='leaderboard.html';">Leaderboard</button>
-<button class="b-nav-button" onclick="window.location.href='feedback.html';">Feedback</button>
-</div>
+    <div class="button-container">
+        <button class="b-nav-button" onclick="window.location.href='index.html';">Home</button>
+        <button class="b-nav-button" onclick="window.location.href='weeklycontent.html';">Weekly Content</button>
+        <button class="b-nav-button active-nav-button" onclick="window.location.href='quiz.html';">Brain Cache</button>
+        <button class="b-nav-button" onclick="window.location.href='finalquiz.html';">Mindmash</button>
+        <button class="b-nav-button" onclick="window.location.href='leaderboard.html';">Leaderboard</button>
+        <button class="b-nav-button" onclick="window.location.href='feedback.html';">Feedback</button>
+    </div>
 
-<div class="content-container">
-<center><h4 id="status"></h4></center>
-<div class="quiz-form-wrapper">
-<h2>BRAIN CACHE</h2>
-<form id="quizForm" method="POST" action="https://script.google.com/macros/s/AKfycby_BUIw3iWX2yH4vFDEU2HnpFzgiPz4GSdGCvZNAVIWlEZiI1JJOeniIW_WrlzQpgijpA/exec">
-<div class="form-group">
-<label for="name">Name:</label>
-<input type="text" id="name" name="Name" required placeholder="Enter your full name">
-</div>
-<div class="form-group">
-<label for="email">Email:</label>
-<input type="email" id="email" name="Email" required placeholder="your.email@example.com">
-</div>
-<div class="form-group">
-<label for="department">Department:</label>
-<select id="department" name="Department" required>
+    <div class="content-container">
+        <center>
+            <h4 id="status"></h4>
+        </center>
+        <div class="quiz-form-wrapper">
+            <h2>BRAIN CACHE</h2>
+            <form id="quizForm" method="POST" action="https://script.google.com/macros/s/AKfycby_BUIw3iWX2yH4vFDEU2HnpFzgiPz4GSdGCvZNAVIWlEZiI1JJOeniIW_WrlzQpgijpA/exec">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="Name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="Email" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <select id="department" name="Department" required>
 <option value="">Select your Department</option>
 <option value="CSE">CSE</option>
 <option value="CSE (AI&ML)">CSE (AI&ML)</option>
 </select>
-</div>
-<div class="form-group">
-<label for="year">Year:</label>
-<select id="year" name="Year" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select id="year" name="Year" required>
 <option value="">Select your Year</option>
 <option value="1st Year">1st Year</option>
 <option value="2nd Year">2nd Year</option>
 <option value="3rd Year">3rd Year</option>
 <option value="4th Year">4th Year</option>
 </select>
-</div>
+                </div>
 
-<hr>
+                <hr>
 
-<div id="quizQuestionsSection">
-<div id="quizOverlay">
-</div>
-<h3>Quiz Questions</h3>
-<div class="form-group no-select">
-<p><strong>1. What is the primary principle that governs the operations of a stack?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q1_a" name="Question1" value="A" required>A. First-In, Last-Out (FILO)</label>
-<label><input type="radio" id="q1_b" name="Question1" value="B">B. First-In, First-Out (FIFO)</label>
-<label><input type="radio" id="q1_c" name="Question1" value="C">C. Last-In, First-Out (LIFO)</label>
-<label><input type="radio" id="q1_d" name="Question1" value="D">D. Last-In, Last-Out (LILO)</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>2. What is a key prerequisite for using a Binary Search algorithm on a data set?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q2_a" name="Question2" value="A" required>A. The data must be sorted.</label>
-<label><input type="radio" id="q2_b" name="Question2" value="B">B. The data must be an empty set.</label>
-<label><input type="radio" id="q2_c" name="Question2" value="C">C. The data must contain duplicate elements.</label>
-<label><input type="radio" id="q2_d" name="Question2" value="D">D. The data must be stored in a linked list.</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>3. What is the purpose of the Preorder traversal in a Binary Search Tree (BST)?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q3_a" name="Question3" value="A" required>A. To visit the nodes in a sorted order</label>
-<label><input type="radio" id="q3_b" name="Question3" value="B">B. To obtain a copy of the tree</label>
-<label><input type="radio" id="q3_c" name="Question3" value="C">C. To get the nodes in the order they were inserted</label>
-<label><input type="radio" id="q3_d" name="Question3" value="D">D. To visit the root, then the left subtree, then the right subtree</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>4. Which type of graph is used to represent a scheduling problem where tasks have a specific order and no task can depend on itself?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q4_a" name="Question4" value="A" required>A. Cyclic Graph</label>
-<label><input type="radio" id="q4_b" name="Question4" value="B">B. Complete Graph</label>
-<label><input type="radio" id="q4_c" name="Question4" value="C">C. Directed Acyclic Graph (DAG)</label>
-<label><input type="radio" id="q4_d" name="Question4" value="D">D. Bipartite Graph</label>
-</div>
-</div>
-<div class="form-group no-select">
-<p><strong>5. What is the worst-case time complexity of the QuickSort algorithm?</strong></p>
-<div class="radio-group">
-<label><input type="radio" id="q5_a" name="Question5" value="A" required>A. O(n)</label>
-<label><input type="radio" id="q5_b" name="Question5" value="B">B. O(n log n)</label>
-<label><input type="radio" id="q5_c" name="Question5" value="C">C. O(n²)</label>
-<label><input type="radio" id="q5_d" name="Question5" value="D">D. O(log n)</label>
-</div>
-</div>
-<!-- ADD QUIZ QNS BEFORE THIS-->
-<p><strong>After submission wait until you see a tick</strong></p>
-<button type="submit" class="submit-button">Submit Quiz</button>
-</div>
-</div>
+                <div id="quizQuestionsSection">
+                    <div id="quizOverlay">
+                    </div>
+                    <h3>Quiz Questions</h3>
+                    <div class="form-group no-select">
+                        <p><strong>1. Which of the following best describes the key characteristic of a Circular Linked List?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q1_a" name="Question1" value="A" required>A. Each node has a pointer to both the next and previous node.</label>
+                            <label><input type="radio" id="q1_b" name="Question1" value="B">B. The last node points back to the first node.</label>
+                            <label><input type="radio" id="q1_c" name="Question1" value="C">C. Nodes are stored in contiguous memory locations.</label>
+                            <label><input type="radio" id="q1_d" name="Question1" value="D">D. The list can only be traversed in one direction.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>2. If the Preorder traversal of a Binary Tree is A, B, D, E, C, F and the Inorder traversal is D, B, E, A, F, C, what is the root node of the tree?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q2_a" name="Question2" value="A" required>A. D</label>
+                            <label><input type="radio" id="q2_b" name="Question2" value="B">B. E</label>
+                            <label><input type="radio" id="q2_c" name="Question2" value="C">C. A</label>
+                            <label><input type="radio" id="q2_d" name="Question2" value="D">D. F</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>3. If a binary tree’s Inorder and Preorder traversals are known, can the tree be constructed uniquely?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q3_a" name="Question3" value="A" required>A. Yes</label>
+                            <label><input type="radio" id="q3_b" name="Question3" value="B">B. No</label>
+                            <label><input type="radio" id="q3_c" name="Question3" value="C">C. Only if Postorder is also given</label>
+                            <label><input type="radio" id="q3_d" name="Question3" value="D">D. Only for BSTs</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>4. What is the time complexity of deleting a specific node (given a pointer to that node) in a Doubly Linked List?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q4_a" name="Question4" value="A" required>A. O(1)</label>
+                            <label><input type="radio" id="q4_b" name="Question4" value="B">B. O(logn)</label>
+                            <label><input type="radio" id="q4_c" name="Question4" value="C">C. O(n)</label>
+                            <label><input type="radio" id="q4_d" name="Question4" value="D">D. O(n^2)</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>5. What is the worst-case time complexity of the QuickSort algorithm?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q5_a" name="Question5" value="A" required>A. O(n)</label>
+                            <label><input type="radio" id="q5_b" name="Question5" value="B">B. O(n log n)</label>
+                            <label><input type="radio" id="q5_c" name="Question5" value="C">C. O(n^2)</label>
+                            <label><input type="radio" id="q5_d" name="Question5" value="D">D. O(log n)</label>
+                        </div>
+                    </div>
+                    <!-- ADD QUIZ QNS BEFORE THIS-->
+                    <p><strong>After submission wait until you see a tick</strong></p>
+                    <button type="submit" class="submit-button">Submit Quiz</button>
+                </div>
+        </div>
 
-</form>
-<div id="submissionSuccessMessage">
-<div class="success-content">
-<i class="fas fa-check-circle success-icon-fa"></i> <p>Quiz Submitted Successfully!</p>
-</div>
-</div>
-</div>
-</div>
+        </form>
+        <div id="submissionSuccessMessage">
+            <div class="success-content">
+                <i class="fas fa-check-circle success-icon-fa"></i>
+                <p>Quiz Submitted Successfully!</p>
+            </div>
+        </div>
+    </div>
+    </div>
 
 
-<footer>
-<p>Created by The Coders Club</p>
-<a href="https://www.instagram.com/the_mce.coders_club?igsh=Z245eDZmdWhkcmRn" target="_blank">
-<img src="IG.png" alt="Instagram" class="social-logo">
-</a>
-<a href="https://www.linkedin.com/in/thecodersclub-mce/" target="_blank">
-<img src="LINKEDLN.png" alt="LinkedIn" class="social-logo">
-</a>
-<a href="https://www.youtube.com/@TheCodersClub_MCE" target="_blank">
-<img src="YT.png" alt="YouTube" class="social-logo">
-</a>
-<a href="https://whatsapp.com/channel/0029Vb6HMGKKAwEe8OdjAF0X" target="_blank">
-<img src="WP.svg" alt="WhatsApp" class="social-logo">
-</a>
-</footer>
-<script src="quiz.js"></script>
+    <footer>
+        <p>Created by The Coders Club</p>
+        <a href="https://www.instagram.com/the_mce.coders_club?igsh=Z245eDZmdWhkcmRn" target="_blank">
+            <img src="IG.png" alt="Instagram" class="social-logo">
+        </a>
+        <a href="https://www.linkedin.com/in/thecodersclub-mce/" target="_blank">
+            <img src="LINKEDLN.png" alt="LinkedIn" class="social-logo">
+        </a>
+        <a href="https://www.youtube.com/@TheCodersClub_MCE" target="_blank">
+            <img src="YT.png" alt="YouTube" class="social-logo">
+        </a>
+        <a href="https://whatsapp.com/channel/0029Vb6HMGKKAwEe8OdjAF0X" target="_blank">
+            <img src="WP.svg" alt="WhatsApp" class="social-logo">
+        </a>
+    </footer>
+    <script src="quiz.js"></script>
 </body>
+
 </html>
