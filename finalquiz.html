@@ -502,6 +502,500 @@
                     </div>
                     <h3>Quiz Questions</h3>
 
+                    <div class="form-group no-select">
+                        <p><strong>1. What is the main advantage of using a dynamic array (like a Python list or Java ArrayList) over a static array?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q1_a" name="Question1" value="A" required>A. Faster access to elements.</label>
+                            <label><input type="radio" id="q1_b" name="Question1" value="B">B. The ability to resize and grow as needed.</label>
+                            <label><input type="radio" id="q1_c" name="Question1" value="C">C. Uses less memory.</label>
+                            <label><input type="radio" id="q1_d" name="Question1" value="D">D. Elements can only be of the same data type.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>2. Which of the following is a key reason why sorting is a fundamental concept in computer science?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q2_a" name="Question2" value="A" required>A. It simplifies data entry.</label>
+                            <label><input type="radio" id="q2_b" name="Question2" value="B">B. It makes tasks like searching and analysis more efficient.</label>
+                            <label><input type="radio" id="q2_c" name="Question2" value="C">C. It reduces the amount of memory used.</label>
+                            <label><input type="radio" id="q2_d" name="Question2" value="D">D. It ensures data is always stored in a single variable.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>3. Which of the following data structures is most suitable for implementing a browser's history to allow both "forward" and "back" navigation?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q3_a" name="Question3" value="A" required>A. Doubly Linked List</label>
+                            <label><input type="radio" id="q3_b" name="Question3" value="B">B. Singly Linked List</label>
+                            <label><input type="radio" id="q3_c" name="Question3" value="C">C. Segment Tree</label>
+                            <label><input type="radio" id="q3_d" name="Question3" value="D">D. Array</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>4. What is the main disadvantage of implementing a Stack using a fixed-size array?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q4_a" name="Question4" value="A" required>A. It requires more memory for pointers.</label>
+                            <label><input type="radio" id="q4_b" name="Question4" value="B">B. It is difficult to access the top element.</label>
+                            <label><input type="radio" id="q4_c" name="Question4" value="C">C. It has slower push and pop operations.</label>
+                            <label><input type="radio" id="q4_d" name="Question4" value="D">D. It can lead to a stack overflow if the array becomes full.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>5. The findMax function is an example of an algorithm with a time complexity of O(n). This means the execution time of the algorithm:</strong></p>
+                        <p>SCROLL
+                            <- OR -> TO VIEW THE CODE</p>
+                        <div class="code-block">
+                            <pre>#include &lt;stdio.h&gt;
+int findMax(int arr[], int n) {
+    int max = arr[0];
+    for (int i = 1; i &lt; n; i++) {
+        if (arr[i] &gt; max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+int main() {
+    int arr[] = {4, 2, 9, 6, 5, 1};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Maximum element: %d\n",
+    findMax(arr, n));
+    return 0;
+}</pre>
+                        </div>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q5_a" name="Question5" value="A" required>A. Decreases as the input size grows.</label>
+                            <label><input type="radio" id="q5_b" name="Question5" value="B">B. Increases exponentially with the input size.</label>
+                            <label><input type="radio" id="q5_c" name="Question5" value="C">C. Increases at a rate directly proportional to the input size.</label>
+                            <label><input type="radio" id="q5_d" name="Question5" value="D">D. Remains constant regardless of the input size.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>6. What is a key difference in the number of swaps performed by Bubble Sort and Selection Sort?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q6_a" name="Question6" value="A" required>A. Bubble Sort performs fewer swaps than Selection Sort in all cases.</label>
+                            <label><input type="radio" id="q6_b" name="Question6" value="B">B. Selection Sort generally performs fewer swaps than Bubble Sort.</label>
+                            <label><input type="radio" id="q6_c" name="Question6" value="C">C. Both algorithms perform the same number of swaps.</label>
+                            <label><input type="radio" id="q6_d" name="Question6" value="D">D. Bubble Sort only swaps once per pass, while Selection Sort swaps multiple times.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>7. Based on the provided C++ code, what is the output of the second s.peek() call?</strong></p>
+                        <p>SCROLL
+                            <- OR -> TO VIEW THE CODE</p>
+                        <div class="code-block">
+                            <pre>#include &lt;iostream&gt;
+using namespace std;
+#define SIZE 5
+
+class Stack {
+    int arr[SIZE], top;
+public:
+    Stack() { top = -1; }
+
+    void push(int x) {
+        if (top == SIZE - 1) cout &lt;&lt; "Overflow\n";
+        else arr[++top] = x;
+    }
+
+    void pop() {
+        if (top == -1) cout &lt;&lt; "Underflow\n";
+        else cout &lt;&lt; arr[top--] &lt;&lt; " popped\n";
+    }
+
+    void peek() {
+        if (top == -1) cout &lt;&lt; "Empty\n";
+        else cout &lt;&lt; "Top = " &lt;&lt; arr[top] &lt;&lt; endl;
+    }
+};
+
+int main() {
+    Stack s;
+    s.push(10);
+    s.push(20);
+    s.peek();
+    s.pop();
+    s.peek();
+}</pre>
+                        </div>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q7_a" name="Question7" value="A" required>A. Top = 20</label>
+                            <label><input type="radio" id="q7_b" name="Question7" value="B">B. Top = 10</label>
+                            <label><input type="radio" id="q7_c" name="Question7" value="C">C. Empty</label>
+                            <label><input type="radio" id="q7_d" name="Question7" value="D">D. Top = 5</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>8. Which tree traversal is commonly used to construct a copy of a tree, as it processes the root node first?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q8_a" name="Question8" value="A" required>A) Inorder</label>
+                            <label><input type="radio" id="q8_b" name="Question8" value="B">B) Postorder</label>
+                            <label><input type="radio" id="q8_c" name="Question8" value="C">C) Preorder</label>
+                            <label><input type="radio" id="q8_d" name="Question8" value="D">D) Level order</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>9. If a recursive function is called on an input of size n and its depth of recursion is proportional to n, what would be its space complexity?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q9_a" name="Question9" value="A" required>A. O(1)</label>
+                            <label><input type="radio" id="q9_b" name="Question9" value="B">B. O(logn)</label>
+                            <label><input type="radio" id="q9_c" name="Question9" value="C">C. O(n²)</label>
+                            <label><input type="radio" id="q9_d" name="Question9" value="D">D. O(n)</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>10. What is the time complexity of Merge Sort in its best, average, and worst-case scenarios?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q10_a" name="Question10" value="A" required>A. O(n²) in all cases.</label>
+                            <label><input type="radio" id="q10_b" name="Question10" value="B">B. O(n) in all cases.</label>
+                            <label><input type="radio" id="q10_c" name="Question10" value="C">C. O(nlogn) in all cases.</label>
+                            <label><input type="radio" id="q10_d" name="Question10" value="D">D. O(logn) in all cases.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>11. What is the key characteristic of a Queue that makes it different from a Stack?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q11_a" name="Question11" value="A" required>A. It follows the FIFO principle.</label>
+                            <label><input type="radio" id="q11_b" name="Question11" value="B">B. Elements are added and removed from the same end.</label>
+                            <label><input type="radio" id="q11_c" name="Question11" value="C">C. It can only be implemented using arrays.</label>
+                            <label><input type="radio" id="q11_d" name="Question11" value="D">D. Its primary operation is push and pop.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>12. What is the first node to be identified when constructing a Binary Tree using its Preorder and Inorder traversals?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q12_a" name="Question12" value="A" required>A) The last element of the Inorder traversal</label>
+                            <label><input type="radio" id="q12_b" name="Question12" value="B">B) The first element of the Preorder traversal</label>
+                            <label><input type="radio" id="q12_c" name="Question12" value="C">C) The last element of the Postorder traversal</label>
+                            <label><input type="radio" id="q12_d" name="Question12" value="D">D) The middle element of the Inorder traversal</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>13. What is a key characteristic of an array in C that distinguishes it from other data structures?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q13_a" name="Question13" value="A" required>A. It can store elements of different data types.</label>
+                            <label><input type="radio" id="q13_b" name="Question13" value="B">B. Its size can be changed dynamically during program execution.</label>
+                            <label><input type="radio" id="q13_c" name="Question13" value="C">C. Its elements are stored in contiguous memory locations.</label>
+                            <label><input type="radio" id="q13_d" name="Question13" value="D">D. Elements are accessed using a key instead of an index.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>14. In the Quick Sort algorithm, what is the purpose of the pivot element?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q14_a" name="Question14" value="A" required>A. It is always the smallest element in the array.</label>
+                            <label><input type="radio" id="q14_b" name="Question14" value="B">B. It is the only element that does not need to be sorted.</label>
+                            <label><input type="radio" id="q14_c" name="Question14" value="C">C. It is used to partition the array into two sub-arrays.</label>
+                            <label><input type="radio" id="q14_d" name="Question14" value="D">D. It represents the final sorted position of the element.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>15. Which type of queue is designed to solve the problem of unused space in a linear queue?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q15_a" name="Question15" value="A" required>A. Deque</label>
+                            <label><input type="radio" id="q15_b" name="Question15" value="B">B. Input Restricted Deque</label>
+                            <label><input type="radio" id="q15_c" name="Question15" value="C">C. Output Restricted Deque</label>
+                            <label><input type="radio" id="q15_d" name="Question15" value="D">D. Circular Queue</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>16. Based on the C++ code for array operations, what is the value of the array element at index 2 after the updation operation is completed?</strong></p>
+                        <p>SCROLL
+                            <- OR -> TO VIEW THE CODE</p>
+                        <div class="code-block">
+                            <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int arr[5] = {1, 2, 3, 4};
+    int n = 4;
+
+    arr[n] = 5; 
+    n++;
+
+    for(int i = 0; i &lt; n; i++)
+        cout &lt;&lt; arr[i] &lt;&lt; " ";
+
+    arr[2] = 99; 
+}</pre>
+                        </div>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q16_a" name="Question16" value="A" required>A. 2</label>
+                            <label><input type="radio" id="q16_b" name="Question16" value="B">B. 3</label>
+                            <label><input type="radio" id="q16_c" name="Question16" value="C">C. 4</label>
+                            <label><input type="radio" id="q16_d" name="Question16" value="D">D. 99</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>17. Which two sorting algorithms discussed both have an average time complexity of O(nlogn)?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q17_a" name="Question17" value="A" required>A. Bubble Sort and Selection Sort</label>
+                            <label><input type="radio" id="q17_b" name="Question17" value="B">B. Insertion Sort and Merge Sort</label>
+                            <label><input type="radio" id="q17_c" name="Question17" value="C">C. Merge Sort and Quick Sort</label>
+                            <label><input type="radio" id="q17_d" name="Question17" value="D">D. Quick Sort and Insertion Sort</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>18. According to the provided example, what is the first step when evaluating the postfix expression 3 4 + 2 * using a stack?</strong></p>
+                        <p>SCROLL
+                            <- OR -> TO VIEW THE CODE</p>
+                        <div class="code-block">
+                            <pre>int evaluate_postfix(char* expression) {
+    int stack[100];
+    int top = -1;
+
+    for (int i = 0; expression[i]; i++) {
+        if (isdigit(expression[i])) {
+            stack[++top] = expression[i] - '0';
+        } else if (expression[i] == '+') {
+            int operand2 = stack[top--];
+            int operand1 = stack[top--];
+            stack[++top] = operand1 + operand2;
+        } else if (expression[i] == '*') {
+            int operand2 = stack[top--];
+            int operand1 = stack[top--];
+            stack[++top] = operand1 * operand2;
+        }
+    }
+
+    return stack[top];
+}
+
+int factorial(int n) {
+    int stack[100];
+    int top = -1;
+
+    for (int i = n; i &gt;= 1; i--) {
+        stack[++top] = i;
+    }
+
+    int result = 1;
+    while (top &gt;= 0) {
+        result *= stack[top--];
+    }
+
+    return result;
+}</pre>
+                        </div>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q18_a" name="Question18" value="A" required>A. Pop 2 and + from the stack.</label>
+                            <label><input type="radio" id="q18_b" name="Question18" value="B">B. Multiply the top two elements.</label>
+                            <label><input type="radio" id="q18_c" name="Question18" value="C">C. Push 3 and 4 onto the stack.</label>
+                            <label><input type="radio" id="q18_d" name="Question18" value="D">D. Add the top two elements.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>19. What is the worst-case time complexity of the Linear Search algorithm for a list with 'n' elements?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q19_a" name="Question19" value="A" required>A. O(1)</label>
+                            <label><input type="radio" id="q19_b" name="Question19" value="B">B. O(n)</label>
+                            <label><input type="radio" id="q19_c" name="Question19" value="C">C. O(logn)</label>
+                            <label><input type="radio" id="q19_d" name="Question19" value="D">D. O(n²)</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>20. What is a key difference between arrays and linked lists in terms of memory allocation?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q20_a" name="Question20" value="A" required>A. Arrays are dynamic, while linked lists are fixed in size.</label>
+                            <label><input type="radio" id="q20_b" name="Question20" value="B">B. Linked lists store elements contiguously in memory, while arrays do not.</label>
+                            <label><input type="radio" id="q20_c" name="Question20" value="C">C. Arrays store elements in contiguous memory locations, while linked lists are non-contiguous.</label>
+                            <label><input type="radio" id="q20_d" name="Question20" value="D">D. Arrays use pointers to connect elements, while linked lists use direct indexing.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>21. What is the primary characteristic of a Binary Search Tree (BST) that makes it useful for searching?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q21_a" name="Question21" value="A" required>A. Each node has exactly two children.</label>
+                            <label><input type="radio" id="q21_b" name="Question21" value="B">B. It is a linear data structure.</label>
+                            <label><input type="radio" id="q21_c" name="Question21" value="C">C. It allows for direct indexing of nodes.</label>
+                            <label><input type="radio" id="q21_d" name="Question21" value="D">D. It maintains an ordered property where left children are less than the root and right children are greater.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>22. For the Binary Search algorithm to be effective, what must be true about the data set?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q22_a" name="Question22" value="A" required>A. It must contain no duplicate elements.</label>
+                            <label><input type="radio" id="q22_b" name="Question22" value="B">B. It must be sorted.</label>
+                            <label><input type="radio" id="q22_c" name="Question22" value="C">C. It must be stored in a linked list.</label>
+                            <label><input type="radio" id="q22_d" name="Question22" value="D">D. It must have a fixed size.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>23. What is the primary advantage of using a Segment Tree over a basic array for range queries (e.g., finding a sum in a subarray)?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q23_a" name="Question23" value="A" required>A. It simplifies the code implementation.</label>
+                            <label><input type="radio" id="q23_b" name="Question23" value="B">B. It reduces the time complexity per query from O(n) to O(logn).</label>
+                            <label><input type="radio" id="q23_c" name="Question23" value="C">C. It requires less memory than a basic array.</label>
+                            <label><input type="radio" id="q23_d" name="Question23" value="D">D. It works for unsorted data.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>24. Based on the delete operation for a Binary Search Tree, what is the strategy for removing a node that has two children?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q24_a" name="Question24" value="A" required>A. Find the largest value in the left subtree and replace the node.</label>
+                            <label><input type="radio" id="q24_b" name="Question24" value="B">B. Find the smallest value in the right subtree and replace the node.</label>
+                            <label><input type="radio" id="q24_c" name="Question24" value="C">C. Simply remove the node and connect its children directly.</label>
+                            <label><input type="radio" id="q24_d" name="Question24" value="D">D. The node cannot be deleted if it has two children.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>25. In the provided example for array manipulation, what is the final state of the array after the delete operation?</strong></p>
+                        <p>SCROLL
+                            <- OR -> TO VIEW THE CODE</p>
+                        <div class="code-block">
+                            <pre>#include &lt;stdio.h&gt;
+int main() {
+    int arr[] = {3, 1, 4, 2, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    printf("Maximum element: %d\n", findMax(arr, n));
+    printf("Minimum element: %d\n", findMin(arr, n));
+
+    int target = 4;
+    int index = searchElement(arr, n, target);
+    if (index != -1) {
+        printf("Element %d found at index %d\n", target, index);
+    } else {
+        printf("Element %d not found\n", target);
+    }
+
+    int pos = 2;
+    int element = 6;
+    insertElement(arr, &amp;n, pos, element);
+    printf("Array after insertion: ");
+    for (int i = 0; i &lt; n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+    pos = 2;
+    deleteElement(arr, &amp;n, pos);
+    printf("Array after deletion: ");
+    for (int i = 0; i &lt; n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    return 0;
+}</pre>
+                        </div>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q25_a" name="Question25" value="A" required>A. [3, 1, 6, 4, 2, 5]</label>
+                            <label><input type="radio" id="q25_b" name="Question25" value="B">B. [3, 1, 4, 2, 5]</label>
+                            <label><input type="radio" id="q25_c" name="Question25" value="C">C. [3, 1, 2, 5]</label>
+                            <label><input type="radio" id="q25_d" name="Question25" value="D">D. [3, 1, 4, 5]</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>26. In a linked list, what are the two main components of a node?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q26_a" name="Question26" value="A" required>A. An index and a value</label>
+                            <label><input type="radio" id="q26_b" name="Question26" value="B">B. A head and a tail</label>
+                            <label><input type="radio" id="q26_c" name="Question26" value="C">C. Data and a pointer</label>
+                            <label><input type="radio" id="q26_d" name="Question26" value="D">D. An array and a key</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>27. What is the key difference between Breadth-First Search (BFS) and Depth-First Search (DFS) graph traversal algorithms?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q27_a" name="Question27" value="A" required>A. BFS is used for trees, while DFS is for graphs.</label>
+                            <label><input type="radio" id="q27_b" name="Question27" value="B">B. BFS explores all nodes at a given level before moving to the next level, while DFS explores as far as possible down one branch before backtracking.</label>
+                            <label><input type="radio" id="q27_c" name="Question27" value="C">C. BFS is used to detect cycles, while DFS is used to find shortest paths.</label>
+                            <label><input type="radio" id="q27_d" name="Question27" value="D">D. BFS uses a stack, while DFS uses a queue.</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>28. Which of the following array operations typically requires a sorted array to be efficient?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q28_a" name="Question28" value="A" required>A. Binary Search</label>
+                            <label><input type="radio" id="q28_b" name="Question28" value="B">B. Finding the maximum element</label>
+                            <label><input type="radio" id="q28_c" name="Question28" value="C">C. Linear Search</label>
+                            <label><input type="radio" id="q28_d" name="Question28" value="D">D. Insertion at the end</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>29. According to the provided C program, what is the output of the displayForward function after the insertAtBeginning and insertAtEnd operations?</strong></p>
+                        <p>SCROLL
+                            <- OR -> TO VIEW THE CODE</p>
+                        <div class="code-block">
+                            <pre>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+struct Node {
+    int data;
+    struct Node* prev;
+    struct Node* next;
+};
+
+
+struct Node* createNode(int data) {
+    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
+    newNode-&gt;data = data;
+    newNode-&gt;prev = NULL;
+    newNode-&gt;next = NULL;
+    return newNode;
+}
+
+
+void insertAtBeginning(struct Node** head, int data) {
+    struct Node* newNode = createNode(data);
+    if (*head != NULL) {
+        newNode-&gt;next = *head;
+        (*head)-&gt;prev = newNode;
+    }
+    *head = newNode;
+}
+
+
+void insertAtEnd(struct Node** head, int data) {
+    struct Node* newNode = createNode(data);
+    if (*head == NULL) {
+        *head = newNode;
+        return;
+    }
+    struct Node* temp = *head;
+    while (temp-&gt;next != NULL) {
+        temp = temp-&gt;next;
+    }
+    temp-&gt;next = newNode;
+    newNode-&gt;prev = temp;
+}
+
+
+void displayForward(struct Node* head) {
+    struct Node* temp = head;
+    printf("Forward Traversal: ");
+    while (temp != NULL) {
+        printf("%d ", temp-&gt;data);
+        temp = temp-&gt;next;
+    }
+    printf("\n");
+}
+
+int main() {
+    struct Node* head = NULL;
+
+    insertAtBeginning(&amp;head, 10);
+    insertAtBeginning(&amp;head, 5);
+    insertAtEnd(&amp;head, 20);
+
+    displayForward(head);
+
+    return 0;
+}</pre></div>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q29_a" name="Question29" value="A" required>A. Forward Traversal: 10 5 20</label>
+                            <label><input type="radio" id="q29_b" name="Question29" value="B">B. Forward Traversal: 20 10 5</label>
+                            <label><input type="radio" id="q29_c" name="Question29" value="C">C. Forward Traversal: 5 20 10</label>
+                            <label><input type="radio" id="q29_d" name="Question29" value="D">D. Forward Traversal: 5 10 20</label>
+                        </div>
+                    </div>
+                    <div class="form-group no-select">
+                        <p><strong>30. What is the time complexity for a search operation in a balanced Binary Search Tree (BST)?</strong></p>
+                        <div class="radio-group">
+                            <label><input type="radio" id="q30_a" name="Question30" value="A" required>A. O(n)</label>
+                            <label><input type="radio" id="q30_b" name="Question30" value="B">B. O(logn)</label>
+                            <label><input type="radio" id="q30_c" name="Question30" value="C">C. O(n²)</label>
+                            <label><input type="radio" id="q30_d" name="Question30" value="D">D. O(1)</label>
+                        </div>
+                    </div>
+
                     <p><strong>After submission wait until you see a tick</strong></p>
                     <button type="submit" class="submit-button">Submit Quiz</button>
                 </div>
