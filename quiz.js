@@ -89,24 +89,24 @@ function setLinkStatus() {
     if (timerControlStatus === "enable") {
         if (currentTime >= quizStartTime && currentTime < quizEndTime) {
             quizShouldBeEnabled = true;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>Quiz is LIVE! Ends on 28/09/2025 6:00 PM IST!';
+            statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>Quiz ends on 28/09/2025 6:00 PM IST!';
             statusElement.style.color = '#008000'; // Green for active
         } else if (currentTime < quizStartTime) {
             // Quiz not yet started
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>starts at 6.00 PM on 27/09/2025!';
+            statusElement.innerHTML = 'BRAIN CACHE<br>weekly quizzes ended';
             statusElement.style.color = '#FFA500'; // Orange for upcoming
         } else {
             // Quiz ended
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>starts at 6.00 PM on 27/09/2025!';
+            statusElement.innerHTML = 'BRAIN CACHE<br>weekly quizzes ended';
             statusElement.style.color = '#CC0000'; // Red for closed
         }
     }
     // Priority 3: Default to disabled if neither manual nor timer is enabling it
     else {
         quizShouldBeEnabled = false;
-        statusElement.innerHTML = 'BRAIN CACHE - WEEK 8 QUIZ<br>starts at 6.00 PM on 27/09/2025!'; // Indicate manual disable
+        statusElement.innerHTML = 'BRAIN CACHE<br>weekly quizzes ended'; // Indicate manual disable
         statusElement.style.color = '#CC0000'; // Red
     }
 
