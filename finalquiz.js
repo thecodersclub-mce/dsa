@@ -94,19 +94,19 @@ function setLinkStatus() {
         } else if (currentTime < quizStartTime) {
             // Quiz not yet started
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'MINDMASH - FINAL QUIZ<br>starts at 6.00 PM on 28/09/2025!';
+            statusElement.innerHTML = 'MINDMASH - FINAL QUIZ<br>monthly quizzes ended';
             statusElement.style.color = '#FFA500'; // Orange for upcoming
         } else {
             // Quiz ended
             quizShouldBeEnabled = false;
-            statusElement.innerHTML = 'BRAIN CACHE<br>weekly quizzes ended';
+            statusElement.innerHTML = 'MINDMASH - FINAL QUIZ<br>monthly quizzes ended';
             statusElement.style.color = '#CC0000'; // Red for closed
         }
     }
     // Priority 3: Default to disabled if neither manual nor timer is enabling it
     else {
         quizShouldBeEnabled = false;
-        statusElement.innerHTML = 'BRAIN CACHE<br>monthly quizzes ended'; // Indicate manual disable
+        statusElement.innerHTML = 'MINDMASH - FINAL QUIZ<br>monthly quizzes ended'; // Indicate manual disable
         statusElement.style.color = '#CC0000'; // Red
     }
 
