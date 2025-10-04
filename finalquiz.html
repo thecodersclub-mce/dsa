@@ -1,44 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mindmash - DSA Series</title>
+    <title>Mindmash - Frontend Series</title>
     <link rel="icon" href="TCC.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         .content-container {
             /* Override previous height/centering to allow form content to flow naturally */
-            height: auto;
-            /* Allow height to adjust based on content */
-            min-height: calc(100vh - 100px);
-            /* Ensure content takes up most of the screen, accounting for header/footer */
-            justify-content: flex-start;
-            /* Align content to the top */
-            padding-bottom: 50px;
-            /* Add padding to prevent content from being hidden by the fixed footer */
-            box-sizing: border-box;
-            /* Include padding in the element's total width and height */
+            height: auto; /* Allow height to adjust based on content */
+            min-height: calc(100vh - 100px); /* Ensure content takes up most of the screen, accounting for header/footer */
+            justify-content: flex-start; /* Align content to the top */
+            padding-bottom: 50px; /* Add padding to prevent content from being hidden by the fixed footer */
+            box-sizing: border-box; /* Include padding in the element's total width and height */
         }
-        
+
         .quiz-form-wrapper {
-            width: 90%;
-            /* Adjust width for better responsiveness */
-            max-width: 700px;
-            /* Limit max-width for larger screens */
-            margin: 20px auto;
-            /* Center the form wrapper */
+            width: 90%; /* Adjust width for better responsiveness */
+            max-width: 700px; /* Limit max-width for larger screens */
+            margin: 20px auto; /* Center the form wrapper */
             padding: 25px;
-            background-color: #ffffff;
-            /* White background for the form area */
+            background-color: #ffffff; /* White background for the form area */
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            /* Softer, larger shadow */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Softer, larger shadow */
             box-sizing: border-box;
         }
-        
+
         .quiz-form-wrapper h2 {
             text-align: center;
             color: #00408f;
@@ -46,117 +35,95 @@
             font-size: 24px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
-        
+
         .form-group {
             margin-bottom: 20px;
-            text-align: left;
-            /* Align labels and inputs to the left */
+            text-align: left; /* Align labels and inputs to the left */
         }
-        
+
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 600;
-            /* Slightly bolder labels */
+            font-weight: 600; /* Slightly bolder labels */
             color: #333;
             font-size: 15px;
         }
+
         /* Common styling for all input types (text, email, textarea, select) */
-        
         .form-group input[type="text"],
         .form-group input[type="email"],
         .form-group textarea,
         .form-group select {
-            width: 100%;
-            /* Take full width of parent */
+            width: 100%; /* Take full width of parent */
             padding: 12px;
-            border: 1px solid #c0c0c0;
-            /* Lighter border */
+            border: 1px solid #c0c0c0; /* Lighter border */
             border-radius: 6px;
-            box-sizing: border-box;
-            /* Include padding in width */
+            box-sizing: border-box; /* Include padding in width */
             font-size: 15px;
             transition: border-color 0.3s ease;
         }
+
         /* Specific styling for <select> dropdowns to add the custom arrow */
-        
         .form-group select {
-            -webkit-appearance: none;
-            /* Remove default browser styling for select */
+            -webkit-appearance: none; /* Remove default browser styling for select */
             -moz-appearance: none;
             appearance: none;
-            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20512%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M192%20256L64%20128v256l128-128z%22%2F%3E%3C%2Fsvg%3E');
-            /* Custom dropdown arrow */
+            background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20512%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M192%20256L64%20128v256l128-128z%22%2F%3E%3C%2Fsvg%3E'); /* Custom dropdown arrow */
             background-repeat: no-repeat;
             background-position: right 12px center;
             background-size: 12px;
-            padding-right: 30px;
-            /* Make space for the custom arrow */
+            padding-right: 30px; /* Make space for the custom arrow */
         }
-        
+
         .form-group input[type="text"]:focus,
         .form-group input[type="email"]:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: #00408f;
-            /* Highlight on focus */
-            outline: none;
-            /* Remove default outline */
+            border-color: #00408f; /* Highlight on focus */
+            outline: none; /* Remove default outline */
             box-shadow: 0 0 5px rgba(0, 64, 143, 0.2);
         }
-        
+
         .form-group textarea {
             resize: vertical;
             min-height: 100px;
         }
-        
-        .radio-group,
-        .checkbox-group {
+
+        .radio-group, .checkbox-group {
             display: flex;
-            flex-direction: column;
-            /* Stack radio/checkbox options vertically */
-            gap: 8px;
-            /* Space between options */
+            flex-direction: column; /* Stack radio/checkbox options vertically */
+            gap: 8px; /* Space between options */
         }
-        
-        .radio-group label,
-        .checkbox-group label {
-            display: flex;
-            /* Use flex to align input and text */
-            align-items: center;
-            /* Vertically align them */
-            margin-bottom: 0;
-            /* Remove default margin for labels */
-            font-weight: normal;
-            /* Normal weight for option text */
+
+        .radio-group label, .checkbox-group label {
+            display: flex; /* Use flex to align input and text */
+            align-items: center; /* Vertically align them */
+            margin-bottom: 0; /* Remove default margin for labels */
+            font-weight: normal; /* Normal weight for option text */
             cursor: pointer;
             font-size: 15px;
         }
-        
+
         .radio-group input[type="radio"],
         .checkbox-group input[type="checkbox"] {
-            margin-right: 10px;
-            /* Space between radio/checkbox and its label text */
-            width: 18px;
-            /* Standardize size */
-            height: 18px;
-            /* Standardize size */
+            margin-right: 10px; /* Space between radio/checkbox and its label text */
+            width: 18px; /* Standardize size */
+            height: 18px; /* Standardize size */
             cursor: pointer;
         }
+
         /* Styling for quiz questions paragraph */
-        
         .form-group p {
             font-weight: 600;
             color: #333;
             margin-bottom: 12px;
             font-size: 16px;
         }
-        
+
         .submit-button {
             width: 100%;
             padding: 12px 20px;
-            background-color: #00408f;
-            /* Use your primary blue */
+            background-color: #00408f; /* Use your primary blue */
             color: white;
             border: none;
             border-radius: 6px;
@@ -165,24 +132,27 @@
             transition: background-color 0.3s ease, transform 0.1s ease;
             margin-top: 20px;
         }
-        
+
         .submit-button:hover {
-            background-color: #1E88E5;
-            /* Lighter blue on hover */
+            background-color: #1E88E5; /* Lighter blue on hover */
         }
-        
+
         .submit-button:active {
             transform: scale(0.98);
         }
-        
+
         hr {
             border: 0;
             height: 1px;
             background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
             margin: 30px 0;
         }
+        .active-nav-button {
+            background-color: #0056b3; /* A slightly darker blue to indicate active state */
+            color: white;
+         border-bottom: 3px solid #f0f0f0; /* Add a subtle underline */
+        }
         /* Small devices (phones, 600px and down) */
-        
         @media only screen and (max-width: 600px) {
             /* ... other mobile styles ... */
             .content-access-button {
@@ -191,37 +161,25 @@
             }
             /* REDUCE SIZE OF NAVIGATION BUTTONS FOR MOBILE VIEW */
             .nav-button {
-                padding: 6px 8px;
-                /* Smaller padding */
-                font-size: 0.75em;
-                /* Smaller font size */
-                margin: 2px;
-                /* Reduce margin between buttons */
+                padding: 6px 8px; /* Smaller padding */
+                font-size: 0.75em; /* Smaller font size */
+                margin: 2px; /* Reduce margin between buttons */
             }
             .button-container {
-                padding: 10px;
-                /* Adjust padding for the button container */
-                text-align: center;
-                /* Center buttons if they wrap */
+                padding: 10px; /* Adjust padding for the button container */
+                text-align: center; /* Center buttons if they wrap */
             }
         }
         /* Responsive adjustments for quiz form */
-        
         @media only screen and (max-width: 768px) {
             .quiz-form-wrapper {
-                width: 95%;
-                /* Make it slightly wider on tablets */
+                width: 95%; /* Make it slightly wider on tablets */
                 padding: 20px;
             }
             .quiz-form-wrapper h2 {
                 font-size: 22px;
             }
-            .form-group label,
-            .form-group input,
-            .form-group textarea,
-            .radio-group label,
-            .checkbox-group label,
-            .form-group select {
+            .form-group label, .form-group input, .form-group textarea, .radio-group label, .checkbox-group label, .form-group select {
                 font-size: 14px;
             }
             .submit-button {
@@ -229,7 +187,7 @@
                 padding: 10px 15px;
             }
         }
-        
+
         @media only screen and (max-width: 480px) {
             .quiz-form-wrapper {
                 padding: 15px;
@@ -238,12 +196,7 @@
                 font-size: 20px;
                 margin-bottom: 20px;
             }
-            .form-group label,
-            .form-group input,
-            .form-group textarea,
-            .radio-group label,
-            .checkbox-group label,
-            .form-group select {
+            .form-group label, .form-group input, .form-group textarea, .radio-group label, .checkbox-group label, .form-group select {
                 font-size: 13px;
             }
             .form-group p {
@@ -254,188 +207,137 @@
                 padding: 10px;
             }
         }
+
         /* --- New CSS for Anti-Copying --- */
-        
         .no-select {
-            -webkit-touch-callout: none;
-            /* iOS Safari */
-            -webkit-user-select: none;
-            /* Safari */
-            -khtml-user-select: none;
-            /* Konqueror HTML */
-            -moz-user-select: none;
-            /* Old versions of Firefox */
-            -ms-user-select: none;
-            /* Internet Explorer/Edge */
-            user-select: none;
-            /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Old versions of Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
         }
         /* Allow selection for input fields within no-select, if needed */
-        
-        .no-select input,
-        .no-select textarea,
-        .no-select select {
+        .no-select input, .no-select textarea, .no-select select {
             pointer-events: auto;
             user-select: auto;
         }
+
         /* --- New CSS for the QUIZ QUESTIONS SECTION (Blurring, Jumbling & Overlay Container) --- */
-        
         #quizQuestionsSection {
-            position: relative;
-            /* Essential for positioning the absolute overlay */
+            position: relative; /* Essential for positioning the absolute overlay */
         }
-        
+
         #quizQuestionsSection.quiz-disabled-overlay {
             /* These apply to the content *behind* the overlay */
-            opacity: 0.5;
-            /* Makes the section semi-transparent */
-            filter: blur(3px);
-            /* Applies a blur effect */
-            pointer-events: none;
-            /* Disables all click/hover events on the section content */
-            transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
-            /* Smooth transition */
+            opacity: 0.5; /* Makes the section semi-transparent */
+            filter: blur(3px); /* Applies a blur effect */
+            pointer-events: none; /* Disables all click/hover events on the section content */
+            transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out; /* Smooth transition */
         }
         /* Override pointer-events for input fields within the disabled section to allow JS to disable them */
-        
         #quizQuestionsSection.quiz-disabled-overlay input,
         #quizQuestionsSection.quiz-disabled-overlay textarea,
         #quizQuestionsSection.quiz-disabled-overlay select {
-            pointer-events: auto;
-            /* Allows JS to disable them properly */
+            pointer-events: auto; /* Allows JS to disable them properly */
         }
+
         /* --- New CSS for the White Opaque Overlay --- */
-        
         #quizOverlay {
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(255, 255, 255, 0.8);
-            /* White with 80% opacity */
-            z-index: 5;
-            /* Puts it above the blurred content */
-            display: flex;
-            /* Make it a flex container */
-            align-items: center;
-            /* Center content vertically */
-            justify-content: center;
-            /* Center content horizontally */
-            opacity: 0;
-            /* Hidden by default */
-            visibility: hidden;
-            /* Also hidden by default for accessibility/layout */
-            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
-            /* Smooth transition */
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            z-index: 5; /* Puts it above the blurred content */
+            display: flex; /* Make it a flex container */
+            align-items: center; /* Center content vertically */
+            justify-content: center; /* Center content horizontally */
+            opacity: 0; /* Hidden by default */
+            visibility: hidden; /* Also hidden by default for accessibility/layout */
+            transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out; /* Smooth transition */
         }
+
         /* --- New CSS for Submission Success Message --- */
-        
         #submissionSuccessMessage {
-            position: fixed;
-            /* Stays in place relative to the viewport */
+            position: fixed; /* Stays in place relative to the viewport */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent dark background */
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
             display: flex;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
-            /* Ensures it's on top of all other content */
-            opacity: 0;
-            /* Initially hidden */
-            visibility: hidden;
-            /* Also hidden by default for accessibility/layout */
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-            /* Smooth fade in/out */
+            z-index: 1000; /* Ensures it's on top of all other content */
+            opacity: 0; /* Initially hidden */
+            visibility: hidden; /* Also hidden by default for accessibility/layout */
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; /* Smooth fade in/out */
         }
+
         /* Class to show the success message */
-        
         #submissionSuccessMessage.show {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .success-content {
             background-color: #ffffff;
             padding: 40px;
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            transform: scale(0.9);
-            /* Initial scale for a subtle zoom-in effect */
+            transform: scale(0.9); /* Initial scale for a subtle zoom-in effect */
             transition: transform 0.3s ease-in-out;
         }
+
         /* Animation for the content when shown */
-        
         #submissionSuccessMessage.show .success-content {
-            transform: scale(1);
-            /* Scales up to normal size */
+            transform: scale(1); /* Scales up to normal size */
         }
-        
+
         .success-content p {
             font-size: 20px;
             font-weight: bold;
-            color: #008000;
-            /* Green text for success */
+            color: #008000; /* Green text for success */
             margin-top: 15px;
         }
+
         /* New CSS for the Font Awesome icon */
-        
         .success-icon-fa {
-            font-size: 80px;
-            /* Adjust size as needed */
-            color: #008000;
-            /* Green color for the icon */
-            margin-bottom: 10px;
-            /* Space between icon and text */
-            animation: fadeInScale 0.6s forwards;
-            /* Simple fade-in and scale animation */
+            font-size: 80px; /* Adjust size as needed */
+            color: #008000; /* Green color for the icon */
+            margin-bottom: 10px; /* Space between icon and text */
+            animation: fadeInScale 0.6s forwards; /* Simple fade-in and scale animation */
         }
+
         /* New keyframe for the Font Awesome icon */
-        
         @keyframes fadeInScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.7);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.7); }
+            100% { opacity: 1; transform: scale(1); }
         }
+
         /* Styling for the new <pre><code> block */
-        
         .code-block {
-            background-color: #f4f4f4;
-            /* Light grey background */
-            border: 1px solid #ddd;
-            /* Light grey border */
+            background-color: #f4f4f4; /* Light grey background */
+            border: 1px solid #ddd; /* Light grey border */
             border-radius: 5px;
             padding: 15px;
             margin: 15px 0;
-            overflow-x: auto;
-            /* Enable horizontal scrolling for long lines */
+            overflow-x: auto; /* Enable horizontal scrolling for long lines */
         }
+
         /* Crucial: Style for <code> inside <pre> */
-        
         .code-block code {
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-            font-size: 0.9em;
-            /* Slightly smaller font size */
-            color: #333;
-            /* Darker text color */
-            display: block;
-            /* Ensures it takes up full width of pre and respects line breaks */
-            white-space: pre-wrap;
-            /* Ensures line breaks in code are respected */
+            font-size: 0.9em; /* Slightly smaller font size */
+            color: #333; /* Darker text color */
+            display: block; /* Ensures it takes up full width of pre and respects line breaks */
+            white-space: pre-wrap; /* Ensures line breaks in code are respected */
         }
     </style>
 </head>
-
 <body>
     <div class="blue-container">
         <div class="left-aligned">
@@ -453,15 +355,13 @@
         <button class="b-nav-button" onclick="window.location.href='index.html';">Home</button>
         <button class="b-nav-button" onclick="window.location.href='weeklycontent.html';">Weekly Content</button>
         <button class="b-nav-button" onclick="window.location.href='quiz.html';">Brain Cache</button>
-        <button class="b-nav-button active-nav-button" onclick="window.location.href='finalquiz.html';">Mindmash</button>
+        <button class="b-nav-button  active-nav-button" onclick="window.location.href='finalquiz.html';">Mindmash</button>
         <button class="b-nav-button" onclick="window.location.href='leaderboard.html';">Leaderboard</button>
         <button class="b-nav-button" onclick="window.location.href='feedback.html';">Feedback</button>
     </div>
 
     <div class="content-container">
-        <center>
-            <h4 id="status"></h4>
-        </center>
+        <center><h4 id="status"></h4></center>
 
         <div class="quiz-form-wrapper">
             <h2>MINDMASH</h2>
@@ -487,12 +387,12 @@
                 <div class="form-group">
                     <label for="year">Year:</label>
                     <select id="year" name="Year" required>
-<option value="">Select your Year</option>
-<option value="1st Year">1st Year</option>
-<option value="2nd Year">2nd Year</option>
-<option value="3rd Year">3rd Year</option>
-<option value="4th Year">4th Year</option>
-</select>
+                        <option value="">Select your Year</option>
+			<option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+		        <option value="4th Year">4th Year</option>
+                    </select>
                 </div>
 
                 <hr>
@@ -502,500 +402,8 @@
                     </div>
                     <h3>Quiz Questions</h3>
 
-                    <div class="form-group no-select">
-                        <p><strong>1. What is the main advantage of using a dynamic array (like a Python list or Java ArrayList) over a static array?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q1_a" name="Question1" value="A" required>A. Faster access to elements.</label>
-                            <label><input type="radio" id="q1_b" name="Question1" value="B">B. The ability to resize and grow as needed.</label>
-                            <label><input type="radio" id="q1_c" name="Question1" value="C">C. Uses less memory.</label>
-                            <label><input type="radio" id="q1_d" name="Question1" value="D">D. Elements can only be of the same data type.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>2. Which of the following is a key reason why sorting is a fundamental concept in computer science?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q2_a" name="Question2" value="A" required>A. It simplifies data entry.</label>
-                            <label><input type="radio" id="q2_b" name="Question2" value="B">B. It makes tasks like searching and analysis more efficient.</label>
-                            <label><input type="radio" id="q2_c" name="Question2" value="C">C. It reduces the amount of memory used.</label>
-                            <label><input type="radio" id="q2_d" name="Question2" value="D">D. It ensures data is always stored in a single variable.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>3. Which of the following data structures is most suitable for implementing a browser's history to allow both "forward" and "back" navigation?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q3_a" name="Question3" value="A" required>A. Doubly Linked List</label>
-                            <label><input type="radio" id="q3_b" name="Question3" value="B">B. Singly Linked List</label>
-                            <label><input type="radio" id="q3_c" name="Question3" value="C">C. Segment Tree</label>
-                            <label><input type="radio" id="q3_d" name="Question3" value="D">D. Array</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>4. What is the main disadvantage of implementing a Stack using a fixed-size array?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q4_a" name="Question4" value="A" required>A. It requires more memory for pointers.</label>
-                            <label><input type="radio" id="q4_b" name="Question4" value="B">B. It is difficult to access the top element.</label>
-                            <label><input type="radio" id="q4_c" name="Question4" value="C">C. It has slower push and pop operations.</label>
-                            <label><input type="radio" id="q4_d" name="Question4" value="D">D. It can lead to a stack overflow if the array becomes full.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>5. The findMax function is an example of an algorithm with a time complexity of O(n). This means the execution time of the algorithm:</strong></p>
-                        <p>SCROLL
-                            <- OR -> TO VIEW THE CODE</p>
-                        <div class="code-block">
-                            <pre>#include &lt;stdio.h&gt;
-int findMax(int arr[], int n) {
-    int max = arr[0];
-    for (int i = 1; i &lt; n; i++) {
-        if (arr[i] &gt; max) {
-            max = arr[i];
-        }
-    }
-    return max;
-}
 
-int main() {
-    int arr[] = {4, 2, 9, 6, 5, 1};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    printf("Maximum element: %d\n",
-    findMax(arr, n));
-    return 0;
-}</pre>
-                        </div>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q5_a" name="Question5" value="A" required>A. Decreases as the input size grows.</label>
-                            <label><input type="radio" id="q5_b" name="Question5" value="B">B. Increases exponentially with the input size.</label>
-                            <label><input type="radio" id="q5_c" name="Question5" value="C">C. Increases at a rate directly proportional to the input size.</label>
-                            <label><input type="radio" id="q5_d" name="Question5" value="D">D. Remains constant regardless of the input size.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>6. What is a key difference in the number of swaps performed by Bubble Sort and Selection Sort?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q6_a" name="Question6" value="A" required>A. Bubble Sort performs fewer swaps than Selection Sort in all cases.</label>
-                            <label><input type="radio" id="q6_b" name="Question6" value="B">B. Selection Sort generally performs fewer swaps than Bubble Sort.</label>
-                            <label><input type="radio" id="q6_c" name="Question6" value="C">C. Both algorithms perform the same number of swaps.</label>
-                            <label><input type="radio" id="q6_d" name="Question6" value="D">D. Bubble Sort only swaps once per pass, while Selection Sort swaps multiple times.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>7. Based on the provided C++ code, what is the output of the second s.peek() call?</strong></p>
-                        <p>SCROLL
-                            <- OR -> TO VIEW THE CODE</p>
-                        <div class="code-block">
-                            <pre>#include &lt;iostream&gt;
-using namespace std;
-#define SIZE 5
-
-class Stack {
-    int arr[SIZE], top;
-public:
-    Stack() { top = -1; }
-
-    void push(int x) {
-        if (top == SIZE - 1) cout &lt;&lt; "Overflow\n";
-        else arr[++top] = x;
-    }
-
-    void pop() {
-        if (top == -1) cout &lt;&lt; "Underflow\n";
-        else cout &lt;&lt; arr[top--] &lt;&lt; " popped\n";
-    }
-
-    void peek() {
-        if (top == -1) cout &lt;&lt; "Empty\n";
-        else cout &lt;&lt; "Top = " &lt;&lt; arr[top] &lt;&lt; endl;
-    }
-};
-
-int main() {
-    Stack s;
-    s.push(10);
-    s.push(20);
-    s.peek();
-    s.pop();
-    s.peek();
-}</pre>
-                        </div>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q7_a" name="Question7" value="A" required>A. Top = 20</label>
-                            <label><input type="radio" id="q7_b" name="Question7" value="B">B. Top = 10</label>
-                            <label><input type="radio" id="q7_c" name="Question7" value="C">C. Empty</label>
-                            <label><input type="radio" id="q7_d" name="Question7" value="D">D. Top = 5</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>8. Which tree traversal is commonly used to construct a copy of a tree, as it processes the root node first?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q8_a" name="Question8" value="A" required>A) Inorder</label>
-                            <label><input type="radio" id="q8_b" name="Question8" value="B">B) Postorder</label>
-                            <label><input type="radio" id="q8_c" name="Question8" value="C">C) Preorder</label>
-                            <label><input type="radio" id="q8_d" name="Question8" value="D">D) Level order</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>9. If a recursive function is called on an input of size n and its depth of recursion is proportional to n, what would be its space complexity?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q9_a" name="Question9" value="A" required>A. O(1)</label>
-                            <label><input type="radio" id="q9_b" name="Question9" value="B">B. O(logn)</label>
-                            <label><input type="radio" id="q9_c" name="Question9" value="C">C. O(n²)</label>
-                            <label><input type="radio" id="q9_d" name="Question9" value="D">D. O(n)</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>10. What is the time complexity of Merge Sort in its best, average, and worst-case scenarios?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q10_a" name="Question10" value="A" required>A. O(n²) in all cases.</label>
-                            <label><input type="radio" id="q10_b" name="Question10" value="B">B. O(n) in all cases.</label>
-                            <label><input type="radio" id="q10_c" name="Question10" value="C">C. O(nlogn) in all cases.</label>
-                            <label><input type="radio" id="q10_d" name="Question10" value="D">D. O(logn) in all cases.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>11. What is the key characteristic of a Queue that makes it different from a Stack?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q11_a" name="Question11" value="A" required>A. It follows the FIFO principle.</label>
-                            <label><input type="radio" id="q11_b" name="Question11" value="B">B. Elements are added and removed from the same end.</label>
-                            <label><input type="radio" id="q11_c" name="Question11" value="C">C. It can only be implemented using arrays.</label>
-                            <label><input type="radio" id="q11_d" name="Question11" value="D">D. Its primary operation is push and pop.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>12. What is the first node to be identified when constructing a Binary Tree using its Preorder and Inorder traversals?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q12_a" name="Question12" value="A" required>A) The last element of the Inorder traversal</label>
-                            <label><input type="radio" id="q12_b" name="Question12" value="B">B) The first element of the Preorder traversal</label>
-                            <label><input type="radio" id="q12_c" name="Question12" value="C">C) The last element of the Postorder traversal</label>
-                            <label><input type="radio" id="q12_d" name="Question12" value="D">D) The middle element of the Inorder traversal</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>13. What is a key characteristic of an array in C that distinguishes it from other data structures?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q13_a" name="Question13" value="A" required>A. It can store elements of different data types.</label>
-                            <label><input type="radio" id="q13_b" name="Question13" value="B">B. Its size can be changed dynamically during program execution.</label>
-                            <label><input type="radio" id="q13_c" name="Question13" value="C">C. Its elements are stored in contiguous memory locations.</label>
-                            <label><input type="radio" id="q13_d" name="Question13" value="D">D. Elements are accessed using a key instead of an index.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>14. In the Quick Sort algorithm, what is the purpose of the pivot element?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q14_a" name="Question14" value="A" required>A. It is always the smallest element in the array.</label>
-                            <label><input type="radio" id="q14_b" name="Question14" value="B">B. It is the only element that does not need to be sorted.</label>
-                            <label><input type="radio" id="q14_c" name="Question14" value="C">C. It is used to partition the array into two sub-arrays.</label>
-                            <label><input type="radio" id="q14_d" name="Question14" value="D">D. It represents the final sorted position of the element.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>15. Which type of queue is designed to solve the problem of unused space in a linear queue?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q15_a" name="Question15" value="A" required>A. Deque</label>
-                            <label><input type="radio" id="q15_b" name="Question15" value="B">B. Input Restricted Deque</label>
-                            <label><input type="radio" id="q15_c" name="Question15" value="C">C. Output Restricted Deque</label>
-                            <label><input type="radio" id="q15_d" name="Question15" value="D">D. Circular Queue</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>16. Based on the C++ code for array operations, what is the value of the array element at index 2 after the updation operation is completed?</strong></p>
-                        <p>SCROLL
-                            <- OR -> TO VIEW THE CODE</p>
-                        <div class="code-block">
-                            <pre>#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    int arr[5] = {1, 2, 3, 4};
-    int n = 4;
-
-    arr[n] = 5; 
-    n++;
-
-    for(int i = 0; i &lt; n; i++)
-        cout &lt;&lt; arr[i] &lt;&lt; " ";
-
-    arr[2] = 99; 
-}</pre>
-                        </div>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q16_a" name="Question16" value="A" required>A. 2</label>
-                            <label><input type="radio" id="q16_b" name="Question16" value="B">B. 3</label>
-                            <label><input type="radio" id="q16_c" name="Question16" value="C">C. 4</label>
-                            <label><input type="radio" id="q16_d" name="Question16" value="D">D. 99</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>17. Which two sorting algorithms discussed both have an average time complexity of O(nlogn)?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q17_a" name="Question17" value="A" required>A. Bubble Sort and Selection Sort</label>
-                            <label><input type="radio" id="q17_b" name="Question17" value="B">B. Insertion Sort and Merge Sort</label>
-                            <label><input type="radio" id="q17_c" name="Question17" value="C">C. Merge Sort and Quick Sort</label>
-                            <label><input type="radio" id="q17_d" name="Question17" value="D">D. Quick Sort and Insertion Sort</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>18. According to the provided example, what is the first step when evaluating the postfix expression 3 4 + 2 * using a stack?</strong></p>
-                        <p>SCROLL
-                            <- OR -> TO VIEW THE CODE</p>
-                        <div class="code-block">
-                            <pre>int evaluate_postfix(char* expression) {
-    int stack[100];
-    int top = -1;
-
-    for (int i = 0; expression[i]; i++) {
-        if (isdigit(expression[i])) {
-            stack[++top] = expression[i] - '0';
-        } else if (expression[i] == '+') {
-            int operand2 = stack[top--];
-            int operand1 = stack[top--];
-            stack[++top] = operand1 + operand2;
-        } else if (expression[i] == '*') {
-            int operand2 = stack[top--];
-            int operand1 = stack[top--];
-            stack[++top] = operand1 * operand2;
-        }
-    }
-
-    return stack[top];
-}
-
-int factorial(int n) {
-    int stack[100];
-    int top = -1;
-
-    for (int i = n; i &gt;= 1; i--) {
-        stack[++top] = i;
-    }
-
-    int result = 1;
-    while (top &gt;= 0) {
-        result *= stack[top--];
-    }
-
-    return result;
-}</pre>
-                        </div>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q18_a" name="Question18" value="A" required>A. Pop 2 and + from the stack.</label>
-                            <label><input type="radio" id="q18_b" name="Question18" value="B">B. Multiply the top two elements.</label>
-                            <label><input type="radio" id="q18_c" name="Question18" value="C">C. Push 3 and 4 onto the stack.</label>
-                            <label><input type="radio" id="q18_d" name="Question18" value="D">D. Add the top two elements.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>19. What is the worst-case time complexity of the Linear Search algorithm for a list with 'n' elements?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q19_a" name="Question19" value="A" required>A. O(1)</label>
-                            <label><input type="radio" id="q19_b" name="Question19" value="B">B. O(n)</label>
-                            <label><input type="radio" id="q19_c" name="Question19" value="C">C. O(logn)</label>
-                            <label><input type="radio" id="q19_d" name="Question19" value="D">D. O(n²)</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>20. What is a key difference between arrays and linked lists in terms of memory allocation?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q20_a" name="Question20" value="A" required>A. Arrays are dynamic, while linked lists are fixed in size.</label>
-                            <label><input type="radio" id="q20_b" name="Question20" value="B">B. Linked lists store elements contiguously in memory, while arrays do not.</label>
-                            <label><input type="radio" id="q20_c" name="Question20" value="C">C. Arrays store elements in contiguous memory locations, while linked lists are non-contiguous.</label>
-                            <label><input type="radio" id="q20_d" name="Question20" value="D">D. Arrays use pointers to connect elements, while linked lists use direct indexing.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>21. What is the primary characteristic of a Binary Search Tree (BST) that makes it useful for searching?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q21_a" name="Question21" value="A" required>A. Each node has exactly two children.</label>
-                            <label><input type="radio" id="q21_b" name="Question21" value="B">B. It is a linear data structure.</label>
-                            <label><input type="radio" id="q21_c" name="Question21" value="C">C. It allows for direct indexing of nodes.</label>
-                            <label><input type="radio" id="q21_d" name="Question21" value="D">D. It maintains an ordered property where left children are less than the root and right children are greater.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>22. For the Binary Search algorithm to be effective, what must be true about the data set?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q22_a" name="Question22" value="A" required>A. It must contain no duplicate elements.</label>
-                            <label><input type="radio" id="q22_b" name="Question22" value="B">B. It must be sorted.</label>
-                            <label><input type="radio" id="q22_c" name="Question22" value="C">C. It must be stored in a linked list.</label>
-                            <label><input type="radio" id="q22_d" name="Question22" value="D">D. It must have a fixed size.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>23. What is the primary advantage of using a Segment Tree over a basic array for range queries (e.g., finding a sum in a subarray)?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q23_a" name="Question23" value="A" required>A. It simplifies the code implementation.</label>
-                            <label><input type="radio" id="q23_b" name="Question23" value="B">B. It reduces the time complexity per query from O(n) to O(logn).</label>
-                            <label><input type="radio" id="q23_c" name="Question23" value="C">C. It requires less memory than a basic array.</label>
-                            <label><input type="radio" id="q23_d" name="Question23" value="D">D. It works for unsorted data.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>24. Based on the delete operation for a Binary Search Tree, what is the strategy for removing a node that has two children?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q24_a" name="Question24" value="A" required>A. Find the largest value in the left subtree and replace the node.</label>
-                            <label><input type="radio" id="q24_b" name="Question24" value="B">B. Find the smallest value in the right subtree and replace the node.</label>
-                            <label><input type="radio" id="q24_c" name="Question24" value="C">C. Simply remove the node and connect its children directly.</label>
-                            <label><input type="radio" id="q24_d" name="Question24" value="D">D. The node cannot be deleted if it has two children.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>25. In the provided example for array manipulation, what is the final state of the array after the delete operation?</strong></p>
-                        <p>SCROLL
-                            <- OR -> TO VIEW THE CODE</p>
-                        <div class="code-block">
-                            <pre>#include &lt;stdio.h&gt;
-int main() {
-    int arr[] = {3, 1, 4, 2, 5};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    printf("Maximum element: %d\n", findMax(arr, n));
-    printf("Minimum element: %d\n", findMin(arr, n));
-
-    int target = 4;
-    int index = searchElement(arr, n, target);
-    if (index != -1) {
-        printf("Element %d found at index %d\n", target, index);
-    } else {
-        printf("Element %d not found\n", target);
-    }
-
-    int pos = 2;
-    int element = 6;
-    insertElement(arr, &amp;n, pos, element);
-    printf("Array after insertion: ");
-    for (int i = 0; i &lt; n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-    pos = 2;
-    deleteElement(arr, &amp;n, pos);
-    printf("Array after deletion: ");
-    for (int i = 0; i &lt; n; i++) {
-        printf("%d ", arr[i]);
-    }
-    printf("\n");
-
-    return 0;
-}</pre>
-                        </div>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q25_a" name="Question25" value="A" required>A. [3, 1, 6, 4, 2, 5]</label>
-                            <label><input type="radio" id="q25_b" name="Question25" value="B">B. [3, 1, 4, 2, 5]</label>
-                            <label><input type="radio" id="q25_c" name="Question25" value="C">C. [3, 1, 2, 5]</label>
-                            <label><input type="radio" id="q25_d" name="Question25" value="D">D. [3, 1, 4, 5]</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>26. In a linked list, what are the two main components of a node?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q26_a" name="Question26" value="A" required>A. An index and a value</label>
-                            <label><input type="radio" id="q26_b" name="Question26" value="B">B. A head and a tail</label>
-                            <label><input type="radio" id="q26_c" name="Question26" value="C">C. Data and a pointer</label>
-                            <label><input type="radio" id="q26_d" name="Question26" value="D">D. An array and a key</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>27. What is the key difference between Breadth-First Search (BFS) and Depth-First Search (DFS) graph traversal algorithms?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q27_a" name="Question27" value="A" required>A. BFS is used for trees, while DFS is for graphs.</label>
-                            <label><input type="radio" id="q27_b" name="Question27" value="B">B. BFS explores all nodes at a given level before moving to the next level, while DFS explores as far as possible down one branch before backtracking.</label>
-                            <label><input type="radio" id="q27_c" name="Question27" value="C">C. BFS is used to detect cycles, while DFS is used to find shortest paths.</label>
-                            <label><input type="radio" id="q27_d" name="Question27" value="D">D. BFS uses a stack, while DFS uses a queue.</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>28. Which of the following array operations typically requires a sorted array to be efficient?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q28_a" name="Question28" value="A" required>A. Binary Search</label>
-                            <label><input type="radio" id="q28_b" name="Question28" value="B">B. Finding the maximum element</label>
-                            <label><input type="radio" id="q28_c" name="Question28" value="C">C. Linear Search</label>
-                            <label><input type="radio" id="q28_d" name="Question28" value="D">D. Insertion at the end</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>29. According to the provided C program, what is the output of the displayForward function after the insertAtBeginning and insertAtEnd operations?</strong></p>
-                        <p>SCROLL
-                            <- OR -> TO VIEW THE CODE</p>
-                        <div class="code-block">
-                            <pre>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-
-struct Node {
-    int data;
-    struct Node* prev;
-    struct Node* next;
-};
-
-
-struct Node* createNode(int data) {
-    struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
-    newNode-&gt;data = data;
-    newNode-&gt;prev = NULL;
-    newNode-&gt;next = NULL;
-    return newNode;
-}
-
-
-void insertAtBeginning(struct Node** head, int data) {
-    struct Node* newNode = createNode(data);
-    if (*head != NULL) {
-        newNode-&gt;next = *head;
-        (*head)-&gt;prev = newNode;
-    }
-    *head = newNode;
-}
-
-
-void insertAtEnd(struct Node** head, int data) {
-    struct Node* newNode = createNode(data);
-    if (*head == NULL) {
-        *head = newNode;
-        return;
-    }
-    struct Node* temp = *head;
-    while (temp-&gt;next != NULL) {
-        temp = temp-&gt;next;
-    }
-    temp-&gt;next = newNode;
-    newNode-&gt;prev = temp;
-}
-
-
-void displayForward(struct Node* head) {
-    struct Node* temp = head;
-    printf("Forward Traversal: ");
-    while (temp != NULL) {
-        printf("%d ", temp-&gt;data);
-        temp = temp-&gt;next;
-    }
-    printf("\n");
-}
-
-int main() {
-    struct Node* head = NULL;
-
-    insertAtBeginning(&amp;head, 10);
-    insertAtBeginning(&amp;head, 5);
-    insertAtEnd(&amp;head, 20);
-
-    displayForward(head);
-
-    return 0;
-}</pre></div>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q29_a" name="Question29" value="A" required>A. Forward Traversal: 10 5 20</label>
-                            <label><input type="radio" id="q29_b" name="Question29" value="B">B. Forward Traversal: 20 10 5</label>
-                            <label><input type="radio" id="q29_c" name="Question29" value="C">C. Forward Traversal: 5 20 10</label>
-                            <label><input type="radio" id="q29_d" name="Question29" value="D">D. Forward Traversal: 5 10 20</label>
-                        </div>
-                    </div>
-                    <div class="form-group no-select">
-                        <p><strong>30. What is the time complexity for a search operation in a balanced Binary Search Tree (BST)?</strong></p>
-                        <div class="radio-group">
-                            <label><input type="radio" id="q30_a" name="Question30" value="A" required>A. O(n)</label>
-                            <label><input type="radio" id="q30_b" name="Question30" value="B">B. O(logn)</label>
-                            <label><input type="radio" id="q30_c" name="Question30" value="C">C. O(n²)</label>
-                            <label><input type="radio" id="q30_d" name="Question30" value="D">D. O(1)</label>
-                        </div>
-                    </div>
-
+		    <!-- ADD QNS BEFORE THIS TAG-->                
                     <p><strong>After submission wait until you see a tick</strong></p>
                     <button type="submit" class="submit-button">Submit Quiz</button>
                 </div>
@@ -1003,8 +411,7 @@ int main() {
 
             <div id="submissionSuccessMessage">
                 <div class="success-content">
-                    <i class="fas fa-check-circle success-icon-fa"></i>
-                    <p>Quiz Submitted Successfully!</p>
+                    <i class="fas fa-check-circle success-icon-fa"></i> <p>Quiz Submitted Successfully!</p>
                 </div>
             </div>
 
@@ -1026,8 +433,5 @@ int main() {
             <img src="WP.svg" alt="WhatsApp" class="social-logo">
         </a>
     </footer>
-
     <script src="finalquiz.js"></script>
-</body>
-
-</html>
+    </body>
